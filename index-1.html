@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="hero-fs.css" />
 </head>
 <body class="light-mode" data-theme="light">
 
@@ -72,60 +73,104 @@
   </div>
 
   <main>
-    <!-- ========== SECTION 1: HERO ========== -->
-    <section class="hero" id="hero">
-      <div class="hero-left">
-        <div class="hero-content">
-          <p class="hero-eyebrow reveal-left">Hosur &bull; Est. 2014</p>
-          <div class="hero-title reveal-left" data-delay="100">
-            <img src="Assets/logo-hero.png" alt="DESIGN INTEND" style="width:100%;max-width:420px;height:auto;display:block;" />
-          </div>
-          <p class="hero-subtitle reveal-left" data-delay="200">
-            <em>Good design changes how you feel at home.</em><br />
-            We create spaces that are honest, considered, and built to last.
-          </p>
-          <div class="hero-cta-group reveal-left" data-delay="350">
-            <a href="#works" class="btn-primary">View Our Work</a>
-            <a href="#contact" class="btn-ghost">Start a Project</a>
-          </div>
-          <div class="hero-stats reveal-left" data-delay="500">
-            <div class="hero-stat">
-              <span class="stat-number" data-target="180">0</span>
-              <span class="stat-label">Projects Delivered</span>
-            </div>
-            <div class="hero-stat">
-              <span class="stat-number" data-target="15">0</span>
-              <span class="stat-label">Years of Practice</span>
-            </div>
-            <div class="hero-stat">
-              <span class="stat-number" data-target="95">0</span>
-              <span class="stat-label">Happy Clients</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="hero-right reveal-right">
-        <div class="hero-image-wrap">
-          <div class="hero-img-frame">
+    <!-- ========== SECTION 1: HERO (FULL-SCREEN) ========== -->
+    <section class="hfs" id="hero" aria-label="Hero — Design Intend">
+
+      <!-- ── BACKGROUND SLIDES ── -->
+      <div class="hfs-track">
+
+        <!-- Slide 0: Tropical setting -->
+        <div class="hfs-slide" data-index="0">
+          <div class="hfs-layer">
             <img
-              src="Assets/hero-living-room.png"
-              alt="Modern luxury living room — Design Intend"
-              class="hero-image"
+              src="Assets/house-angle-1.png"
+              alt="Modern house in tropical setting — Design Intend"
+              class="hfs-img"
               loading="eager"
+              decoding="async"
             />
           </div>
-          <div class="hero-img-grade" aria-hidden="true"></div>
-          <div class="hero-img-vignette" aria-hidden="true"></div>
-          <div class="hero-image-badge">
-            <span>2024</span>
-            <span>Modern Luxury Residence in Bangalore</span>
+        </div>
+
+        <!-- Slide 1: Tropical surroundings -->
+        <div class="hfs-slide" data-index="1">
+          <div class="hfs-layer">
+            <img
+              src="Assets/house-angle-2.png"
+              alt="Modern home in tropical surroundings — Design Intend"
+              class="hfs-img"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
         </div>
+
+        <!-- Slide 2: Sleek luxury design -->
+        <div class="hfs-slide" data-index="2">
+          <div class="hfs-layer">
+            <img
+              src="Assets/house-angle-3.png"
+              alt="Modern luxury home with sleek design — Design Intend"
+              class="hfs-img"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
+
       </div>
+      <!-- /.hfs-track -->
+
+      <!-- ── OVERLAYS ── -->
+      <!-- Vignette + bottom gradient -->
+      <div class="hfs-vignette" aria-hidden="true"></div>
+      <!-- Warm bloom near bright zones (position driven by JS) -->
+      <div class="hfs-bloom" aria-hidden="true"></div>
+      <!-- Animated film grain -->
+      <div class="hfs-grain" aria-hidden="true"></div>
+
+      <!-- ── CENTRED CONTENT ── -->
+      <div class="hfs-content" id="hfsContent">
+        <p class="hfs-eyebrow">Design Intend &middot; Bengaluru</p>
+        <h1 class="hfs-title">
+          <span class="hfs-line">Designed</span>
+          <span class="hfs-line">with <em>Intent</em></span>
+        </h1>
+        <p class="hfs-sub">Spaces that feel as good as they look</p>
+        <a href="#works" class="hfs-cta">
+          <span>View Project</span>
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <path d="M4 10h12M11 4l6 6-6 6"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- ── SLIDE COUNTER (top-right) ── -->
+      <div class="hfs-counter" aria-hidden="true">
+        <span class="hfs-counter-current">01</span>
+        <span style="opacity:.35">&nbsp;/&nbsp;03</span>
+      </div>
+
+      <!-- ── PROGRESS DOTS ── -->
+      <div class="hfs-dots" role="tablist" aria-label="Hero slides">
+        <button class="hfs-dot" role="tab" data-slide="0" aria-label="Slide 1" aria-selected="true"></button>
+        <button class="hfs-dot" role="tab" data-slide="1" aria-label="Slide 2" aria-selected="false"></button>
+        <button class="hfs-dot" role="tab" data-slide="2" aria-label="Slide 3" aria-selected="false"></button>
+      </div>
+
+      <!-- ── DRAG HINT ── -->
+      <div class="hfs-drag-hint" aria-hidden="true">
+        <span class="hfs-drag-line"></span>
+        <span class="hfs-drag-text">Drag to explore</span>
+        <span class="hfs-drag-line"></span>
+      </div>
+
+      <!-- ── SCROLL CUE ── -->
       <div class="hero-scroll-cue">
         <span>Scroll</span>
         <div class="scroll-line"></div>
       </div>
+
     </section>
 
     <!-- ========== SECTION 2: MARQUEE STRIP ========== -->
@@ -622,5 +667,6 @@
   </footer>
 
   <script src="script.js"></script>
+  <script src="hero-fs.js"></script>
 </body>
 </html>
