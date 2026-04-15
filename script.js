@@ -566,85 +566,84 @@ function initHeroAnimation() {
 })();
 
 /* =====================================================
-   COMPARE SLIDER — 3D vs ACTUAL
+   IMMERSIVE 3D IMAGE TILT
    ===================================================== */
-(function initCompareSliders() {
-  document.querySelectorAll('.compare-slider').forEach(slider => {
-    const before = slider.querySelector('.compare-before');
-    const handle = slider.querySelector('.compare-handle');
+(function initImmersive() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-    let isDragging = false;
-    let currentPct = 50;
+  document.querySelectorAll('.immersive-scene').forEach(scene => {
+    const layer  = scene.querySelector('.immersive-layer');
+    const glare  = scene.querySelector('.immersive-glare');
+    const img    = scene.querySelector('img');
 
-    function setPosition(pct) {
-      currentPct = Math.max(2, Math.min(98, pct));
-      before.style.clipPath = `inset(0 ${100 - currentPct}% 0 0)`;
-      handle.style.left = currentPct + '%';
+    if (!layer || !img) return;
+
+    const MAX_TILT   = 6;    // degrees
+    const MAX_SHIFT  = 12;   // px — image wanders behind the frame
+    const GLARE_SIZE = 80;   // % of element size
+
+    let targetTiltX = 0, targetTiltY = 0;
+    let currentTiltX = 0, currentTiltY = 0;
+    let rafId = null;
+    let isHovered = false;
+
+    function lerp(a, b, t) { return a + (b - a) * t; }
+
+    function tick() {
+      currentTiltX = lerp(currentTiltX, targetTiltX, 0.09);
+      currentTiltY = lerp(currentTiltY, targetTiltY, 0.09);
+
+      layer.style.transform =
+        `rotateX(${currentTiltX}deg) rotateY(${currentTiltY}deg)`;
+
+      // Image drifts opposite direction for parallax depth
+      const shiftX = (-currentTiltY / MAX_TILT) * MAX_SHIFT;
+      const shiftY = ( currentTiltX / MAX_TILT) * MAX_SHIFT;
+      img.style.transform = `translate(${shiftX}px, ${shiftY}px) scale(1.05)`;
+
+      rafId = requestAnimationFrame(tick);
     }
 
-    function getPctFromEvent(e) {
-      const rect = slider.getBoundingClientRect();
-      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-      return ((clientX - rect.left) / rect.width) * 100;
-    }
-
-    // Mouse events
-    slider.addEventListener('mousedown', (e) => {
-      isDragging = true;
-      slider.classList.add('dragging');
-      setPosition(getPctFromEvent(e));
-      e.preventDefault();
+    scene.addEventListener('mouseenter', () => {
+      isHovered = true;
+      if (!rafId) rafId = requestAnimationFrame(tick);
     });
 
-    window.addEventListener('mousemove', (e) => {
-      if (!isDragging) return;
-      setPosition(getPctFromEvent(e));
-    });
+    scene.addEventListener('mousemove', (e) => {
+      const rect = scene.getBoundingClientRect();
+      const nx = (e.clientX - rect.left) / rect.width  - 0.5;  // -0.5 → 0.5
+      const ny = (e.clientY - rect.top)  / rect.height - 0.5;
 
-    window.addEventListener('mouseup', () => {
-      if (!isDragging) return;
-      isDragging = false;
-      slider.classList.remove('dragging');
-    });
+      targetTiltY =  nx * MAX_TILT * 2;
+      targetTiltX = -ny * MAX_TILT * 2;
 
-    // Touch events
-    slider.addEventListener('touchstart', (e) => {
-      isDragging = true;
-      slider.classList.add('dragging');
-      setPosition(getPctFromEvent(e));
-    }, { passive: true });
-
-    slider.addEventListener('touchmove', (e) => {
-      if (!isDragging) return;
-      setPosition(getPctFromEvent(e));
-    }, { passive: true });
-
-    slider.addEventListener('touchend', () => {
-      isDragging = false;
-      slider.classList.remove('dragging');
-    });
-
-    // Animate intro: sweep from 100% → 50% once in view
-    let animated = false;
-    const introObserver = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting && !animated) {
-        animated = true;
-        before.style.transition = 'clip-path 0s';
-        setPosition(100);
-
-        setTimeout(() => {
-          before.style.transition = 'clip-path 1.4s cubic-bezier(0.4, 0, 0.2, 1)';
-          setPosition(50);
-        }, 400);
-
-        introObserver.disconnect();
+      // Move glare to cursor position
+      if (glare) {
+        const gx = ((e.clientX - rect.left) / rect.width)  * 100;
+        const gy = ((e.clientY - rect.top)  / rect.height) * 100;
+        glare.style.background =
+          `radial-gradient(circle at ${gx}% ${gy}%, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) ${GLARE_SIZE}%)`;
       }
-    }, { threshold: 0.3 });
+    });
 
-    introObserver.observe(slider);
-
-    // Init at 50%
-    setPosition(50);
+    scene.addEventListener('mouseleave', () => {
+      isHovered = false;
+      targetTiltX = 0;
+      targetTiltY = 0;
+      // Let lerp animate back to 0 then stop
+      const stopWhenSettled = () => {
+        if (Math.abs(currentTiltX) < 0.01 && Math.abs(currentTiltY) < 0.01) {
+          cancelAnimationFrame(rafId);
+          rafId = null;
+          layer.style.transform = '';
+          img.style.transform = '';
+          return;
+        }
+        rafId = requestAnimationFrame(stopWhenSettled);
+      };
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(stopWhenSettled);
+    });
   });
 })();
 

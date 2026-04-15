@@ -172,31 +172,12 @@
       <article class="project-row project-row--left" data-project="01">
         <div class="project-number">01</div>
         <div class="project-image-wrap">
-          <div class="project-image-inner">
-            <!-- 3D ↔ Actual Comparison Slider -->
-            <div class="compare-slider" id="compareSlider01" aria-label="3D render vs actual photo comparison">
-              <div class="compare-after">
-                <img src="Assets/vinutha-actual.png" alt="Vinutha Residence — Built" loading="lazy" />
-              </div>
-              <div class="compare-before">
-                <img src="Assets/vinutha-3d.jpg" alt="Vinutha Residence — 3D Render" loading="lazy" />
-              </div>
-              <div class="compare-handle" aria-hidden="true">
-                <div class="compare-handle-line"></div>
-                <div class="compare-handle-knob">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="15 18 9 12 15 6"></polyline>
-                  </svg>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="9 18 15 12 9 6"></polyline>
-                  </svg>
-                </div>
-              </div>
-              <div class="compare-labels">
-                <span class="compare-label-left">3D Render</span>
-                <span class="compare-label-right">As Built</span>
-              </div>
+          <div class="project-image-inner immersive-scene" id="immersiveVinutha">
+            <div class="immersive-layer immersive-bg">
+              <img src="Assets/vinutha-actual.png" alt="Vinutha Residence — As Built" class="project-image" loading="lazy" />
             </div>
+            <div class="immersive-glare" aria-hidden="true"></div>
+            <div class="immersive-overlay" aria-hidden="true"></div>
           </div>
         </div>
         <div class="project-info">

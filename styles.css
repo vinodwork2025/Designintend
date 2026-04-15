@@ -841,118 +841,71 @@ body.cursor-dark .cursor-follower { border-color: var(--warm-white); }
 }
 
 /* =====================================================
-   COMPARE SLIDER — 3D vs ACTUAL
+   IMMERSIVE 3D IMAGE — VINUTHA RESIDENCE
    ===================================================== */
-.compare-slider {
-  position: absolute;
-  inset: 0;
+.immersive-scene {
+  perspective: 900px;
+  transform-style: preserve-3d;
   overflow: hidden;
-  user-select: none;
-  touch-action: pan-y;
 }
 
-.compare-after,
-.compare-before {
+.immersive-layer {
   position: absolute;
   inset: 0;
+  transform-style: preserve-3d;
+  transition: transform 0.08s linear;
+  will-change: transform;
 }
 
-.compare-after img,
-.compare-before img {
-  width: 100%;
-  height: 100%;
+.immersive-layer img {
+  width: 108%;
+  height: 108%;
   object-fit: cover;
+  margin: -4%;
   pointer-events: none;
+  transition: transform 0.08s linear;
+  will-change: transform;
 }
 
-.compare-before {
-  clip-path: inset(0 50% 0 0);
-  transition: clip-path 0.05s linear;
-  will-change: clip-path;
+/* Scroll-in entrance: image drifts up into frame */
+.project-image-inner.immersive-scene {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
 }
 
-.compare-handle {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: 3px;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  pointer-events: none;
-  will-change: left;
+.project-row.in-view .project-image-inner.immersive-scene {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.compare-handle-line {
+/* Glare highlight that follows the mouse */
+.immersive-glare {
   position: absolute;
   inset: 0;
-  width: 2px;
-  background: rgba(255,255,255,0.9);
-  left: 50%;
-  transform: translateX(-50%);
-  box-shadow: 0 0 8px rgba(0,0,0,0.4);
-}
-
-.compare-handle-knob {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2px;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.35);
-  cursor: col-resize;
-  pointer-events: all;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.compare-handle-knob:hover,
-.compare-slider.dragging .compare-handle-knob {
-  transform: translateY(-50%) scale(1.12);
-  box-shadow: 0 4px 24px rgba(0,0,0,0.45);
-}
-
-.compare-handle-knob svg {
-  width: 14px;
-  height: 14px;
-  flex-shrink: 0;
-  color: var(--charcoal);
-}
-
-.compare-labels {
-  position: absolute;
-  bottom: 16px;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 20px;
   pointer-events: none;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255,255,255,0.12) 0%,
+    rgba(255,255,255,0) 65%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  mix-blend-mode: screen;
+  will-change: background, opacity;
 }
 
-.compare-label-left,
-.compare-label-right {
-  font-family: var(--font-sans);
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #fff;
-  background: rgba(0,0,0,0.45);
-  backdrop-filter: blur(6px);
-  padding: 4px 10px;
-  border-radius: 20px;
+.immersive-scene:hover .immersive-glare {
+  opacity: 1;
 }
 
-@media (max-width: 900px) {
-  .compare-handle-knob { width: 38px; height: 38px; }
+/* Subtle dark vignette at edges for depth */
+.immersive-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.28) 100%);
 }
 
 /* =====================================================
