@@ -535,14 +535,68 @@ body.cursor-dark .cursor-follower { border-color: var(--warm-white); }
   overflow: hidden;
 }
 
+/* Inner frame isolates Ken Burns from the clip-path on .hero-right */
+.hero-img-frame {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
 .hero-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transform: scale(1.05);
-  transition: transform 8s ease;
+  object-position: center center;
+  transform: scale(1.12);
+  transform-origin: center center;
 }
-.hero-image:hover { transform: scale(1.02); }
+
+/* Ken Burns begins after the clip-path reveal finishes (~1.4s) */
+.hero-right.visible .hero-image {
+  animation: heroKenBurns 22s ease-in-out infinite;
+  animation-delay: 1.3s;
+  animation-fill-mode: backwards;
+}
+
+@keyframes heroKenBurns {
+  0%   { transform: scale(1.12) translate(0%,    0%);    }
+  25%  { transform: scale(1.16) translate(-1.5%, -1%);   }
+  55%  { transform: scale(1.18) translate(1.2%,  -1.8%); }
+  80%  { transform: scale(1.14) translate(-0.8%, 1.2%);  }
+  100% { transform: scale(1.12) translate(0%,    0%);    }
+}
+
+/* Warm cinematic grade — lifts the natural-light mood */
+.hero-img-grade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(240, 185, 90, 0.10) 0%,
+      transparent 55%
+    ),
+    linear-gradient(
+      to bottom,
+      transparent 40%,
+      rgba(18, 15, 10, 0.40) 100%
+    );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Radial vignette for edge depth */
+.hero-img-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 55% 45%,
+    transparent 38%,
+    rgba(10, 8, 5, 0.32) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
 
 .hero-image-badge {
   position: absolute;
@@ -556,6 +610,7 @@ body.cursor-dark .cursor-follower { border-color: var(--warm-white); }
   flex-direction: column;
   gap: 0.2rem;
   border-left: 3px solid var(--terracotta);
+  z-index: 2;
 }
 .hero-image-badge span:first-child {
   font-family: var(--font-display);
@@ -916,6 +971,7 @@ body.cursor-dark .cursor-follower { border-color: var(--warm-white); }
   .reveal-zoom { transition: none; }
   .reveal-scene.revealed .reveal-img { animation: none; }
   .reveal-curtain { transition: none; }
+  .hero-right.visible .hero-image { animation: none; transform: scale(1.0); }
 }
 
 /* =====================================================
