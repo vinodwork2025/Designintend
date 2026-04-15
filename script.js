@@ -579,7 +579,7 @@ function initHeroAnimation() {
     if (!layer || !img) return;
 
     const MAX_TILT   = 6;    // degrees
-    const MAX_SHIFT  = 12;   // px — image wanders behind the frame
+    const MAX_SHIFT  = 4;    // px — kept small so image never clips
     const GLARE_SIZE = 80;   // % of element size
 
     let targetTiltX = 0, targetTiltY = 0;
