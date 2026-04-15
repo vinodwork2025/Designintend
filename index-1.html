@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DESIGN INTEND — Architects &middot; Interiors &middot; Planners, Bengaluru</title>
+  <meta name="description" content="Design Intend is Bengaluru's architecture and interior design studio. We craft homes, commercial spaces, and planned environments that are timeless, considered, and built to inspire." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="light-mode" data-theme="light">
+
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="nav" id="mainNav">
+    <div class="nav-logo">
+      <a href="#" class="logo-link" style="display:flex;align-items:center;gap:8px;">
+        <svg viewBox="0 0 34 38" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:26px;height:30px;flex-shrink:0;">
+          <path d="M17 3 L31 22 L3 22 Z" fill="currentColor" opacity=".08"/>
+          <path d="M6 6 L6 32 L15 32 C23.8 32 29 27.4 29 19 C29 10.6 23.8 6 15 6 Z" fill="currentColor"/>
+          <path d="M10 10 L10 28 L15 28 C20.8 28 25 24.8 25 19 C25 13.2 20.8 10 15 10 Z" fill="var(--bg)"/>
+          <rect x="5" y="18" width="4.5" height="13" rx="1.2" fill="currentColor"/>
+          <circle cx="7.2" cy="12" r="5.5" fill="var(--terracotta)"/>
+        </svg>
+        <span class="logo-dot">DESIGN</span>&nbsp;INTEND
+      </a>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#works" class="nav-link">Works</a></li>
+      <li><a href="#services" class="nav-link">Services</a></li>
+      <li><a href="#studio" class="nav-link">Studio</a></li>
+      <li><a href="#process" class="nav-link">Process</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <span class="toggle-icon">
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </span>
+      </button>
+      <a href="#contact" class="nav-cta">Start a Project</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" id="mobileClose">&#x2715;</button>
+    <ul class="mobile-nav-links">
+      <li><a href="#works" class="mobile-nav-link">Works</a></li>
+      <li><a href="#services" class="mobile-nav-link">Services</a></li>
+      <li><a href="#studio" class="mobile-nav-link">Studio</a></li>
+      <li><a href="#process" class="mobile-nav-link">Process</a></li>
+      <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+    </ul>
+    <div class="mobile-menu-footer">
+      <p>Bengaluru, India</p>
+      <a href="mailto:studio@designintend.in">studio@designintend.in</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- ========== SECTION 1: HERO ========== -->
+    <section class="hero" id="hero">
+      <div class="hero-left">
+        <div class="hero-content">
+          <p class="hero-eyebrow reveal-left">Hosur &bull; Est. 2014</p>
+          <div class="hero-title reveal-left" data-delay="100">
+            <img src="Assets/logo-hero.png" alt="DESIGN INTEND" style="width:100%;max-width:420px;height:auto;display:block;" />
+          </div>
+          <p class="hero-subtitle reveal-left" data-delay="200">
+            <em>Good design changes how you feel at home.</em><br />
+            We create spaces that are honest, considered, and built to last.
+          </p>
+          <div class="hero-cta-group reveal-left" data-delay="350">
+            <a href="#works" class="btn-primary">View Our Work</a>
+            <a href="#contact" class="btn-ghost">Start a Project</a>
+          </div>
+          <div class="hero-stats reveal-left" data-delay="500">
+            <div class="hero-stat">
+              <span class="stat-number" data-target="180">0</span>
+              <span class="stat-label">Projects Delivered</span>
+            </div>
+            <div class="hero-stat">
+              <span class="stat-number" data-target="15">0</span>
+              <span class="stat-label">Years of Practice</span>
+            </div>
+            <div class="hero-stat">
+              <span class="stat-number" data-target="95">0</span>
+              <span class="stat-label">Happy Clients</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-right reveal-right">
+        <div class="hero-image-wrap">
+          <div class="hero-img-frame">
+            <img
+              src="Assets/hero-living-room.png"
+              alt="Modern luxury living room — Design Intend"
+              class="hero-image"
+              loading="eager"
+            />
+          </div>
+          <div class="hero-img-grade" aria-hidden="true"></div>
+          <div class="hero-img-vignette" aria-hidden="true"></div>
+          <div class="hero-image-badge">
+            <span>2024</span>
+            <span>Modern Luxury Residence in Bangalore</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-scroll-cue">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ========== SECTION 2: MARQUEE STRIP ========== -->
+    <section class="marquee-section">
+      <div class="marquee-track">
+        <div class="marquee-inner" id="marqueeInner">
+          <span>Residential Architecture</span>
+          <span class="marquee-dot">&#x25C6;</span>
+          <span>Commercial Design</span>
+          <span class="marquee-dot">&#x25C6;</span>
+          <span>Interior Spaces</span>
+          <span class="marquee-dot">&#x25C6;</span>
+          <span>Space Planning</span>
+          <span class="marquee-dot">&#x25C6;</span>
+          <span>Master Planning</span>
+          <span class="marquee-dot">&#x25C6;</span>
+          <span>Landscape Design</span>
+          <span class="marquee-dot">&#x25C6;</span>
+          <span>Site Supervision</span>
+          <span class="marquee-dot">&#x25C6;</span>
+          <span>Residential Architecture</span>
+          <span class="marquee-dot">&#x25C6;</span>
+          <span>Commercial Design</span>
+          <span class="marquee-dot">&#x25C6;</span>
+          <span>Interior Spaces</span>
+          <span class="marquee-dot">&#x25C6;</span>
+          <span>Space Planning</span>
+          <span class="marquee-dot">&#x25C6;</span>
+          <span>Master Planning</span>
+          <span class="marquee-dot">&#x25C6;</span>
+          <span>Landscape Design</span>
+          <span class="marquee-dot">&#x25C6;</span>
+          <span>Site Supervision</span>
+          <span class="marquee-dot">&#x25C6;</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SECTION 3: FEATURED WORKS ========== -->
+    <section class="works" id="works">
+      <div class="works-header">
+        <p class="section-eyebrow">Selected Works</p>
+        <h2 class="section-title reveal-up">Our<br /><em>Portfolio</em></h2>
+        <a href="#contact" class="works-all-link">View All Projects &rarr;</a>
+      </div>
+
+      <!-- Project 01 -->
+      <article class="project-row project-row--left" data-project="01">
+        <div class="project-number">01</div>
+        <div class="project-image-wrap">
+          <div class="project-image-inner reveal-scene">
+            <div class="reveal-zoom">
+              <img src="Assets/vinutha-actual.png" alt="Vinutha Residence — As Built" class="reveal-img" loading="lazy" />
+            </div>
+            <div class="reveal-curtain" aria-hidden="true"></div>
+            <div class="reveal-vignette" aria-hidden="true"></div>
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="project-info-inner">
+            <p class="project-category">Residential &bull; 2024</p>
+            <h3 class="project-title">Vinutha<br />Residence</h3>
+            <p class="project-desc">A modern luxury home in Bangalore where clean architecture meets considered living. Designed around natural light and open volumes, the residence balances contemporary lines with warm material finishes — stone, timber, and bespoke joinery — delivering a home that is both rigorously precise and deeply personal.</p>
+            <div class="project-tags">
+              <span>Contemporary Design</span>
+              <span>Open Plan Living</span>
+              <span>Premium Finishes</span>
+            </div>
+            <a href="#contact" class="project-link">View Project &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 02 -->
+      <article class="project-row project-row--right" data-project="02">
+        <div class="project-number">02</div>
+        <div class="project-image-wrap">
+          <div class="project-image-inner">
+            <img
+              src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1100&q=80&auto=format&fit=crop"
+              alt="Nexus Office — Corporate Headquarters"
+              class="project-image"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="project-info-inner">
+            <p class="project-category">Commercial &bull; 2023</p>
+            <h3 class="project-title">Nexus<br />Headquarters</h3>
+            <p class="project-desc">A 12,000 sq ft corporate headquarters in Koramangala reimagined for the future of work. Biophilic design, considered acoustics, and spatial clarity — productivity environments that people genuinely want to be in.</p>
+            <div class="project-tags">
+              <span>Open Plan Office</span>
+              <span>Executive Suites</span>
+              <span>Collaboration Zones</span>
+            </div>
+            <a href="#contact" class="project-link">View Project &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 03 -->
+      <article class="project-row project-row--left" data-project="03">
+        <div class="project-number">03</div>
+        <div class="project-image-wrap">
+          <div class="project-image-inner">
+            <img
+              src="https://images.unsplash.com/photo-1615873968403-89e068629265?w=1100&q=80&auto=format&fit=crop"
+              alt="The Reddy Villa — Master Suite"
+              class="project-image"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="project-info-inner">
+            <p class="project-category">Residential &bull; 2023</p>
+            <h3 class="project-title">The Reddy<br />Villa</h3>
+            <p class="project-desc">A 7,200 sq ft villa in Sarjapur Road designed around a central courtyard that draws light deep into every room. Traditional Bengaluru vernacular reinterpreted through a contemporary lens — volume, shadow, and connection to landscape.</p>
+            <div class="project-tags">
+              <span>Central Courtyard</span>
+              <span>5 Bedrooms</span>
+              <span>Private Pool</span>
+            </div>
+            <a href="#contact" class="project-link">View Project &rarr;</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ========== SECTION 4: SERVICES ========== -->
+    <section class="services" id="services">
+      <div class="services-bg-image">
+        <img
+          src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1600&q=70&auto=format&fit=crop"
+          alt="Architecture and interior detail"
+          loading="lazy"
+        />
+        <div class="services-bg-overlay"></div>
+      </div>
+      <div class="services-container">
+        <div class="services-header">
+          <p class="section-eyebrow light">What We Do</p>
+          <h2 class="section-title light reveal-up">Our<br /><em>Services</em></h2>
+        </div>
+        <div class="services-grid">
+          <div class="service-card reveal-stagger" data-index="0">
+            <span class="service-num">01</span>
+            <h3 class="service-heading">Residential Architecture</h3>
+            <p class="service-desc">From compact urban apartments to expansive villas — complete architectural design tailored to how you live, what you value, and where you are going.</p>
+            <div class="service-arrow">&rarr;</div>
+          </div>
+          <div class="service-card reveal-stagger" data-index="1">
+            <span class="service-num">02</span>
+            <h3 class="service-heading">Commercial Design</h3>
+            <p class="service-desc">Offices, retail environments, and mixed-use buildings that communicate brand identity through spatial intelligence, material quality, and purposeful planning.</p>
+            <div class="service-arrow">&rarr;</div>
+          </div>
+          <div class="service-card reveal-stagger" data-index="2">
+            <span class="service-num">03</span>
+            <h3 class="service-heading">Interior Spaces</h3>
+            <p class="service-desc">Interior design that begins with architecture — light, volume, and flow resolved first, then layered with materials, furniture, and detail that feel inevitable.</p>
+            <div class="service-arrow">&rarr;</div>
+          </div>
+          <div class="service-card reveal-stagger" data-index="3">
+            <span class="service-num">04</span>
+            <h3 class="service-heading">Space Planning</h3>
+            <p class="service-desc">Masterful layout strategies that optimise every square foot. Function, flow, and spatial experience resolved from the ground up before a wall is drawn.</p>
+            <div class="service-arrow">&rarr;</div>
+          </div>
+          <div class="service-card reveal-stagger" data-index="4">
+            <span class="service-num">05</span>
+            <h3 class="service-heading">Landscape Design</h3>
+            <p class="service-desc">Gardens, courtyards, terraces, and site planning conceived as extensions of the architecture — spaces that blur the threshold between built and natural.</p>
+            <div class="service-arrow">&rarr;</div>
+          </div>
+          <div class="service-card reveal-stagger" data-index="5">
+            <span class="service-num">06</span>
+            <h3 class="service-heading">Project Management</h3>
+            <p class="service-desc">End-to-end execution from concept through handover. We coordinate every contractor, timeline, and specification so the build matches the vision — completely.</p>
+            <div class="service-arrow">&rarr;</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SECTION 5: ABOUT / STUDIO ========== -->
+    <section class="studio" id="studio">
+      <div class="studio-skew-top"></div>
+      <div class="studio-container">
+        <div class="studio-left">
+          <p class="section-eyebrow">About the Studio</p>
+          <h2 class="section-title reveal-up">The Design Intend<br /><em>Philosophy</em></h2>
+          <p class="studio-body reveal-up" data-delay="150">
+            Design Intend was founded in 2009 with one conviction that has never wavered: great architecture is not the construction of buildings — it is the creation of environments that shape how people live, work, and feel.
+          </p>
+          <p class="studio-body reveal-up" data-delay="250">
+            Every project starts with deep listening. We immerse ourselves in a site, a brief, and a life before a single line is drawn. The result is architecture that feels inevitable — as if the building could not possibly have taken any other form.
+          </p>
+          <div class="studio-quote reveal-up" data-delay="350">
+            <blockquote>
+              <em>"We don't design buildings.<br />We design the lives that happen inside them."</em>
+            </blockquote>
+            <cite>— Design Intend, Founding Principle</cite>
+          </div>
+          <div class="studio-credentials reveal-up" data-delay="450">
+            <div class="credential">
+              <strong>School of Architecture &amp; Planning</strong>
+              <span>New Delhi, B.Arch, 2004</span>
+            </div>
+            <div class="credential">
+              <strong>IIA Registered Practice</strong>
+              <span>Indian Institute of Architects</span>
+            </div>
+            <div class="credential">
+              <strong>Architecture + Design Award</strong>
+              <span>Listed 2021, 2023 &amp; 2024</span>
+            </div>
+          </div>
+        </div>
+        <div class="studio-right reveal-right">
+          <div class="studio-image-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=900&q=80&auto=format&fit=crop"
+              alt="Design Intend studio team at work"
+              class="studio-image"
+              loading="lazy"
+            />
+            <div class="studio-image-caption">
+              <span>Our Bengaluru Studio</span>
+            </div>
+          </div>
+          <div class="studio-accent-box">
+            <p>12-person studio<br />across architecture &amp; interiors</p>
+          </div>
+        </div>
+      </div>
+      <div class="studio-skew-bottom"></div>
+    </section>
+
+    <!-- ========== SECTION 6: PROCESS ========== -->
+    <section class="process" id="process">
+      <div class="process-container">
+        <div class="process-header">
+          <p class="section-eyebrow">How We Work</p>
+          <h2 class="section-title reveal-up">Our<br /><em>Process</em></h2>
+        </div>
+        <div class="process-steps">
+          <div class="process-connector"></div>
+          <div class="process-step reveal-stagger" data-index="0">
+            <div class="step-number">01</div>
+            <div class="step-content">
+              <h3 class="step-title">Discovery</h3>
+              <p class="step-desc">An in-depth conversation about your vision, site, budget, and timeline. We study the land, the light, and the life you intend to live before imagining anything.</p>
+            </div>
+          </div>
+          <div class="process-step reveal-stagger" data-index="1">
+            <div class="step-number">02</div>
+            <div class="step-content">
+              <h3 class="step-title">Concept</h3>
+              <p class="step-desc">A complete design concept — massing models, spatial narratives, material palettes, and 3D visualisations that make the architecture real before a brick is laid.</p>
+            </div>
+          </div>
+          <div class="process-step reveal-stagger" data-index="2">
+            <div class="step-number">03</div>
+            <div class="step-content">
+              <h3 class="step-title">Refinement</h3>
+              <p class="step-desc">Collaborative iteration until every detail is exactly right — not approximately right. Working drawings, specifications, and approvals handled in full.</p>
+            </div>
+          </div>
+          <div class="process-step reveal-stagger" data-index="3">
+            <div class="step-number">04</div>
+            <div class="step-content">
+              <h3 class="step-title">Execution</h3>
+              <p class="step-desc">Full site supervision, contractor coordination, quality assurance, and handover. We remain present and accountable until your space is exactly as designed.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SECTION 7: TESTIMONIALS ========== -->
+    <section class="testimonials" id="testimonials">
+      <div class="testimonials-container">
+        <p class="section-eyebrow light">Client Stories</p>
+        <div class="testimonial-slider" id="testimonialSlider">
+          <div class="testimonial active" data-index="0">
+            <div class="testimonial-quote">
+              <svg class="quote-mark" viewBox="0 0 60 45" fill="currentColor">
+                <path d="M0 45V27.273C0 10.909 9.091 2.273 27.273 0L30 4.545C21.818 6.364 17.273 11.364 16.364 19.091H27.273V45H0ZM32.727 45V27.273C32.727 10.909 41.818 2.273 60 0L62.727 4.545C54.545 6.364 50 11.364 49.091 19.091H60V45H32.727Z"/>
+              </svg>
+              <p>"Design Intend did not just design our home — they understood how we live and translated that into every room, every detail, every material. Walking through it each morning is a quiet joy. That is not a small thing."</p>
+            </div>
+            <div class="testimonial-client">
+              <div class="client-avatar">
+                <span>AM</span>
+              </div>
+              <div class="client-info">
+                <strong>Arjun &amp; Meena Mehta</strong>
+                <span>Whitefield Residence, 2024</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial" data-index="1">
+            <div class="testimonial-quote">
+              <svg class="quote-mark" viewBox="0 0 60 45" fill="currentColor">
+                <path d="M0 45V27.273C0 10.909 9.091 2.273 27.273 0L30 4.545C21.818 6.364 17.273 11.364 16.364 19.091H27.273V45H0ZM32.727 45V27.273C32.727 10.909 41.818 2.273 60 0L62.727 4.545C54.545 6.364 50 11.364 49.091 19.091H60V45H32.727Z"/>
+              </svg>
+              <p>"The Nexus project was delivered on time, within budget, and completely transformed how our team feels about coming to work. Design Intend has a rare ability to translate a company's values into physical space. Exceptional work."</p>
+            </div>
+            <div class="testimonial-client">
+              <div class="client-avatar">
+                <span>VR</span>
+              </div>
+              <div class="client-info">
+                <strong>Vikram Rao</strong>
+                <span>CEO, Nexus Technologies</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial" data-index="2">
+            <div class="testimonial-quote">
+              <svg class="quote-mark" viewBox="0 0 60 45" fill="currentColor">
+                <path d="M0 45V27.273C0 10.909 9.091 2.273 27.273 0L30 4.545C21.818 6.364 17.273 11.364 16.364 19.091H27.273V45H0ZM32.727 45V27.273C32.727 10.909 41.818 2.273 60 0L62.727 4.545C54.545 6.364 50 11.364 49.091 19.091H60V45H32.727Z"/>
+              </svg>
+              <p>"I have worked with architects before. Design Intend operates at an entirely different level. The attention to how light enters a room, how spaces connect, how materials age — it is obsessive in the best possible way. Our villa is beyond what we imagined."</p>
+            </div>
+            <div class="testimonial-client">
+              <div class="client-avatar">
+                <span>SR</span>
+              </div>
+              <div class="client-info">
+                <strong>Sunita Reddy</strong>
+                <span>Sarjapur Villa, 2023</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-controls">
+          <button class="t-btn prev" id="tPrev" aria-label="Previous testimonial">&#8592;</button>
+          <div class="t-dots">
+            <button class="t-dot active" data-slide="0"></button>
+            <button class="t-dot" data-slide="1"></button>
+            <button class="t-dot" data-slide="2"></button>
+          </div>
+          <button class="t-btn next" id="tNext" aria-label="Next testimonial">&#8594;</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SECTION 8: CONTACT ========== -->
+    <section class="contact" id="contact">
+      <div class="contact-left">
+        <div class="contact-left-inner">
+          <p class="section-eyebrow light">Let's Talk</p>
+          <h2 class="contact-title">Start<br />Something<br />Enduring.</h2>
+          <div class="contact-details">
+            <div class="contact-item">
+              <span class="contact-label">Email</span>
+              <a href="mailto:studio@designintend.in">studio@designintend.in</a>
+            </div>
+            <div class="contact-item">
+              <span class="contact-label">Phone</span>
+              <a href="tel:+918045678900">+91 80 4567 8900</a>
+            </div>
+            <div class="contact-item">
+              <span class="contact-label">Studio Address</span>
+              <address>No. 42, 3rd Cross, Indiranagar 1st Stage,<br />Bengaluru — 560 038</address>
+            </div>
+            <div class="contact-item">
+              <span class="contact-label">Hours</span>
+              <span>Mon–Sat, 10am–7pm IST</span>
+            </div>
+          </div>
+          <div class="contact-socials">
+            <a href="#" class="social-link">Instagram</a>
+            <a href="#" class="social-link">Houzz</a>
+            <a href="#" class="social-link">Pinterest</a>
+            <a href="#" class="social-link">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+      <div class="contact-right">
+        <div class="contact-form-wrap">
+          <h3 class="form-title">Tell us about your project</h3>
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName" placeholder="Arjun" required />
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="lastName" placeholder="Mehta" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" />
+            </div>
+            <div class="form-group">
+              <label for="projectType">Project Type</label>
+              <select id="projectType" name="projectType" required>
+                <option value="" disabled selected>Select your project type</option>
+                <option value="residential-apt">Residential — Apartment</option>
+                <option value="residential-villa">Residential — Villa / Independent</option>
+                <option value="commercial">Commercial Office</option>
+                <option value="retail">Retail &amp; Hospitality</option>
+                <option value="consultation">Architecture Consultation</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="budget">Approximate Budget</label>
+              <select id="budget" name="budget">
+                <option value="" disabled selected>Select your budget range</option>
+                <option value="25-50">&#8377;25L – &#8377;50L</option>
+                <option value="50-100">&#8377;50L – &#8377;1Cr</option>
+                <option value="1-3cr">&#8377;1Cr – &#8377;3Cr</option>
+                <option value="3cr+">&#8377;3Cr+</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Tell us about your vision</label>
+              <textarea id="message" name="message" rows="4" placeholder="Describe your site, programme, timeline, and what you hope this space will become..."></textarea>
+            </div>
+            <button type="submit" class="btn-submit" id="submitBtn">
+              <span class="btn-text">Send Enquiry</span>
+              <span class="btn-icon">&rarr;</span>
+            </button>
+            <div class="form-success" id="formSuccess">
+              <span>&#x2713;</span> Thank you — we will be in touch within 24 hours.
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo" style="display:flex;align-items:center;gap:14px;">
+          <svg viewBox="0 0 34 38" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:36px;height:40px;flex-shrink:0;">
+            <path d="M17 3 L31 22 L3 22 Z" fill="currentColor" opacity=".1"/>
+            <path d="M6 6 L6 32 L15 32 C23.8 32 29 27.4 29 19 C29 10.6 23.8 6 15 6 Z" fill="currentColor"/>
+            <path d="M10 10 L10 28 L15 28 C20.8 28 25 24.8 25 19 C25 13.2 20.8 10 15 10 Z" fill="var(--section-dark-bg)"/>
+            <rect x="5" y="18" width="4.5" height="13" rx="1.2" fill="currentColor"/>
+            <circle cx="7.2" cy="12" r="5.5" fill="var(--terracotta)"/>
+          </svg>
+          <span><span>DESIGN</span> INTEND</span>
+        </div>
+        <p class="footer-tagline">Architects &middot; Interiors &middot; Planners.<br />Bengaluru &bull; Since 2009.</p>
+      </div>
+      <div class="footer-nav-col">
+        <p class="footer-col-title">Studio</p>
+        <ul>
+          <li><a href="#works">Our Work</a></li>
+          <li><a href="#studio">About Us</a></li>
+          <li><a href="#process">Our Process</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-col">
+        <p class="footer-col-title">Services</p>
+        <ul>
+          <li><a href="#services">Residential Architecture</a></li>
+          <li><a href="#services">Commercial Design</a></li>
+          <li><a href="#services">Interior Spaces</a></li>
+          <li><a href="#services">Landscape Design</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-col">
+        <p class="footer-col-title">Follow</p>
+        <ul>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Pinterest</a></li>
+          <li><a href="#">Houzz</a></li>
+          <li><a href="#">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 Design Intend. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
