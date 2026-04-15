@@ -566,6 +566,89 @@ function initHeroAnimation() {
 })();
 
 /* =====================================================
+   COMPARE SLIDER — 3D vs ACTUAL
+   ===================================================== */
+(function initCompareSliders() {
+  document.querySelectorAll('.compare-slider').forEach(slider => {
+    const before = slider.querySelector('.compare-before');
+    const handle = slider.querySelector('.compare-handle');
+
+    let isDragging = false;
+    let currentPct = 50;
+
+    function setPosition(pct) {
+      currentPct = Math.max(2, Math.min(98, pct));
+      before.style.clipPath = `inset(0 ${100 - currentPct}% 0 0)`;
+      handle.style.left = currentPct + '%';
+    }
+
+    function getPctFromEvent(e) {
+      const rect = slider.getBoundingClientRect();
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      return ((clientX - rect.left) / rect.width) * 100;
+    }
+
+    // Mouse events
+    slider.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      slider.classList.add('dragging');
+      setPosition(getPctFromEvent(e));
+      e.preventDefault();
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      setPosition(getPctFromEvent(e));
+    });
+
+    window.addEventListener('mouseup', () => {
+      if (!isDragging) return;
+      isDragging = false;
+      slider.classList.remove('dragging');
+    });
+
+    // Touch events
+    slider.addEventListener('touchstart', (e) => {
+      isDragging = true;
+      slider.classList.add('dragging');
+      setPosition(getPctFromEvent(e));
+    }, { passive: true });
+
+    slider.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      setPosition(getPctFromEvent(e));
+    }, { passive: true });
+
+    slider.addEventListener('touchend', () => {
+      isDragging = false;
+      slider.classList.remove('dragging');
+    });
+
+    // Animate intro: sweep from 100% → 50% once in view
+    let animated = false;
+    const introObserver = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !animated) {
+        animated = true;
+        before.style.transition = 'clip-path 0s';
+        setPosition(100);
+
+        setTimeout(() => {
+          before.style.transition = 'clip-path 1.4s cubic-bezier(0.4, 0, 0.2, 1)';
+          setPosition(50);
+        }, 400);
+
+        introObserver.disconnect();
+      }
+    }, { threshold: 0.3 });
+
+    introObserver.observe(slider);
+
+    // Init at 50%
+    setPosition(50);
+  });
+})();
+
+/* =====================================================
    INTERSECTION OBSERVER POLYFILL FALLBACK
    — If browser doesn't support it, show all elements
    ===================================================== */

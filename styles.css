@@ -841,6 +841,121 @@ body.cursor-dark .cursor-follower { border-color: var(--warm-white); }
 }
 
 /* =====================================================
+   COMPARE SLIDER — 3D vs ACTUAL
+   ===================================================== */
+.compare-slider {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  user-select: none;
+  touch-action: pan-y;
+}
+
+.compare-after,
+.compare-before {
+  position: absolute;
+  inset: 0;
+}
+
+.compare-after img,
+.compare-before img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.compare-before {
+  clip-path: inset(0 50% 0 0);
+  transition: clip-path 0.05s linear;
+  will-change: clip-path;
+}
+
+.compare-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 3px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+  will-change: left;
+}
+
+.compare-handle-line {
+  position: absolute;
+  inset: 0;
+  width: 2px;
+  background: rgba(255,255,255,0.9);
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 8px rgba(0,0,0,0.4);
+}
+
+.compare-handle-knob {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.35);
+  cursor: col-resize;
+  pointer-events: all;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.compare-handle-knob:hover,
+.compare-slider.dragging .compare-handle-knob {
+  transform: translateY(-50%) scale(1.12);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.45);
+}
+
+.compare-handle-knob svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  color: var(--charcoal);
+}
+
+.compare-labels {
+  position: absolute;
+  bottom: 16px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  pointer-events: none;
+}
+
+.compare-label-left,
+.compare-label-right {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #fff;
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(6px);
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+@media (max-width: 900px) {
+  .compare-handle-knob { width: 38px; height: 38px; }
+}
+
+/* =====================================================
    SERVICES — DARK SECTION WITH GRID
    ===================================================== */
 .services {

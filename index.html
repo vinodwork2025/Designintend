@@ -173,23 +173,41 @@
         <div class="project-number">01</div>
         <div class="project-image-wrap">
           <div class="project-image-inner">
-            <img
-              src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1100&q=80&auto=format&fit=crop"
-              alt="The Mehta Residence — Living Room"
-              class="project-image"
-              loading="lazy"
-            />
+            <!-- 3D ↔ Actual Comparison Slider -->
+            <div class="compare-slider" id="compareSlider01" aria-label="3D render vs actual photo comparison">
+              <div class="compare-after">
+                <img src="Assets/vinutha-actual.png" alt="Vinutha Residence — Built" loading="lazy" />
+              </div>
+              <div class="compare-before">
+                <img src="Assets/vinutha-3d.jpg" alt="Vinutha Residence — 3D Render" loading="lazy" />
+              </div>
+              <div class="compare-handle" aria-hidden="true">
+                <div class="compare-handle-line"></div>
+                <div class="compare-handle-knob">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                  </svg>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </div>
+              </div>
+              <div class="compare-labels">
+                <span class="compare-label-left">3D Render</span>
+                <span class="compare-label-right">As Built</span>
+              </div>
+            </div>
           </div>
         </div>
         <div class="project-info">
           <div class="project-info-inner">
             <p class="project-category">Residential &bull; 2024</p>
-            <h3 class="project-title">The Mehta<br />Residence</h3>
-            <p class="project-desc">A 4,800 sq ft contemporary home in Whitefield built around light and material warmth. Exposed concrete surfaces meet handcrafted joinery, stone floors, and bespoke built-ins — a home that lives as beautifully as it looks.</p>
+            <h3 class="project-title">Vinutha<br />Residence</h3>
+            <p class="project-desc">A modern luxury home in Bangalore where clean architecture meets considered living. Designed around natural light and open volumes, the residence balances contemporary lines with warm material finishes — stone, timber, and bespoke joinery — delivering a home that is both rigorously precise and deeply personal.</p>
             <div class="project-tags">
-              <span>4 Bedrooms</span>
-              <span>Home Office</span>
-              <span>Landscape Garden</span>
+              <span>Contemporary Design</span>
+              <span>Open Plan Living</span>
+              <span>Premium Finishes</span>
             </div>
             <a href="#contact" class="project-link">View Project &rarr;</a>
           </div>
