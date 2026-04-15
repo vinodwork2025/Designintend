@@ -841,71 +841,81 @@ body.cursor-dark .cursor-follower { border-color: var(--warm-white); }
 }
 
 /* =====================================================
-   IMMERSIVE 3D IMAGE — VINUTHA RESIDENCE
+   CINEMATIC REVEAL + KEN BURNS — VINUTHA RESIDENCE
    ===================================================== */
-.immersive-scene {
-  perspective: 900px;
-  transform-style: preserve-3d;
+
+/* Container */
+.reveal-scene {
+  position: absolute;
+  inset: 0;
   overflow: hidden;
 }
 
-.immersive-layer {
+/* Wrapper that handles the zoom-out on reveal */
+.reveal-zoom {
   position: absolute;
   inset: 0;
-  transform-style: preserve-3d;
-  transition: transform 0.08s linear;
-  will-change: transform;
+  transform: scale(1.12);
+  transition: transform 2.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.immersive-layer img {
+.reveal-scene.revealed .reveal-zoom {
+  transform: scale(1.0);
+}
+
+/* Image — object-fit contain so nothing crops */
+.reveal-img {
   width: 100%;
   height: 100%;
   object-fit: contain;
   object-position: center;
+  display: block;
   pointer-events: none;
-  transition: transform 0.08s linear;
-  will-change: transform;
 }
 
-/* Scroll-in entrance: image drifts up into frame */
-.project-image-inner.immersive-scene {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.9s ease, transform 0.9s ease;
+/* Once revealed, start the slow Ken Burns drift */
+.reveal-scene.revealed .reveal-img {
+  animation: kenBurns 18s ease-in-out infinite;
+  animation-delay: 2.4s;
+  animation-fill-mode: backwards;
 }
 
-.project-row.in-view .project-image-inner.immersive-scene {
-  opacity: 1;
-  transform: translateY(0);
+@keyframes kenBurns {
+  0%   { transform: scale(1.00) translate(0px,    0px);  }
+  25%  { transform: scale(1.04) translate(-10px, -6px);  }
+  50%  { transform: scale(1.06) translate(-4px,   8px);  }
+  75%  { transform: scale(1.03) translate(8px,   -4px);  }
+  100% { transform: scale(1.00) translate(0px,    0px);  }
 }
 
-/* Glare highlight that follows the mouse */
-.immersive-glare {
+/* Dark curtain that slides up off the image */
+.reveal-curtain {
+  position: absolute;
+  inset: 0;
+  background: var(--charcoal);
+  z-index: 2;
+  transform: translateY(0%);
+  transition: transform 1.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.reveal-scene.revealed .reveal-curtain {
+  transform: translateY(-102%);
+}
+
+/* Edge vignette for depth */
+.reveal-vignette {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(
-    circle at 50% 50%,
-    rgba(255,255,255,0.12) 0%,
-    rgba(255,255,255,0) 65%
-  );
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  mix-blend-mode: screen;
-  will-change: background, opacity;
+  background: radial-gradient(ellipse at center, transparent 52%, rgba(0,0,0,0.22) 100%);
+  z-index: 1;
 }
 
-.immersive-scene:hover .immersive-glare {
-  opacity: 1;
-}
-
-/* Subtle dark vignette at edges for depth */
-.immersive-overlay {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.28) 100%);
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-zoom { transition: none; }
+  .reveal-scene.revealed .reveal-img { animation: none; }
+  .reveal-curtain { transition: none; }
 }
 
 /* =====================================================

@@ -566,85 +566,22 @@ function initHeroAnimation() {
 })();
 
 /* =====================================================
-   IMMERSIVE 3D IMAGE TILT
+   CINEMATIC REVEAL — trigger once on scroll
    ===================================================== */
-(function initImmersive() {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+(function initRevealScenes() {
+  const scenes = document.querySelectorAll('.reveal-scene');
+  if (!scenes.length) return;
 
-  document.querySelectorAll('.immersive-scene').forEach(scene => {
-    const layer  = scene.querySelector('.immersive-layer');
-    const glare  = scene.querySelector('.immersive-glare');
-    const img    = scene.querySelector('img');
-
-    if (!layer || !img) return;
-
-    const MAX_TILT   = 6;    // degrees
-    const MAX_SHIFT  = 4;    // px — kept small so image never clips
-    const GLARE_SIZE = 80;   // % of element size
-
-    let targetTiltX = 0, targetTiltY = 0;
-    let currentTiltX = 0, currentTiltY = 0;
-    let rafId = null;
-    let isHovered = false;
-
-    function lerp(a, b, t) { return a + (b - a) * t; }
-
-    function tick() {
-      currentTiltX = lerp(currentTiltX, targetTiltX, 0.09);
-      currentTiltY = lerp(currentTiltY, targetTiltY, 0.09);
-
-      layer.style.transform =
-        `rotateX(${currentTiltX}deg) rotateY(${currentTiltY}deg)`;
-
-      // Image drifts opposite direction for parallax depth
-      const shiftX = (-currentTiltY / MAX_TILT) * MAX_SHIFT;
-      const shiftY = ( currentTiltX / MAX_TILT) * MAX_SHIFT;
-      img.style.transform = `translate(${shiftX}px, ${shiftY}px) scale(1.05)`;
-
-      rafId = requestAnimationFrame(tick);
-    }
-
-    scene.addEventListener('mouseenter', () => {
-      isHovered = true;
-      if (!rafId) rafId = requestAnimationFrame(tick);
-    });
-
-    scene.addEventListener('mousemove', (e) => {
-      const rect = scene.getBoundingClientRect();
-      const nx = (e.clientX - rect.left) / rect.width  - 0.5;  // -0.5 → 0.5
-      const ny = (e.clientY - rect.top)  / rect.height - 0.5;
-
-      targetTiltY =  nx * MAX_TILT * 2;
-      targetTiltX = -ny * MAX_TILT * 2;
-
-      // Move glare to cursor position
-      if (glare) {
-        const gx = ((e.clientX - rect.left) / rect.width)  * 100;
-        const gy = ((e.clientY - rect.top)  / rect.height) * 100;
-        glare.style.background =
-          `radial-gradient(circle at ${gx}% ${gy}%, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) ${GLARE_SIZE}%)`;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        observer.unobserve(entry.target);
       }
     });
+  }, { threshold: 0.2 });
 
-    scene.addEventListener('mouseleave', () => {
-      isHovered = false;
-      targetTiltX = 0;
-      targetTiltY = 0;
-      // Let lerp animate back to 0 then stop
-      const stopWhenSettled = () => {
-        if (Math.abs(currentTiltX) < 0.01 && Math.abs(currentTiltY) < 0.01) {
-          cancelAnimationFrame(rafId);
-          rafId = null;
-          layer.style.transform = '';
-          img.style.transform = '';
-          return;
-        }
-        rafId = requestAnimationFrame(stopWhenSettled);
-      };
-      cancelAnimationFrame(rafId);
-      rafId = requestAnimationFrame(stopWhenSettled);
-    });
-  });
+  scenes.forEach(scene => observer.observe(scene));
 })();
 
 /* =====================================================
