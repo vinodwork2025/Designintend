@@ -1,140 +1,472 @@
 /* =====================================================
    DESIGN INTEND — portfolio.css
-   Portfolio page — grid, filter, cards, hero
+   Portfolio page — glassmorphism hero, grid, filter, cards
    ===================================================== */
 
 /* =====================================================
-   PORTFOLIO HERO
+   ANIMATIONS
    ===================================================== */
-.pf-hero {
-  padding: calc(var(--nav-height) + 6rem) 5rem 5rem;
-  background: var(--bg);
-  border-bottom: 1px solid var(--border-light);
-  overflow: hidden;
+@keyframes pfFadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0);    }
 }
 
-.pf-hero-inner {
+@keyframes pfProgressFill {
+  from { width: 0%;   }
+  to   { width: 98%;  }
+}
+
+@keyframes pfPulse {
+  0%, 100% { opacity: 1;   transform: scale(1);   }
+  50%       { opacity: 0.3; transform: scale(0.75); }
+}
+
+/* Utility: staggered fade-up via CSS custom property --pf-delay */
+.pf-anim-fade {
+  opacity: 0;
+  animation: pfFadeUp 0.85s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: var(--pf-delay, 0s);
+}
+
+/* =====================================================
+   PORTFOLIO HERO — GLASSMORPHISM FULL-VIEWPORT
+   ===================================================== */
+.pf-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--nav-height);
+  overflow: hidden;
+  background: #0A0A09;
+}
+
+/* ---- Background image ---- */
+.pf-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.pf-hero-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  opacity: 0.5;
+  mask-image: linear-gradient(180deg, transparent 0%, black 10%, black 70%, transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, black 10%, black 70%, transparent 100%);
+}
+
+/* Gradient veil: darkens bottom + adds brand-tinted glow top-left */
+.pf-hero-bg-veil {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom,
+      rgba(10,10,9,0.35) 0%,
+      rgba(10,10,9,0.5)  40%,
+      rgba(10,10,9,0.88) 80%,
+      rgba(10,10,9,1)    100%
+    ),
+    radial-gradient(ellipse at 20% 60%,
+      rgba(232,184,0,0.07) 0%,
+      transparent 55%
+    );
+}
+
+/* ---- Foreground content wrapper ---- */
+.pf-hero-body {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 3rem;
   max-width: 1400px;
+  width: 100%;
   margin: 0 auto;
+  padding: 9rem 5rem 4rem;
+}
+
+/* ---- Top bar ---- */
+.pf-hero-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.pf-eyebrow-pill,
+.pf-award-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.42rem 1rem;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.1);
+  font-family: var(--font-sans);
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(253,252,250,0.6);
+}
+
+.pf-award-pill {
+  color: rgba(232,184,0,0.85);
+  border-color: rgba(232,184,0,0.22);
+  background: rgba(232,184,0,0.05);
+}
+
+/* Pulsing dot — live/active feel */
+.pf-pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--terracotta);
+  flex-shrink: 0;
+  animation: pfPulse 2.2s ease-in-out infinite;
+}
+
+/* ---- Main: title + text/CTAs ---- */
+.pf-hero-main {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 5rem;
-  align-items: center;
+  gap: 4rem;
+  align-items: flex-end;
 }
 
 .pf-hero-title {
-  font-family: var(--font-display);
-  font-size: clamp(4.5rem, 8vw, 9rem);
+  display: flex;
+  flex-direction: column;
+  margin: 0;
   line-height: 0.88;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  color: var(--text-primary);
-  margin: 1rem 0 2rem;
+  letter-spacing: 0.01em;
 }
 
-.pf-hero-title em {
+.pf-title-sm {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 4rem);
+  text-transform: uppercase;
+  color: rgba(253,252,250,0.55);
+}
+
+.pf-title-lg {
+  font-family: var(--font-display);
+  font-size: clamp(4.5rem, 8.5vw, 10rem);
+  text-transform: uppercase;
+  color: var(--warm-white);
+}
+
+.pf-title-em {
   font-family: var(--font-serif);
   font-style: italic;
+  font-size: clamp(3.5rem, 7vw, 8.5rem);
   text-transform: none;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.02em;
   color: var(--terracotta);
-  display: block;
 }
 
 .pf-hero-sub {
   font-family: var(--font-serif);
   font-size: 1.05rem;
-  line-height: 1.8;
-  color: var(--text-secondary);
-  max-width: 480px;
+  line-height: 1.82;
+  color: rgba(253,252,250,0.5);
+  margin-bottom: 2.5rem;
 }
 
-.pf-hero-right {
+.pf-hero-cta-row {
   display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
 }
 
-.pf-stats {
+/* Ghost CTA for dark hero */
+.pf-ghost-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(253,252,250,0.5);
+  transition: color 0.3s ease;
+}
+.pf-ghost-btn:hover { color: rgba(253,252,250,0.9); }
+
+/* ---- Glassmorphism card row ---- */
+.pf-glass-row {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0;
-  border: 1px solid var(--border-light);
+  grid-template-columns: 1.1fr 1fr 1.1fr;
+  gap: 2px;
 }
 
-.pf-stat {
+.pf-glass-card {
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(255,255,255,0.07);
+  padding: 1.75rem 2rem;
+  transition: background 0.4s ease, border-color 0.4s ease;
+}
+.pf-glass-card:hover {
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(255,255,255,0.13);
+}
+
+/* Card A — Stats */
+.pf-glass-stats {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.pf-gstat {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 2.5rem 1.5rem;
-  border-right: 1px solid var(--border-light);
   text-align: center;
 }
 
-.pf-stat:last-child { border-right: none; }
-
-.pf-stat-num {
+.pf-gstat-num {
   font-family: var(--font-display);
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   letter-spacing: 0.04em;
-  color: var(--terracotta);
+  color: var(--warm-white);
   line-height: 1;
-  margin-bottom: 0.5rem;
 }
 
-.pf-stat-lbl {
+.pf-gstat-lbl {
   font-family: var(--font-sans);
-  font-size: 0.65rem;
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(253,252,250,0.3);
+  margin-top: 0.4rem;
+}
+
+.pf-gstat-rule {
+  width: 1px;
+  height: 2.5rem;
+  background: rgba(255,255,255,0.1);
+  flex-shrink: 0;
+}
+
+/* Separator line */
+.pf-glass-sep {
+  height: 1px;
+  background: rgba(255,255,255,0.07);
+  margin: 1rem 0;
+}
+
+.pf-glass-sep--li {
+  display: block;
+  list-style: none;
+  height: 1px;
+  background: rgba(255,255,255,0.07);
+  margin: 0.6rem 0;
+}
+
+/* Progress bar */
+.pf-progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.65rem;
+  font-family: var(--font-sans);
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(253,252,250,0.38);
+}
+
+.pf-progress-pct {
+  color: rgba(253,252,250,0.7);
+  font-weight: 700;
+}
+
+.pf-progress-track {
+  height: 3px;
+  background: rgba(255,255,255,0.09);
+  overflow: hidden;
+}
+
+.pf-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(to right, var(--terracotta), var(--terracotta-lt));
+  animation: pfProgressFill 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.9s forwards;
+}
+
+/* Card B — Quote */
+.pf-glass-card--quote {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: rgba(232,184,0,0.04);
+  border-color: rgba(232,184,0,0.1);
+}
+.pf-glass-card--quote:hover {
+  background: rgba(232,184,0,0.07);
+  border-color: rgba(232,184,0,0.18);
+}
+
+.pf-qmark {
+  width: 2.2rem;
+  height: auto;
+  fill: var(--terracotta);
+  opacity: 0.3;
+  margin-bottom: 1.25rem;
+  flex-shrink: 0;
+}
+
+.pf-glass-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.72;
+  color: rgba(253,252,250,0.72);
+  margin-bottom: 1.1rem;
+}
+
+.pf-glass-cite {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--text-secondary);
+  color: var(--terracotta);
+  font-style: normal;
 }
 
-.pf-hero-note {
+/* Card C — Recognition */
+.pf-glass-label {
   font-family: var(--font-sans);
-  font-size: 0.72rem;
-  font-weight: 500;
+  font-size: 0.6rem;
+  font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--text-secondary);
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--border-light);
+  color: var(--terracotta);
+  margin-bottom: 1.25rem;
+}
+
+.pf-rec-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pf-rec-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.35rem 0;
+}
+
+.pf-rec-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.18);
+  flex-shrink: 0;
+  margin-top: 0.35rem;
+}
+
+.pf-rec-dot--gold { background: var(--terracotta); }
+
+.pf-rec-name {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: rgba(253,252,250,0.75);
+  margin-bottom: 0.15rem;
+  line-height: 1.3;
+}
+
+.pf-rec-detail {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  color: rgba(253,252,250,0.3);
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+}
+
+/* ---- Scroll cue ---- */
+.pf-hero-scroll {
+  position: absolute;
+  bottom: 2.2rem;
+  right: 5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(253,252,250,0.25);
+  z-index: 2;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 1100px) {
+  .pf-glass-row {
+    grid-template-columns: 1fr 1fr;
+  }
+  .pf-glass-card--quote {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    gap: 1.5rem;
+    text-align: left;
+    align-items: center;
+  }
+  .pf-qmark { margin-bottom: 0; flex-shrink: 0; }
+  .pf-glass-cite { margin-top: 0.75rem; display: block; }
 }
 
 @media (max-width: 900px) {
-  .pf-hero {
-    padding: calc(var(--nav-height) + 3rem) 2rem 3rem;
+  .pf-hero-body {
+    padding: 7rem 2rem 3rem;
+    gap: 2.5rem;
   }
-  .pf-hero-inner {
+  .pf-hero-main {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2rem;
   }
-  .pf-hero-title {
-    font-size: clamp(4rem, 14vw, 7rem);
+  .pf-title-lg  { font-size: clamp(4rem, 14vw, 8rem); }
+  .pf-title-sm  { font-size: clamp(1.8rem, 7vw, 3.5rem); }
+  .pf-title-em  { font-size: clamp(3.2rem, 12vw, 7rem); }
+  .pf-glass-row {
+    grid-template-columns: 1fr;
+    gap: 2px;
   }
-  .pf-stats {
-    grid-template-columns: repeat(3, 1fr);
+  .pf-glass-card--quote {
+    grid-column: span 1;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
   }
-  .pf-stat {
-    padding: 1.5rem 1rem;
-  }
-  .pf-stat-num {
-    font-size: 2.5rem;
-  }
+  .pf-qmark { margin-bottom: 1rem; }
+  .pf-hero-scroll { display: none; }
 }
 
-@media (max-width: 480px) {
-  .pf-stats {
-    grid-template-columns: 1fr;
-  }
-  .pf-stat {
-    border-right: none;
-    border-bottom: 1px solid var(--border-light);
-    padding: 1.5rem;
-  }
-  .pf-stat:last-child { border-bottom: none; }
+@media (max-width: 560px) {
+  .pf-hero-topbar { flex-direction: column; align-items: flex-start; }
+  .pf-hero-body { padding: 6rem 1.5rem 2.5rem; }
+  .pf-glass-card { padding: 1.5rem; }
 }
 
 /* =====================================================

@@ -76,34 +76,139 @@
 
     <!-- ========== PORTFOLIO HERO ========== -->
     <section class="pf-hero">
-      <div class="pf-hero-inner">
-        <div class="pf-hero-left">
-          <p class="section-eyebrow reveal-left">Selected Works</p>
-          <h1 class="pf-hero-title reveal-left" data-delay="100">
-            Our<br /><em>Portfolio</em>
-          </h1>
-          <p class="pf-hero-sub reveal-left" data-delay="200">
-            180+ projects delivered across residential architecture, commercial design, and interior spaces — each one beginning with deep listening and ending with a space that could not possibly have taken any other form.
-          </p>
+
+      <!-- Background image with cinematic overlay -->
+      <div class="pf-hero-bg" aria-hidden="true">
+        <img
+          src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=80&auto=format&fit=crop"
+          alt=""
+          class="pf-hero-bg-img"
+          loading="eager"
+        />
+        <div class="pf-hero-bg-veil"></div>
+      </div>
+
+      <!-- Foreground content -->
+      <div class="pf-hero-body">
+
+        <!-- Top bar: location pill + award pill -->
+        <div class="pf-hero-topbar pf-anim-fade" style="--pf-delay:0.1s">
+          <div class="pf-eyebrow-pill">
+            <span class="pf-pulse-dot"></span>
+            Bengaluru &bull; Hosur &bull; Est. 2009
+          </div>
+          <div class="pf-award-pill">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            Award-Listed &bull; 2021 &bull; 2023 &bull; 2024
+          </div>
         </div>
-        <div class="pf-hero-right reveal-right">
-          <div class="pf-stats">
-            <div class="pf-stat">
-              <span class="pf-stat-num">180+</span>
-              <span class="pf-stat-lbl">Projects Delivered</span>
-            </div>
-            <div class="pf-stat">
-              <span class="pf-stat-num">15</span>
-              <span class="pf-stat-lbl">Years of Practice</span>
-            </div>
-            <div class="pf-stat">
-              <span class="pf-stat-num">3</span>
-              <span class="pf-stat-lbl">Design Disciplines</span>
+
+        <!-- Main: large title + body text + CTAs -->
+        <div class="pf-hero-main">
+          <div class="pf-hero-title-col pf-anim-fade" style="--pf-delay:0.2s">
+            <h1 class="pf-hero-title">
+              <span class="pf-title-sm">Our</span>
+              <span class="pf-title-lg">Complete</span>
+              <em class="pf-title-em">Portfolio</em>
+            </h1>
+          </div>
+          <div class="pf-hero-text-col pf-anim-fade" style="--pf-delay:0.35s">
+            <p class="pf-hero-sub">
+              180&plus; projects delivered across residential architecture, commercial design,
+              and interior spaces &mdash; each one beginning with deep listening and ending
+              with a space that feels utterly inevitable.
+            </p>
+            <div class="pf-hero-cta-row">
+              <a href="#pfGrid" class="btn-primary">Browse Projects</a>
+              <a href="index.html#contact" class="pf-ghost-btn">Start a Project &rarr;</a>
             </div>
           </div>
-          <p class="pf-hero-note">Bengaluru &bull; Hosur &bull; Since 2009</p>
         </div>
+
+        <!-- Glassmorphism cards row -->
+        <div class="pf-glass-row pf-anim-fade" style="--pf-delay:0.5s">
+
+          <!-- Card A: Stats + Satisfaction bar -->
+          <div class="pf-glass-card">
+            <div class="pf-glass-stats">
+              <div class="pf-gstat">
+                <span class="pf-gstat-num">180+</span>
+                <span class="pf-gstat-lbl">Projects</span>
+              </div>
+              <div class="pf-gstat-rule"></div>
+              <div class="pf-gstat">
+                <span class="pf-gstat-num">15</span>
+                <span class="pf-gstat-lbl">Years</span>
+              </div>
+              <div class="pf-gstat-rule"></div>
+              <div class="pf-gstat">
+                <span class="pf-gstat-num">95+</span>
+                <span class="pf-gstat-lbl">Clients</span>
+              </div>
+            </div>
+            <div class="pf-glass-sep"></div>
+            <div class="pf-progress-section">
+              <div class="pf-progress-header">
+                <span>Client Satisfaction</span>
+                <span class="pf-progress-pct">98%</span>
+              </div>
+              <div class="pf-progress-track">
+                <div class="pf-progress-fill"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card B: Founding quote -->
+          <div class="pf-glass-card pf-glass-card--quote">
+            <svg class="pf-qmark" viewBox="0 0 48 36" fill="currentColor" aria-hidden="true">
+              <path d="M0 36V21.8C0 8.7 7.3 1.8 21.8 0L24 3.6C17.5 5.1 13.8 9.1 13.1 15.3H21.8V36H0ZM26.2 36V21.8C26.2 8.7 33.5 1.8 48 0L50.2 3.6C43.6 5.1 40 9.1 39.3 15.3H48V36H26.2Z"/>
+            </svg>
+            <blockquote class="pf-glass-quote">
+              We don&rsquo;t design buildings.<br />We design the lives that happen inside them.
+            </blockquote>
+            <cite class="pf-glass-cite">Design Intend &mdash; Founding Principle</cite>
+          </div>
+
+          <!-- Card C: Recognition & credentials -->
+          <div class="pf-glass-card">
+            <p class="pf-glass-label">Recognition &amp; Credentials</p>
+            <ul class="pf-rec-list">
+              <li class="pf-rec-item">
+                <span class="pf-rec-dot pf-rec-dot--gold"></span>
+                <div>
+                  <p class="pf-rec-name">A+D Magazine</p>
+                  <p class="pf-rec-detail">Top Listed Practice &mdash; 2021, 2023 &amp; 2024</p>
+                </div>
+              </li>
+              <li class="pf-glass-sep pf-glass-sep--li"></li>
+              <li class="pf-rec-item">
+                <span class="pf-rec-dot"></span>
+                <div>
+                  <p class="pf-rec-name">IIA Registered Practice</p>
+                  <p class="pf-rec-detail">Indian Institute of Architects</p>
+                </div>
+              </li>
+              <li class="pf-glass-sep pf-glass-sep--li"></li>
+              <li class="pf-rec-item">
+                <span class="pf-rec-dot"></span>
+                <div>
+                  <p class="pf-rec-name">B.Arch &mdash; SAP New Delhi</p>
+                  <p class="pf-rec-detail">School of Architecture &amp; Planning, 2004</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+        </div><!-- /.pf-glass-row -->
+
+      </div><!-- /.pf-hero-body -->
+
+      <!-- Scroll cue -->
+      <div class="pf-hero-scroll" aria-hidden="true">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
       </div>
+
     </section>
 
     <!-- ========== FILTER BAR ========== -->
