@@ -1,0 +1,604 @@
+/* =====================================================
+   DESIGN INTEND — portfolio.css
+   Portfolio page — grid, filter, cards, hero
+   ===================================================== */
+
+/* =====================================================
+   PORTFOLIO HERO
+   ===================================================== */
+.pf-hero {
+  padding: calc(var(--nav-height) + 6rem) 5rem 5rem;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border-light);
+  overflow: hidden;
+}
+
+.pf-hero-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.pf-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(4.5rem, 8vw, 9rem);
+  line-height: 0.88;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin: 1rem 0 2rem;
+}
+
+.pf-hero-title em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  text-transform: none;
+  letter-spacing: 0.01em;
+  color: var(--terracotta);
+  display: block;
+}
+
+.pf-hero-sub {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  max-width: 480px;
+}
+
+.pf-hero-right {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.pf-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid var(--border-light);
+}
+
+.pf-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 1.5rem;
+  border-right: 1px solid var(--border-light);
+  text-align: center;
+}
+
+.pf-stat:last-child { border-right: none; }
+
+.pf-stat-num {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  letter-spacing: 0.04em;
+  color: var(--terracotta);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.pf-stat-lbl {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.pf-hero-note {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-light);
+}
+
+@media (max-width: 900px) {
+  .pf-hero {
+    padding: calc(var(--nav-height) + 3rem) 2rem 3rem;
+  }
+  .pf-hero-inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .pf-hero-title {
+    font-size: clamp(4rem, 14vw, 7rem);
+  }
+  .pf-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .pf-stat {
+    padding: 1.5rem 1rem;
+  }
+  .pf-stat-num {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .pf-stats {
+    grid-template-columns: 1fr;
+  }
+  .pf-stat {
+    border-right: none;
+    border-bottom: 1px solid var(--border-light);
+    padding: 1.5rem;
+  }
+  .pf-stat:last-child { border-bottom: none; }
+}
+
+/* =====================================================
+   FILTER BAR
+   ===================================================== */
+.pf-filter-wrap {
+  position: sticky;
+  top: var(--nav-height);
+  z-index: 100;
+  background-color: var(--bg);
+  border-bottom: 1px solid var(--border-light);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.pf-filter-bar {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 5rem;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.pf-filter-bar::-webkit-scrollbar { display: none; }
+
+.pf-filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.1rem 1.75rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  border-bottom: 2px solid transparent;
+  transition: color 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.pf-filter-btn:hover {
+  color: var(--text-primary);
+}
+
+.pf-filter-btn.active {
+  color: var(--terracotta);
+  border-bottom-color: var(--terracotta);
+}
+
+.pf-filter-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  border-radius: 10px;
+  background: var(--border-light);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  color: var(--text-secondary);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.pf-filter-btn.active .pf-filter-count {
+  background: var(--terracotta);
+  color: white;
+}
+
+@media (max-width: 900px) {
+  .pf-filter-bar {
+    padding: 0 2rem;
+    gap: 0;
+  }
+  .pf-filter-btn {
+    padding: 0.9rem 1.25rem;
+    font-size: 0.68rem;
+  }
+}
+
+/* =====================================================
+   PORTFOLIO GRID
+   ===================================================== */
+.pf-grid-section {
+  background: var(--bg);
+  padding: 3px 0 0;
+}
+
+.pf-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+}
+
+/* Wide (featured) cards span 2 columns in the "all" view */
+.pf-grid:not(.pf-grid--filtered) .pcard--wide {
+  grid-column: span 2;
+}
+
+/* =====================================================
+   PROJECT CARD
+   ===================================================== */
+.pcard {
+  position: relative;
+  background: var(--bg-alt);
+  overflow: hidden;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Hidden state for filtered-out cards */
+.pcard.pcard--out {
+  opacity: 0;
+  transform: scale(0.97);
+  pointer-events: none;
+}
+
+.pcard.pcard--gone {
+  display: none;
+}
+
+/* Invisible anchor that covers the whole card */
+.pcard-link {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+}
+
+/* Image container */
+.pcard-image-wrap {
+  position: relative;
+  overflow: hidden;
+  background: var(--charcoal);
+}
+
+/* Tall images for wide (featured) cards */
+.pcard--wide .pcard-image-wrap {
+  aspect-ratio: 16 / 9;
+}
+
+/* Standard image ratio */
+.pcard:not(.pcard--wide) .pcard-image-wrap {
+  aspect-ratio: 4 / 3;
+}
+
+.pcard-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.pcard:hover .pcard-img {
+  transform: scale(1.06);
+}
+
+/* Overlay */
+.pcard-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(20, 20, 18, 0.92) 0%,
+    rgba(20, 20, 18, 0.55) 50%,
+    rgba(20, 20, 18, 0.1) 100%
+  );
+  display: flex;
+  align-items: flex-end;
+  padding: 2rem;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  z-index: 2;
+}
+
+.pcard:hover .pcard-overlay {
+  opacity: 1;
+}
+
+.pcard-overlay-content {
+  transform: translateY(12px);
+  transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.pcard:hover .pcard-overlay-content {
+  transform: translateY(0);
+}
+
+.pcard-ov-cat {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--terracotta-lt);
+  margin-bottom: 0.6rem;
+}
+
+.pcard-ov-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--warm-white);
+  line-height: 0.95;
+  margin-bottom: 0.6rem;
+}
+
+.pcard-ov-meta {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: rgba(253, 252, 250, 0.55);
+  letter-spacing: 0.08em;
+  margin-bottom: 1.25rem;
+}
+
+.pcard-ov-cta {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--terracotta-lt);
+  border-bottom: 1.5px solid var(--terracotta-lt);
+  padding-bottom: 2px;
+  transition: color 0.3s ease, border-color 0.3s ease;
+  position: relative;
+  z-index: 4;
+}
+
+.pcard-ov-cta:hover {
+  color: white;
+  border-color: white;
+}
+
+/* Category badge (always visible) */
+.pcard-badge {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+  background: rgba(28, 28, 26, 0.8);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(253, 252, 250, 0.75);
+  padding: 0.35rem 0.65rem;
+  z-index: 2;
+  transition: opacity 0.3s ease;
+}
+
+.pcard:hover .pcard-badge {
+  opacity: 0;
+}
+
+.pcard-badge--new {
+  background: var(--terracotta);
+  color: white;
+}
+
+/* Card footer */
+.pcard-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 1.5rem;
+  border-top: 1px solid var(--border-light);
+  background: var(--bg-alt);
+}
+
+.pcard-name {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
+  margin-bottom: 0.2rem;
+  line-height: 1.3;
+}
+
+.pcard-meta {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  letter-spacing: 0.08em;
+}
+
+.pcard-year {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: 0.06em;
+  color: var(--terracotta);
+  opacity: 0.6;
+  flex-shrink: 0;
+}
+
+/* Touch / keyboard focus — show overlay for accessibility */
+.pcard:focus-within .pcard-overlay,
+.pcard:focus-within .pcard-overlay-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =====================================================
+   EMPTY STATE
+   ===================================================== */
+.pf-empty {
+  display: none;
+  padding: 8rem 2rem;
+  text-align: center;
+  grid-column: 1 / -1;
+}
+
+.pf-empty.visible {
+  display: block;
+}
+
+.pf-empty p {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+.pf-empty a {
+  color: var(--terracotta);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* =====================================================
+   CTA BAND
+   ===================================================== */
+.pf-cta {
+  background: var(--charcoal);
+  padding: 7rem 5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="dark"] .pf-cta {
+  background: #0E0D0B;
+}
+
+.pf-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 0% 50%, rgba(232, 184, 0, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.pf-cta-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.pf-cta-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 5vw, 5.5rem);
+  line-height: 0.9;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--warm-white);
+}
+
+.pf-cta-body {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: rgba(253, 252, 250, 0.55);
+  margin-bottom: 2.5rem;
+}
+
+@media (max-width: 900px) {
+  .pf-cta {
+    padding: 5rem 2rem;
+  }
+  .pf-cta-inner {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+/* =====================================================
+   RESPONSIVE — GRID BREAKPOINTS
+   ===================================================== */
+@media (max-width: 1100px) {
+  /* On medium screens, wide cards still span 2 but images shrink */
+  .pcard--wide .pcard-image-wrap {
+    aspect-ratio: 3 / 2;
+  }
+}
+
+@media (max-width: 900px) {
+  /* Collapse to 2-column grid — no wide cards */
+  .pf-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pf-grid .pcard--wide,
+  .pf-grid:not(.pf-grid--filtered) .pcard--wide {
+    grid-column: span 1;
+  }
+
+  .pcard--wide .pcard-image-wrap,
+  .pcard:not(.pcard--wide) .pcard-image-wrap {
+    aspect-ratio: 4 / 3;
+  }
+
+  .pcard-ov-title {
+    font-size: 1.5rem;
+  }
+
+  .pcard-overlay {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 560px) {
+  /* Single column */
+  .pf-grid {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+
+  .pf-grid .pcard--wide,
+  .pf-grid:not(.pf-grid--filtered) .pcard--wide {
+    grid-column: span 1;
+  }
+
+  .pcard-image-wrap {
+    aspect-ratio: 16 / 10 !important;
+  }
+}
+
+/* =====================================================
+   NAV ACTIVE STATE — WORKS LINK
+   ===================================================== */
+.nav-link.active {
+  color: var(--text-primary);
+}
+
+.nav-link.active::after {
+  width: 100%;
+}

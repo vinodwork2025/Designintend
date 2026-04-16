@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — DESIGN INTEND | Architects · Interiors · Planners, Bengaluru</title>
+  <meta name="description" content="Browse the complete portfolio of Design Intend — 180+ delivered projects spanning residential architecture, commercial design, and interior spaces across Bengaluru and Hosur." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="portfolio.css" />
+</head>
+<body data-theme="light">
+
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="nav" id="mainNav">
+    <div class="nav-logo">
+      <a href="index.html" class="logo-link" style="display:flex;align-items:center;gap:8px;">
+        <svg viewBox="0 0 34 38" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:26px;height:30px;flex-shrink:0;">
+          <path d="M17 3 L31 22 L3 22 Z" fill="currentColor" opacity=".08"/>
+          <path d="M6 6 L6 32 L15 32 C23.8 32 29 27.4 29 19 C29 10.6 23.8 6 15 6 Z" fill="currentColor"/>
+          <path d="M10 10 L10 28 L15 28 C20.8 28 25 24.8 25 19 C25 13.2 20.8 10 15 10 Z" fill="var(--bg)"/>
+          <rect x="5" y="18" width="4.5" height="13" rx="1.2" fill="currentColor"/>
+          <circle cx="7.2" cy="12" r="5.5" fill="var(--terracotta)"/>
+        </svg>
+        <span class="logo-dot">DESIGN</span>&nbsp;INTEND
+      </a>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#works" class="nav-link active">Works</a></li>
+      <li><a href="index.html#services" class="nav-link">Services</a></li>
+      <li><a href="index.html#studio" class="nav-link">Studio</a></li>
+      <li><a href="index.html#process" class="nav-link">Process</a></li>
+      <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <span class="toggle-icon">
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </span>
+      </button>
+      <a href="index.html#contact" class="nav-cta">Start a Project</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" id="mobileClose">&#x2715;</button>
+    <ul class="mobile-nav-links">
+      <li><a href="index.html#works" class="mobile-nav-link">Works</a></li>
+      <li><a href="index.html#services" class="mobile-nav-link">Services</a></li>
+      <li><a href="index.html#studio" class="mobile-nav-link">Studio</a></li>
+      <li><a href="index.html#process" class="mobile-nav-link">Process</a></li>
+      <li><a href="index.html#contact" class="mobile-nav-link">Contact</a></li>
+    </ul>
+    <div class="mobile-menu-footer">
+      <p>Bengaluru, India</p>
+      <a href="mailto:studio@designintend.in">studio@designintend.in</a>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- ========== PORTFOLIO HERO ========== -->
+    <section class="pf-hero">
+      <div class="pf-hero-inner">
+        <div class="pf-hero-left">
+          <p class="section-eyebrow reveal-left">Selected Works</p>
+          <h1 class="pf-hero-title reveal-left" data-delay="100">
+            Our<br /><em>Portfolio</em>
+          </h1>
+          <p class="pf-hero-sub reveal-left" data-delay="200">
+            180+ projects delivered across residential architecture, commercial design, and interior spaces — each one beginning with deep listening and ending with a space that could not possibly have taken any other form.
+          </p>
+        </div>
+        <div class="pf-hero-right reveal-right">
+          <div class="pf-stats">
+            <div class="pf-stat">
+              <span class="pf-stat-num">180+</span>
+              <span class="pf-stat-lbl">Projects Delivered</span>
+            </div>
+            <div class="pf-stat">
+              <span class="pf-stat-num">15</span>
+              <span class="pf-stat-lbl">Years of Practice</span>
+            </div>
+            <div class="pf-stat">
+              <span class="pf-stat-num">3</span>
+              <span class="pf-stat-lbl">Design Disciplines</span>
+            </div>
+          </div>
+          <p class="pf-hero-note">Bengaluru &bull; Hosur &bull; Since 2009</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FILTER BAR ========== -->
+    <div class="pf-filter-wrap">
+      <div class="pf-filter-bar" id="pfFilterBar" role="tablist" aria-label="Filter projects by category">
+        <button class="pf-filter-btn active" data-filter="all" role="tab" aria-selected="true">
+          All Projects <span class="pf-filter-count" id="countAll">12</span>
+        </button>
+        <button class="pf-filter-btn" data-filter="residential" role="tab" aria-selected="false">
+          Residential <span class="pf-filter-count" id="countResidential">8</span>
+        </button>
+        <button class="pf-filter-btn" data-filter="commercial" role="tab" aria-selected="false">
+          Commercial <span class="pf-filter-count" id="countCommercial">2</span>
+        </button>
+        <button class="pf-filter-btn" data-filter="interiors" role="tab" aria-selected="false">
+          Interiors <span class="pf-filter-count" id="countInteriors">2</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ========== PORTFOLIO GRID ========== -->
+    <section class="pf-grid-section">
+      <div class="pf-grid" id="pfGrid">
+
+        <!--
+          Grid layout — "all" view (3-col):
+          Row 1: [01 WIDE] [02]
+          Row 2: [03] [04 WIDE]
+          Row 3: [05] [06] [07]
+          Row 4: [08 WIDE] [09]
+          Row 5: [10] [11] [12]
+        -->
+
+        <!-- 01 — Vinutha Residence (WIDE / featured) -->
+        <article class="pcard pcard--wide reveal-stagger" data-index="0" data-category="residential" data-year="2024">
+          <a href="index.html#contact" class="pcard-link" tabindex="-1" aria-hidden="true"></a>
+          <div class="pcard-image-wrap">
+            <img src="Assets/vinutha-actual.png" alt="Vinutha Residence — Design Intend" class="pcard-img" loading="eager" />
+            <div class="pcard-overlay">
+              <div class="pcard-overlay-content">
+                <span class="pcard-ov-cat">Residential &bull; 2024</span>
+                <h3 class="pcard-ov-title">Vinutha Residence</h3>
+                <p class="pcard-ov-meta">4,200 sq ft &middot; Bengaluru</p>
+                <a href="index.html#contact" class="pcard-ov-cta">Enquire &rarr;</a>
+              </div>
+            </div>
+            <span class="pcard-badge">Residential</span>
+          </div>
+          <div class="pcard-footer">
+            <div>
+              <p class="pcard-name">Vinutha Residence</p>
+              <p class="pcard-meta">Bengaluru &middot; 4,200 sq ft</p>
+            </div>
+            <span class="pcard-year">2024</span>
+          </div>
+        </article>
+
+        <!-- 02 — Whitefield Duplex -->
+        <article class="pcard reveal-stagger" data-index="1" data-category="residential" data-year="2022">
+          <a href="index.html#contact" class="pcard-link" tabindex="-1" aria-hidden="true"></a>
+          <div class="pcard-image-wrap">
+            <img src="Assets/house-angle-1.png" alt="Whitefield Duplex — Design Intend" class="pcard-img" loading="lazy" />
+            <div class="pcard-overlay">
+              <div class="pcard-overlay-content">
+                <span class="pcard-ov-cat">Residential &bull; 2022</span>
+                <h3 class="pcard-ov-title">Whitefield Duplex</h3>
+                <p class="pcard-ov-meta">3,600 sq ft &middot; Whitefield, Bengaluru</p>
+                <a href="index.html#contact" class="pcard-ov-cta">Enquire &rarr;</a>
+              </div>
+            </div>
+            <span class="pcard-badge">Residential</span>
+          </div>
+          <div class="pcard-footer">
+            <div>
+              <p class="pcard-name">Whitefield Duplex</p>
+              <p class="pcard-meta">Whitefield &middot; 3,600 sq ft</p>
+            </div>
+            <span class="pcard-year">2022</span>
+          </div>
+        </article>
+
+        <!-- 03 — Indiranagar Penthouse -->
+        <article class="pcard reveal-stagger" data-index="2" data-category="interiors" data-year="2024">
+          <a href="index.html#contact" class="pcard-link" tabindex="-1" aria-hidden="true"></a>
+          <div class="pcard-image-wrap">
+            <img src="Assets/hero-living-room.png" alt="Indiranagar Penthouse — Design Intend" class="pcard-img" loading="lazy" />
+            <div class="pcard-overlay">
+              <div class="pcard-overlay-content">
+                <span class="pcard-ov-cat">Interiors &bull; 2024</span>
+                <h3 class="pcard-ov-title">Indiranagar Penthouse</h3>
+                <p class="pcard-ov-meta">2,800 sq ft &middot; Indiranagar, Bengaluru</p>
+                <a href="index.html#contact" class="pcard-ov-cta">Enquire &rarr;</a>
+              </div>
+            </div>
+            <span class="pcard-badge">Interiors</span>
+          </div>
+          <div class="pcard-footer">
+            <div>
+              <p class="pcard-name">Indiranagar Penthouse</p>
+              <p class="pcard-meta">Indiranagar &middot; 2,800 sq ft</p>
+            </div>
+            <span class="pcard-year">2024</span>
+          </div>
+        </article>
+
+        <!-- 04 — Nexus Headquarters (WIDE / featured) -->
+        <article class="pcard pcard--wide reveal-stagger" data-index="3" data-category="commercial" data-year="2023">
+          <a href="index.html#contact" class="pcard-link" tabindex="-1" aria-hidden="true"></a>
+          <div class="pcard-image-wrap">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1100&q=80&auto=format&fit=crop" alt="Nexus Headquarters — Design Intend" class="pcard-img" loading="lazy" />
+            <div class="pcard-overlay">
+              <div class="pcard-overlay-content">
+                <span class="pcard-ov-cat">Commercial &bull; 2023</span>
+                <h3 class="pcard-ov-title">Nexus Headquarters</h3>
+                <p class="pcard-ov-meta">12,000 sq ft &middot; Koramangala, Bengaluru</p>
+                <a href="index.html#contact" class="pcard-ov-cta">Enquire &rarr;</a>
+              </div>
+            </div>
+            <span class="pcard-badge">Commercial</span>
+          </div>
+          <div class="pcard-footer">
+            <div>
+              <p class="pcard-name">Nexus Headquarters</p>
+              <p class="pcard-meta">Koramangala &middot; 12,000 sq ft</p>
+            </div>
+            <span class="pcard-year">2023</span>
+          </div>
+        </article>
+
+        <!-- 05 — Hosur Garden Home -->
+        <article class="pcard reveal-stagger" data-index="4" data-category="residential" data-year="2023">
+          <a href="index.html#contact" class="pcard-link" tabindex="-1" aria-hidden="true"></a>
+          <div class="pcard-image-wrap">
+            <img src="Assets/r4.jpg.jpeg" alt="Hosur Garden Home — Design Intend" class="pcard-img" loading="lazy" />
+            <div class="pcard-overlay">
+              <div class="pcard-overlay-content">
+                <span class="pcard-ov-cat">Residential &bull; 2023</span>
+                <h3 class="pcard-ov-title">Hosur Garden Home</h3>
+                <p class="pcard-ov-meta">5,100 sq ft &middot; Hosur, Tamil Nadu</p>
+                <a href="index.html#contact" class="pcard-ov-cta">Enquire &rarr;</a>
+              </div>
+            </div>
+            <span class="pcard-badge">Residential</span>
+          </div>
+          <div class="pcard-footer">
+            <div>
+              <p class="pcard-name">Hosur Garden Home</p>
+              <p class="pcard-meta">Hosur &middot; 5,100 sq ft</p>
+            </div>
+            <span class="pcard-year">2023</span>
+          </div>
+        </article>
+
+        <!-- 06 — Vinutha Interior Study -->
+        <article class="pcard reveal-stagger" data-index="5" data-category="interiors" data-year="2023">
+          <a href="index.html#contact" class="pcard-link" tabindex="-1" aria-hidden="true"></a>
+          <div class="pcard-image-wrap">
+            <img src="Assets/vinutha-3d.jpg" alt="Vinutha Interior Study — Design Intend" class="pcard-img" loading="lazy" />
+            <div class="pcard-overlay">
+              <div class="pcard-overlay-content">
+                <span class="pcard-ov-cat">Interiors &bull; 2023</span>
+                <h3 class="pcard-ov-title">Vinutha — Interior Study</h3>
+                <p class="pcard-ov-meta">4,200 sq ft &middot; Bengaluru</p>
+                <a href="index.html#contact" class="pcard-ov-cta">Enquire &rarr;</a>
+              </div>
+            </div>
+            <span class="pcard-badge">Interiors</span>
+          </div>
+          <div class="pcard-footer">
+            <div>
+              <p class="pcard-name">Vinutha — Interior Study</p>
+              <p class="pcard-meta">Bengaluru &middot; 4,200 sq ft</p>
+            </div>
+            <span class="pcard-year">2023</span>
+          </div>
+        </article>
+
+        <!-- 07 — Electronic City Bungalow -->
+        <article class="pcard reveal-stagger" data-index="6" data-category="residential" data-year="2021">
+          <a href="index.html#contact" class="pcard-link" tabindex="-1" aria-hidden="true"></a>
+          <div class="pcard-image-wrap">
+            <img src="Assets/r1.jpg.jpeg" alt="Electronic City Bungalow — Design Intend" class="pcard-img" loading="lazy" />
+            <div class="pcard-overlay">
+              <div class="pcard-overlay-content">
+                <span class="pcard-ov-cat">Residential &bull; 2021</span>
+                <h3 class="pcard-ov-title">Electronic City Bungalow</h3>
+                <p class="pcard-ov-meta">4,800 sq ft &middot; Electronic City, Bengaluru</p>
+                <a href="index.html#contact" class="pcard-ov-cta">Enquire &rarr;</a>
+              </div>
+            </div>
+            <span class="pcard-badge">Residential</span>
+          </div>
+          <div class="pcard-footer">
+            <div>
+              <p class="pcard-name">Electronic City Bungalow</p>
+              <p class="pcard-meta">Electronic City &middot; 4,800 sq ft</p>
+            </div>
+            <span class="pcard-year">2021</span>
+          </div>
+        </article>
+
+        <!-- 08 — The Reddy Villa (WIDE / featured) -->
+        <article class="pcard pcard--wide reveal-stagger" data-index="7" data-category="residential" data-year="2023">
+          <a href="index.html#contact" class="pcard-link" tabindex="-1" aria-hidden="true"></a>
+          <div class="pcard-image-wrap">
+            <img src="https://images.unsplash.com/photo-1615873968403-89e068629265?w=1100&q=80&auto=format&fit=crop" alt="The Reddy Villa — Design Intend" class="pcard-img" loading="lazy" />
+            <div class="pcard-overlay">
+              <div class="pcard-overlay-content">
+                <span class="pcard-ov-cat">Residential &bull; 2023</span>
+                <h3 class="pcard-ov-title">The Reddy Villa</h3>
+                <p class="pcard-ov-meta">7,200 sq ft &middot; Sarjapur Road, Bengaluru</p>
+                <a href="index.html#contact" class="pcard-ov-cta">Enquire &rarr;</a>
+              </div>
+            </div>
+            <span class="pcard-badge">Residential</span>
+          </div>
+          <div class="pcard-footer">
+            <div>
+              <p class="pcard-name">The Reddy Villa</p>
+              <p class="pcard-meta">Sarjapur Road &middot; 7,200 sq ft</p>
+            </div>
+            <span class="pcard-year">2023</span>
+          </div>
+        </article>
+
+        <!-- 09 — HSR Courtyard Home -->
+        <article class="pcard reveal-stagger" data-index="8" data-category="residential" data-year="2021">
+          <a href="index.html#contact" class="pcard-link" tabindex="-1" aria-hidden="true"></a>
+          <div class="pcard-image-wrap">
+            <img src="Assets/r22.jpg.jpeg" alt="HSR Courtyard Home — Design Intend" class="pcard-img" loading="lazy" />
+            <div class="pcard-overlay">
+              <div class="pcard-overlay-content">
+                <span class="pcard-ov-cat">Residential &bull; 2021</span>
+                <h3 class="pcard-ov-title">HSR Courtyard Home</h3>
+                <p class="pcard-ov-meta">3,200 sq ft &middot; HSR Layout, Bengaluru</p>
+                <a href="index.html#contact" class="pcard-ov-cta">Enquire &rarr;</a>
+              </div>
+            </div>
+            <span class="pcard-badge">Residential</span>
+          </div>
+          <div class="pcard-footer">
+            <div>
+              <p class="pcard-name">HSR Courtyard Home</p>
+              <p class="pcard-meta">HSR Layout &middot; 3,200 sq ft</p>
+            </div>
+            <span class="pcard-year">2021</span>
+          </div>
+        </article>
+
+        <!-- 10 — Whitefield House — Elevation Study -->
+        <article class="pcard reveal-stagger" data-index="9" data-category="residential" data-year="2022">
+          <a href="index.html#contact" class="pcard-link" tabindex="-1" aria-hidden="true"></a>
+          <div class="pcard-image-wrap">
+            <img src="Assets/house-angle-2.png" alt="Whitefield House — Elevation Study" class="pcard-img" loading="lazy" />
+            <div class="pcard-overlay">
+              <div class="pcard-overlay-content">
+                <span class="pcard-ov-cat">Residential &bull; 2022</span>
+                <h3 class="pcard-ov-title">Whitefield House — East Elevation</h3>
+                <p class="pcard-ov-meta">3,600 sq ft &middot; Whitefield, Bengaluru</p>
+                <a href="index.html#contact" class="pcard-ov-cta">Enquire &rarr;</a>
+              </div>
+            </div>
+            <span class="pcard-badge">Residential</span>
+          </div>
+          <div class="pcard-footer">
+            <div>
+              <p class="pcard-name">Whitefield House — East Elevation</p>
+              <p class="pcard-meta">Whitefield &middot; 3,600 sq ft</p>
+            </div>
+            <span class="pcard-year">2022</span>
+          </div>
+        </article>
+
+        <!-- 11 — Hosur Boutique Residence -->
+        <article class="pcard reveal-stagger" data-index="10" data-category="residential" data-year="2025">
+          <a href="index.html#contact" class="pcard-link" tabindex="-1" aria-hidden="true"></a>
+          <div class="pcard-image-wrap">
+            <img src="Assets/WhatsApp%20Image%202026-04-06%20at%204.20.52%20PM.jpeg" alt="Hosur Boutique Residence — Design Intend" class="pcard-img" loading="lazy" />
+            <div class="pcard-overlay">
+              <div class="pcard-overlay-content">
+                <span class="pcard-ov-cat">Residential &bull; 2025</span>
+                <h3 class="pcard-ov-title">Hosur Boutique Residence</h3>
+                <p class="pcard-ov-meta">2,900 sq ft &middot; Hosur, Tamil Nadu</p>
+                <a href="index.html#contact" class="pcard-ov-cta">Enquire &rarr;</a>
+              </div>
+            </div>
+            <span class="pcard-badge pcard-badge--new">New · 2025</span>
+          </div>
+          <div class="pcard-footer">
+            <div>
+              <p class="pcard-name">Hosur Boutique Residence</p>
+              <p class="pcard-meta">Hosur &middot; 2,900 sq ft</p>
+            </div>
+            <span class="pcard-year">2025</span>
+          </div>
+        </article>
+
+        <!-- 12 — Hosur Creative Studio -->
+        <article class="pcard reveal-stagger" data-index="11" data-category="commercial" data-year="2025">
+          <a href="index.html#contact" class="pcard-link" tabindex="-1" aria-hidden="true"></a>
+          <div class="pcard-image-wrap">
+            <img src="Assets/WhatsApp%20Image%202026-04-06%20at%204.21.03%20PM.jpeg" alt="Hosur Creative Studio — Design Intend" class="pcard-img" loading="lazy" />
+            <div class="pcard-overlay">
+              <div class="pcard-overlay-content">
+                <span class="pcard-ov-cat">Commercial &bull; 2025</span>
+                <h3 class="pcard-ov-title">Hosur Creative Studio</h3>
+                <p class="pcard-ov-meta">1,800 sq ft &middot; Hosur, Tamil Nadu</p>
+                <a href="index.html#contact" class="pcard-ov-cta">Enquire &rarr;</a>
+              </div>
+            </div>
+            <span class="pcard-badge pcard-badge--new">New · 2025</span>
+          </div>
+          <div class="pcard-footer">
+            <div>
+              <p class="pcard-name">Hosur Creative Studio</p>
+              <p class="pcard-meta">Hosur &middot; 1,800 sq ft</p>
+            </div>
+            <span class="pcard-year">2025</span>
+          </div>
+        </article>
+
+      </div><!-- /.pf-grid -->
+
+      <!-- Empty state -->
+      <div class="pf-empty" id="pfEmpty" aria-live="polite">
+        <p>No projects in this category yet.<br /><a href="index.html#contact">Start a conversation &rarr;</a></p>
+      </div>
+
+    </section>
+
+    <!-- ========== CTA BAND ========== -->
+    <section class="pf-cta">
+      <div class="pf-cta-inner">
+        <div class="pf-cta-left">
+          <p class="section-eyebrow light">Ready to Build?</p>
+          <h2 class="pf-cta-title">Have a project<br />in mind?</h2>
+        </div>
+        <div class="pf-cta-right">
+          <p class="pf-cta-body">We'd love to hear about your site, your brief, and the life you intend to live inside it. Every great project starts with a conversation.</p>
+          <a href="index.html#contact" class="btn-primary">Start a Conversation</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo" style="display:flex;align-items:center;gap:14px;">
+          <svg viewBox="0 0 34 38" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:36px;height:40px;flex-shrink:0;">
+            <path d="M17 3 L31 22 L3 22 Z" fill="currentColor" opacity=".1"/>
+            <path d="M6 6 L6 32 L15 32 C23.8 32 29 27.4 29 19 C29 10.6 23.8 6 15 6 Z" fill="currentColor"/>
+            <path d="M10 10 L10 28 L15 28 C20.8 28 25 24.8 25 19 C25 13.2 20.8 10 15 10 Z" fill="var(--section-dark-bg)"/>
+            <rect x="5" y="18" width="4.5" height="13" rx="1.2" fill="currentColor"/>
+            <circle cx="7.2" cy="12" r="5.5" fill="var(--terracotta)"/>
+          </svg>
+          <span><span>DESIGN</span> INTEND</span>
+        </div>
+        <p class="footer-tagline">Architects &middot; Interiors &middot; Planners.<br />Bengaluru &bull; Since 2009.</p>
+      </div>
+      <div class="footer-nav-col">
+        <p class="footer-col-title">Studio</p>
+        <ul>
+          <li><a href="portfolio.html">Our Work</a></li>
+          <li><a href="index.html#studio">About Us</a></li>
+          <li><a href="index.html#process">Our Process</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-col">
+        <p class="footer-col-title">Services</p>
+        <ul>
+          <li><a href="index.html#services">Residential Architecture</a></li>
+          <li><a href="index.html#services">Commercial Design</a></li>
+          <li><a href="index.html#services">Interior Spaces</a></li>
+          <li><a href="index.html#services">Landscape Design</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-col">
+        <p class="footer-col-title">Follow</p>
+        <ul>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Pinterest</a></li>
+          <li><a href="#">Houzz</a></li>
+          <li><a href="#">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 Design Intend. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="portfolio.js"></script>
+</body>
+</html>
