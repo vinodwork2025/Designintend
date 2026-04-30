@@ -16,9 +16,14 @@
       title: 'Vinutha Residence',
       category: 'Residential · 2024 · 4,200 sq ft · Bengaluru',
       images: [
-        { src: 'Assets/R3.jpg.jpeg',           caption: 'Exterior — Corner View' },
-        { src: 'Assets/vinutha-3d.jpg',         caption: 'Front Elevation Render' },
-        { src: 'Assets/hero-living-room.png',   caption: 'Living Room Interior' },
+        { src: 'Assets/vinutha-exterior.png',       caption: 'Exterior — Front Elevation' },
+        { src: 'Assets/vinutha-living-room.png',    caption: 'Living Room' },
+        { src: 'Assets/vinutha-living-room-1.png',  caption: 'Living Room — Lounge View' },
+        { src: 'Assets/vinutha-bedroom-1.png',      caption: 'Master Bedroom' },
+        { src: 'Assets/vinutha-bedroom-4.png',      caption: 'Bedroom 4' },
+        { src: 'Assets/vinutha-bedroom-5.png',      caption: 'Bedroom 5' },
+        { src: 'Assets/vinutha-bedroom-6.png',      caption: 'Bedroom 6' },
+        { src: 'Assets/vinutha-bedroom-7.png',      caption: 'Bedroom 7' },
       ]
     },
     'nexus-hq': {
@@ -67,9 +72,11 @@
       title: 'Vinutha — Interior Study',
       category: 'Interiors · 2023 · 4,200 sq ft · Bengaluru',
       images: [
-        { src: 'Assets/vinutha-3d.jpg',        caption: '3D Interior Study' },
-        { src: 'Assets/R3.jpg.jpeg',           caption: 'Exterior Reference' },
-        { src: 'Assets/hero-living-room.png',  caption: 'Living Room Concept' },
+        { src: 'Assets/vinutha-living-room.png',    caption: 'Living Room' },
+        { src: 'Assets/vinutha-living-room-1.png',  caption: 'Living Room — Lounge View' },
+        { src: 'Assets/vinutha-bedroom-1.png',      caption: 'Master Bedroom' },
+        { src: 'Assets/vinutha-bedroom-4.png',      caption: 'Bedroom 4' },
+        { src: 'Assets/vinutha-bedroom-5.png',      caption: 'Bedroom 5' },
       ]
     },
     'electronic-city': {

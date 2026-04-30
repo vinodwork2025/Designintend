@@ -323,6 +323,28 @@ body.cursor-dark .cursor-follower { border-color: var(--warm-white); }
 [data-theme="light"] .moon-icon { display: none; }
 [data-theme="dark"] .sun-icon { display: none; }
 
+.nav-call {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.1rem;
+  border: 1.5px solid var(--terracotta);
+  color: var(--terracotta);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: var(--transition);
+}
+.nav-call:hover { background: var(--terracotta); color: white; }
+.nav-call-text { line-height: 1; }
+
+@media (max-width: 900px) {
+  .nav-call-text { display: none; }
+  .nav-call { padding: 0.55rem 0.65rem; }
+}
+
 .nav-cta {
   display: inline-block;
   padding: 0.55rem 1.25rem;
