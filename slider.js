@@ -133,6 +133,7 @@
   let dotsWrap     = null;
   let titleEl      = null;
   let eyebrowEl    = null;
+  let counterEl    = null;
   let currentData  = null;
   let activeIndex  = 0;
 
@@ -152,17 +153,21 @@
           <span class="pslider-eyebrow" id="psliderEyebrow"></span>
           <h2 class="pslider-title" id="psliderTitle"></h2>
         </div>
-        <button class="pslider-close" id="psliderClose" aria-label="Close gallery">&#x2715;</button>
+        <div class="pslider-header-right">
+          <span class="pslider-counter" id="psliderCounter"></span>
+          <button class="pslider-close" id="psliderClose" aria-label="Close gallery">&#x2715;</button>
+        </div>
       </div>
       <div class="pslider-panels" id="psliderPanels"></div>
       <div class="pslider-footer" id="psliderDots"></div>
-      <span class="pslider-hint">← → to navigate &nbsp;·&nbsp; Esc to close</span>
+      <span class="pslider-hint">&#8592; &#8594; to navigate &nbsp;&middot;&nbsp; Esc to close</span>
     `;
 
     document.body.appendChild(overlay);
 
     eyebrowEl  = overlay.querySelector('#psliderEyebrow');
     titleEl    = overlay.querySelector('#psliderTitle');
+    counterEl  = overlay.querySelector('#psliderCounter');
     panelsWrap = overlay.querySelector('#psliderPanels');
     dotsWrap   = overlay.querySelector('#psliderDots');
 
@@ -184,6 +189,7 @@
 
     eyebrowEl.textContent = project.category;
     titleEl.textContent   = project.title;
+    counterEl.textContent = `1 / ${project.images.length}`;
 
     renderPanels();
     renderDots();
@@ -207,6 +213,17 @@
   }
 
   /* =====================================================
+     LAZY LOAD — apply backgroundImage only when needed
+     ===================================================== */
+  function loadPanelImage(index) {
+    const panels = panelsWrap.querySelectorAll('.pslider-panel');
+    const panel  = panels[index];
+    if (!panel || panel.style.backgroundImage) return;
+    const src = panel.dataset.src;
+    if (src) panel.style.backgroundImage = `url('${src}')`;
+  }
+
+  /* =====================================================
      RENDER PANELS
      ===================================================== */
   function renderPanels() {
@@ -216,7 +233,9 @@
     images.forEach((img, i) => {
       const panel = document.createElement('div');
       panel.className = 'pslider-panel' + (i === 0 ? ' active' : '');
-      panel.style.backgroundImage = `url('${img.src}')`;
+      panel.dataset.src = img.src;
+      /* Load first panel immediately; rest load on activation */
+      if (i === 0) panel.style.backgroundImage = `url('${img.src}')`;
       panel.setAttribute('role', 'button');
       panel.setAttribute('tabindex', '0');
       panel.setAttribute('aria-label', img.caption);
@@ -244,6 +263,9 @@
 
       panelsWrap.appendChild(panel);
     });
+
+    /* Preload panel 2 in background after panel 1 is set */
+    setTimeout(() => loadPanelImage(1), 200);
   }
 
   /* =====================================================
@@ -266,14 +288,22 @@
   function setActive(index) {
     const panels = panelsWrap.querySelectorAll('.pslider-panel');
     const dots   = dotsWrap.querySelectorAll('.pslider-dot');
+    const total  = currentData.images.length;
 
     panels[activeIndex]?.classList.remove('active');
     dots[activeIndex]?.classList.remove('active');
 
-    activeIndex = (index + currentData.images.length) % currentData.images.length;
+    activeIndex = (index + total) % total;
 
     panels[activeIndex]?.classList.add('active');
     dots[activeIndex]?.classList.add('active');
+
+    /* Load current + adjacent panels */
+    loadPanelImage(activeIndex);
+    loadPanelImage((activeIndex + 1) % total);
+    loadPanelImage((activeIndex - 1 + total) % total);
+
+    counterEl.textContent = `${activeIndex + 1} / ${total}`;
   }
 
   /* =====================================================
