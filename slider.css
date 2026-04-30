@@ -1,18 +1,22 @@
 /* =====================================================
    PROJECT SLIDER — slider.css
-   Cinematic full-viewport: Ken Burns + crossfade + auto-advance
+   Windowed modal: full image visible, no cropping
    ===================================================== */
 
-/* ---- OVERLAY ---- */
+/* ---- OVERLAY (dark backdrop) ---- */
 .pslider-overlay {
   position: fixed;
   inset: 0;
   z-index: 2000;
-  background: #0a0907;
+  background: rgba(8, 7, 5, 0.96);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  box-sizing: border-box;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.45s ease, visibility 0.45s ease;
-  overflow: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
   --auto-delay: 6s;
 }
 
@@ -21,91 +25,38 @@
   visibility: visible;
 }
 
-/* ---- IMAGE STAGE (full viewport) ---- */
-.pslider-stage {
-  position: absolute;
-  inset: 0;
+/* ---- FRAME (the modal window) ---- */
+.pslider-frame {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1140px;
+  max-height: min(90vh, 920px);
+  background: #0d0c0a;
+  border: 1px solid rgba(255, 255, 255, 0.07);
   overflow: hidden;
 }
 
-/* Two layers for crossfade — always present */
-.pslider-img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  opacity: 0;
-  transition: opacity 0.9s ease;
-  will-change: transform, opacity;
-  pointer-events: none;
-}
-
-.pslider-img.visible {
-  opacity: 1;
-}
-
-/* ---- KEN BURNS — 4 direction variants ---- */
-.pslider-img.kb0 { animation: kb0 10s ease-out forwards; }
-.pslider-img.kb1 { animation: kb1 10s ease-out forwards; }
-.pslider-img.kb2 { animation: kb2 10s ease-out forwards; }
-.pslider-img.kb3 { animation: kb3 10s ease-out forwards; }
-
-@keyframes kb0 {
-  from { transform: scale(1.00) translate(  0%,   0%); }
-  to   { transform: scale(1.09) translate(-2.5%, -1%); }
-}
-@keyframes kb1 {
-  from { transform: scale(1.00) translate(  0%,   0%); }
-  to   { transform: scale(1.09) translate( 2.5%,  1%); }
-}
-@keyframes kb2 {
-  from { transform: scale(1.06) translate(-2%,  -1%); }
-  to   { transform: scale(1.06) translate( 2%,   0.5%); }
-}
-@keyframes kb3 {
-  from { transform: scale(1.07) translate( 2%,   1%); }
-  to   { transform: scale(1.00) translate(-1%,  -0.5%); }
-}
-
-/* ---- CINEMATIC VIGNETTE ---- */
-.pslider-vignette {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at 50% 50%, transparent 35%, rgba(0,0,0,0.38) 100%);
-  pointer-events: none;
-  z-index: 2;
-}
-
-/* ---- GRADIENT OVERLAYS for text readability ---- */
-.pslider-grad-top {
+/* Terracotta rule across top */
+.pslider-frame::before {
+  content: '';
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: 200px;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.15) 70%, transparent 100%);
-  pointer-events: none;
-  z-index: 4;
-}
-
-.pslider-grad-bottom {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 300px;
-  background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.5) 55%, transparent 100%);
-  pointer-events: none;
-  z-index: 4;
+  height: 2px;
+  background: var(--terracotta);
+  opacity: 0.65;
+  z-index: 20;
 }
 
 /* ---- HEADER ---- */
 .pslider-header {
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  z-index: 10;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
-  padding: 2rem 2.5rem;
+  padding: 0.9rem 1.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  flex-shrink: 0;
 }
 
 .pslider-eyebrow {
@@ -116,48 +67,44 @@
   text-transform: uppercase;
   color: var(--terracotta);
   display: block;
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.2rem;
 }
 
 .pslider-title {
   font-family: var(--font-display);
-  font-size: clamp(1.5rem, 2.6vw, 2.6rem);
+  font-size: clamp(1.2rem, 2vw, 1.9rem);
   letter-spacing: 0.07em;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.95);
   text-transform: uppercase;
   line-height: 1;
-  text-shadow: 0 2px 16px rgba(0,0,0,0.55);
 }
 
 .pslider-header-right {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: 1.1rem;
   flex-shrink: 0;
-  padding-top: 0.25rem;
 }
 
 .pslider-counter {
   font-family: var(--font-sans);
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   font-weight: 400;
   letter-spacing: 0.2em;
-  color: rgba(255,255,255,0.4);
+  color: rgba(255, 255, 255, 0.3);
   text-transform: uppercase;
 }
 
 .pslider-close {
-  width: 42px;
-  height: 42px;
-  border: 1.5px solid rgba(255,255,255,0.18);
-  color: rgba(255,255,255,0.55);
-  background: rgba(0,0,0,0.28);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.5);
+  background: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   cursor: pointer;
   transition: border-color 0.25s ease, color 0.25s ease;
   font-family: inherit;
@@ -169,64 +116,139 @@
   color: var(--terracotta);
 }
 
-/* ---- SIDE ARROWS ---- */
+/* ---- STAGE (image area) ---- */
+.pslider-stage {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  background: #000;
+  overflow: hidden;
+}
+
+/* Two layers for crossfade */
+.pslider-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;       /* full image visible — no cropping */
+  opacity: 0;
+  transition: opacity 0.85s ease;
+  will-change: transform, opacity;
+  pointer-events: none;
+}
+
+.pslider-img.visible {
+  opacity: 1;
+}
+
+/* ---- KEN BURNS — subtle (contain = full image, so keep scale small) ---- */
+.pslider-img.kb0 { animation: kb0 10s ease-out forwards; }
+.pslider-img.kb1 { animation: kb1 10s ease-out forwards; }
+.pslider-img.kb2 { animation: kb2 10s ease-out forwards; }
+.pslider-img.kb3 { animation: kb3 10s ease-out forwards; }
+
+@keyframes kb0 {
+  from { transform: scale(1.00) translate(  0%,    0%); }
+  to   { transform: scale(1.04) translate(-0.8%, -0.4%); }
+}
+@keyframes kb1 {
+  from { transform: scale(1.00) translate(  0%,   0%); }
+  to   { transform: scale(1.04) translate( 0.8%,  0.4%); }
+}
+@keyframes kb2 {
+  from { transform: scale(1.02) translate(-0.7%, 0%); }
+  to   { transform: scale(1.02) translate( 0.7%, 0%); }
+}
+@keyframes kb3 {
+  from { transform: scale(1.03) translate( 0.5%, 0.3%); }
+  to   { transform: scale(1.00) translate(-0.4%, -0.2%); }
+}
+
+/* ---- SIDE ARROWS (inside stage, appear on hover) ---- */
 .pslider-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   z-index: 10;
-  width: 54px;
-  height: 54px;
-  border: 1.5px solid rgba(255,255,255,0.18);
-  color: rgba(255,255,255,0.75);
-  background: rgba(0,0,0,0.3);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.8);
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-family: inherit;
-  transition: opacity 0.3s ease, border-color 0.25s ease, color 0.25s ease, background 0.25s ease;
+  transition: opacity 0.3s ease, border-color 0.25s ease, color 0.25s ease;
   opacity: 0;
 }
 
-.pslider-arrow--prev { left: 1.75rem; }
-.pslider-arrow--next { right: 1.75rem; }
+.pslider-arrow--prev { left: 1rem; }
+.pslider-arrow--next { right: 1rem; }
 
-.pslider-overlay:hover .pslider-arrow {
+.pslider-stage:hover .pslider-arrow {
   opacity: 1;
 }
 
 .pslider-arrow:hover {
   border-color: var(--terracotta);
   color: var(--terracotta);
-  background: rgba(0,0,0,0.5);
 }
 
-/* ---- CAPTION ---- */
-.pslider-caption-area {
+/* ---- PAUSED BADGE (inside stage) ---- */
+.pslider-paused-label {
   position: absolute;
-  bottom: 132px;
-  left: 2.5rem;
-  right: 2.5rem;
-  z-index: 10;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  padding: 0.4rem 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  font-family: var(--font-sans);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
   pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.pslider-overlay.paused .pslider-paused-label {
+  opacity: 1;
+}
+
+/* ---- INFO BAR (caption + progress) ---- */
+.pslider-info-bar {
+  flex-shrink: 0;
+  padding: 0.65rem 1.75rem 0.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .pslider-caption {
   font-family: var(--font-sans);
-  font-size: 0.82rem;
+  font-size: 0.73rem;
   font-weight: 500;
   letter-spacing: 0.1em;
-  color: rgba(255,255,255,0.8);
+  color: rgba(255, 255, 255, 0.55);
   text-transform: uppercase;
   display: block;
+  margin-bottom: 0.5rem;
   opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 0.55s ease 0.15s, transform 0.55s ease 0.15s;
-  text-shadow: 0 1px 8px rgba(0,0,0,0.5);
+  transform: translateY(5px);
+  transition: opacity 0.45s ease 0.1s, transform 0.45s ease 0.1s;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .pslider-caption.visible {
@@ -234,20 +256,10 @@
   transform: translateY(0);
 }
 
-/* ---- BOTTOM AREA: progress + thumbnails ---- */
-.pslider-bottom {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  z-index: 10;
-  padding: 0 2.5rem 1.75rem;
-}
-
-/* Progress bar */
 .pslider-progress {
   width: 100%;
   height: 1px;
-  background: rgba(255,255,255,0.08);
-  margin-bottom: 1rem;
+  background: rgba(255, 255, 255, 0.07);
   overflow: hidden;
 }
 
@@ -255,7 +267,7 @@
   height: 100%;
   width: 0%;
   background: var(--terracotta);
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
 .pslider-progress-fill.running {
@@ -267,41 +279,48 @@
   to   { width: 100%; }
 }
 
-/* Thumbnail strip */
+/* ---- THUMBNAIL STRIP ---- */
 .pslider-strip {
+  flex-shrink: 0;
   display: flex;
-  gap: 5px;
+  gap: 4px;
+  padding: 0.6rem 1.75rem 0.85rem;
   overflow-x: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  justify-content: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 .pslider-strip::-webkit-scrollbar { display: none; }
 
 .pslider-thumb {
-  width: 84px;
-  height: 56px;
+  width: 76px;
+  height: 50px;
   flex-shrink: 0;
   background-size: cover;
   background-position: center;
-  background-color: rgba(28, 26, 22, 1);
+  background-color: rgba(22, 20, 18, 1);
   cursor: pointer;
   border: 2px solid transparent;
   opacity: 0.38;
-  transition: opacity 0.35s ease, border-color 0.35s ease, transform 0.35s ease;
+  transition: opacity 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
   padding: 0;
   font-family: inherit;
   position: relative;
   overflow: hidden;
 }
 
-/* Shimmer placeholder while thumbnail loads */
+/* Shimmer while thumbnail loads */
 .pslider-thumb::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.04) 50%, rgba(255,255,255,0) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.04) 50%,
+    rgba(255,255,255,0) 100%
+  );
   background-size: 200% 100%;
   animation: shimmer 1.8s infinite;
 }
@@ -311,9 +330,7 @@
   to   { background-position: -200% 0; }
 }
 
-.pslider-thumb.loaded::before {
-  display: none;
-}
+.pslider-thumb.loaded::before { display: none; }
 
 .pslider-thumb.active {
   opacity: 1;
@@ -327,71 +344,54 @@
 
 /* ---- KEYBOARD HINT ---- */
 .pslider-hint {
-  position: absolute;
-  bottom: 1.75rem;
-  right: 2.5rem;
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.5rem;
   font-family: var(--font-sans);
-  font-size: 0.55rem;
+  font-size: 0.54rem;
   font-weight: 500;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.14);
+  color: rgba(255, 255, 255, 0.13);
   pointer-events: none;
-  z-index: 10;
-}
-
-/* ---- PAUSE INDICATOR ---- */
-.pslider-paused-label {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 20;
-  padding: 0.45rem 1rem;
-  border: 1px solid rgba(255,255,255,0.18);
-  background: rgba(0,0,0,0.55);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  font-family: var(--font-sans);
-  font-size: 0.62rem;
-  font-weight: 600;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.65);
-  pointer-events: none;
+  z-index: 2010;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.5s ease 0.5s;
 }
 
-.pslider-overlay.paused .pslider-paused-label {
+.pslider-overlay.open .pslider-hint {
   opacity: 1;
 }
 
 /* ---- MOBILE ---- */
 @media (max-width: 768px) {
-  .pslider-header { padding: 1.25rem 1.25rem 1rem; }
+  .pslider-overlay {
+    padding: 0;
+    align-items: flex-start;
+  }
 
-  .pslider-title { font-size: 1.3rem; }
+  .pslider-frame {
+    max-width: 100%;
+    max-height: 100dvh;
+    border: none;
+  }
+
+  .pslider-frame::before { display: none; }
+
+  .pslider-header { padding: 0.75rem 1rem; }
+  .pslider-title  { font-size: 1.1rem; }
   .pslider-counter { display: none; }
-  .pslider-hint { display: none; }
 
   .pslider-arrow { display: none; }
 
-  .pslider-caption-area {
-    bottom: 116px;
-    left: 1.25rem;
-    right: 1.25rem;
-  }
+  .pslider-info-bar { padding: 0.5rem 1rem 0.4rem; }
+  .pslider-strip    { padding: 0.5rem 1rem 0.65rem; }
+  .pslider-thumb    { width: 60px; height: 40px; }
 
-  .pslider-caption { font-size: 0.75rem; }
-
-  .pslider-bottom { padding: 0 1.25rem 1.25rem; }
-
-  .pslider-thumb { width: 62px; height: 42px; }
+  .pslider-hint { display: none; }
 }
 
 @media (max-width: 480px) {
-  .pslider-title { font-size: 1.1rem; }
-  .pslider-caption-area { bottom: 108px; }
-  .pslider-thumb { width: 52px; height: 35px; }
+  .pslider-title { font-size: 0.95rem; }
+  .pslider-thumb { width: 50px; height: 33px; }
 }
