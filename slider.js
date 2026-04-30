@@ -26,9 +26,20 @@
         { src: 'Assets/vinutha-bedroom-7.png',      caption: 'Bedroom 7' },
       ]
     },
+    'jamna-industries': {
+      title: 'Jamna Auto Industries',
+      category: 'Commercial · 2025 · 12,000 sq ft · Hosur',
+      images: [
+        { src: 'Assets/jamna-reception.png',       caption: 'Reception' },
+        { src: 'Assets/jamna-office.png',           caption: 'Open Office' },
+        { src: 'Assets/jamna-office-1.png',         caption: 'Office — Second View' },
+        { src: 'Assets/jamna-conference-room.png',  caption: 'Conference Room' },
+        { src: 'Assets/jamna-cafeteria.png',        caption: 'Cafeteria' },
+      ]
+    },
     'ambrish-hosur': {
       title: 'Ambrish Residence',
-      category: 'Residential · 2024 · 3,800 sq ft · Hosur',
+      category: 'Residential · 2025 · 3,800 sq ft · Hosur',
       images: [
         { src: 'Assets/ambrish-exterior.png',       caption: 'Exterior — Front Elevation' },
         { src: 'Assets/ambrish-foyer.png',           caption: 'Foyer' },
