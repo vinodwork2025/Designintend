@@ -8,8 +8,8 @@
 :root {
   --ivory: #F8F5F0;
   --charcoal: #1C1C1A;
-  --terracotta: #E8B800;
-  --terracotta-lt: #F5CC30;
+  --terracotta: #D4900A;
+  --terracotta-lt: #F0A820;
   --stone: #8C8880;
   --warm-white: #FDFCFA;
   --dark-section: #141412;
@@ -35,13 +35,13 @@
 }
 
 [data-theme="dark"] {
-  --bg: #1A1916;
-  --bg-alt: #222220;
+  --bg: #2C2A26;
+  --bg-alt: #353229;
   --text-primary: #F0EDE8;
   --text-secondary: #9A9690;
-  --nav-bg: rgba(26, 25, 22, 0.94);
+  --nav-bg: rgba(44, 42, 38, 0.94);
   --border-light: rgba(253, 252, 250, 0.1);
-  --section-dark-bg: #0E0D0B;
+  --section-dark-bg: #201F1C;
 }
 
 /* ---- RESET & BASE ---- */
