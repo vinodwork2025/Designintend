@@ -26,6 +26,24 @@
         { src: 'Assets/vinutha-bedroom-7.png',      caption: 'Bedroom 7' },
       ]
     },
+    'ambrish-hosur': {
+      title: 'Ambrish Residence',
+      category: 'Residential · 2024 · 3,800 sq ft · Hosur',
+      images: [
+        { src: 'Assets/ambrish-exterior.png',       caption: 'Exterior — Front Elevation' },
+        { src: 'Assets/ambrish-foyer.png',           caption: 'Foyer' },
+        { src: 'Assets/ambrish-living-room.png',     caption: 'Living Room' },
+        { src: 'Assets/ambrish-livingroom1.png',     caption: 'Living Room — Second View' },
+        { src: 'Assets/ambrish-upper-living.png',    caption: 'Upper Living' },
+        { src: 'Assets/ambrish-dining.png',          caption: 'Dining' },
+        { src: 'Assets/ambrish-kitchen.png',         caption: 'Kitchen' },
+        { src: 'Assets/ambrish-master-bedroom.png',  caption: 'Master Bedroom' },
+        { src: 'Assets/ambrish-bedroom-1.png',       caption: 'Bedroom' },
+        { src: 'Assets/ambrish-guestroom.png',       caption: 'Guest Room' },
+        { src: 'Assets/ambrish-bathroom.png',        caption: 'Bathroom' },
+        { src: 'Assets/ambrish-home-theatre.png',    caption: 'Home Theatre' },
+      ]
+    },
     'nexus-hq': {
       title: 'Nexus Headquarters',
       category: 'Commercial · 2023 · 12,000 sq ft · Koramangala',
