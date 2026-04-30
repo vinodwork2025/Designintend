@@ -1,7 +1,7 @@
 /**
  * DESIGN INTEND — slider.js
- * Expanding-panel project image lightbox. Pure vanilla JS.
- * Inspired by interactive selector (accordion expand mechanic).
+ * Cinematic full-viewport image viewer.
+ * Ken Burns + crossfade + auto-advance + thumbnail filmstrip.
  */
 
 'use strict';
@@ -30,34 +30,34 @@
       title: 'Nexus Headquarters',
       category: 'Commercial · 2023 · 12,000 sq ft · Koramangala',
       images: [
-        { src: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1100&q=80&auto=format&fit=crop', caption: 'Open Plan Office' },
-        { src: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1100&q=80&auto=format&fit=crop', caption: 'Executive Suite' },
-        { src: 'https://images.unsplash.com/photo-1497366754035-f200586c5497?w=1100&q=80&auto=format&fit=crop', caption: 'Collaboration Zone' },
+        { src: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1400&q=85&auto=format&fit=crop', caption: 'Open Plan Office' },
+        { src: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1400&q=85&auto=format&fit=crop', caption: 'Executive Suite' },
+        { src: 'https://images.unsplash.com/photo-1497366754035-f200586c5497?w=1400&q=85&auto=format&fit=crop', caption: 'Collaboration Zone' },
       ]
     },
     'reddy-villa': {
       title: 'The Reddy Villa',
       category: 'Residential · 2023 · 7,200 sq ft · Sarjapur Road',
       images: [
-        { src: 'https://images.unsplash.com/photo-1615873968403-89e068629265?w=1100&q=80&auto=format&fit=crop', caption: 'Master Suite' },
-        { src: 'Assets/house-angle-2.png',     caption: 'Exterior Elevation' },
-        { src: 'Assets/house-angle-3.png',     caption: 'Side View' },
+        { src: 'https://images.unsplash.com/photo-1615873968403-89e068629265?w=1400&q=85&auto=format&fit=crop', caption: 'Master Suite' },
+        { src: 'Assets/house-angle-2.png', caption: 'Exterior Elevation' },
+        { src: 'Assets/house-angle-3.png', caption: 'Side View' },
       ]
     },
     'whitefield-duplex': {
       title: 'Whitefield Duplex',
       category: 'Residential · 2022 · 3,600 sq ft · Whitefield',
       images: [
-        { src: 'Assets/house-angle-2.png',     caption: 'Front Elevation' },
-        { src: 'Assets/house-angle-3.png',     caption: 'Side Angle' },
+        { src: 'Assets/house-angle-2.png', caption: 'Front Elevation' },
+        { src: 'Assets/house-angle-3.png', caption: 'Side Angle' },
       ]
     },
     'indiranagar-penthouse': {
       title: 'Indiranagar Penthouse',
       category: 'Interiors · 2024 · 2,800 sq ft · Indiranagar',
       images: [
-        { src: 'Assets/hero-living-room.png',  caption: 'Main Living Space' },
-        { src: 'Assets/vinutha-3d.jpg',        caption: 'Architectural Study' },
+        { src: 'Assets/hero-living-room.png', caption: 'Main Living Space' },
+        { src: 'Assets/vinutha-3d.jpg',       caption: 'Architectural Study' },
       ]
     },
     'hosur-garden': {
@@ -72,11 +72,11 @@
       title: 'Vinutha — Interior Study',
       category: 'Interiors · 2023 · 4,200 sq ft · Bengaluru',
       images: [
-        { src: 'Assets/vinutha-living-room.png',    caption: 'Living Room' },
-        { src: 'Assets/vinutha-living-room-1.png',  caption: 'Living Room — Lounge View' },
-        { src: 'Assets/vinutha-bedroom-1.png',      caption: 'Master Bedroom' },
-        { src: 'Assets/vinutha-bedroom-4.png',      caption: 'Bedroom 4' },
-        { src: 'Assets/vinutha-bedroom-5.png',      caption: 'Bedroom 5' },
+        { src: 'Assets/vinutha-living-room.png',   caption: 'Living Room' },
+        { src: 'Assets/vinutha-living-room-1.png', caption: 'Living Room — Lounge View' },
+        { src: 'Assets/vinutha-bedroom-1.png',     caption: 'Master Bedroom' },
+        { src: 'Assets/vinutha-bedroom-4.png',     caption: 'Bedroom 4' },
+        { src: 'Assets/vinutha-bedroom-5.png',     caption: 'Bedroom 5' },
       ]
     },
     'electronic-city': {
@@ -102,8 +102,8 @@
       title: 'Whitefield House — East Elevation',
       category: 'Residential · 2022 · 3,600 sq ft · Whitefield',
       images: [
-        { src: 'Assets/house-angle-2.png',     caption: 'East Elevation' },
-        { src: 'Assets/house-angle-3.png',     caption: 'North Angle' },
+        { src: 'Assets/house-angle-2.png', caption: 'East Elevation' },
+        { src: 'Assets/house-angle-3.png', caption: 'North Angle' },
       ]
     },
     'hosur-boutique': {
@@ -126,29 +126,47 @@
   };
 
   /* =====================================================
-     STATE
+     DOM REFS
      ===================================================== */
-  let overlay      = null;
-  let panelsWrap   = null;
-  let dotsWrap     = null;
-  let titleEl      = null;
-  let eyebrowEl    = null;
-  let counterEl    = null;
-  let currentData  = null;
-  let activeIndex  = 0;
+  let overlay, stage, imgA, imgB;
+  let eyebrowEl, titleEl, counterEl, captionEl;
+  let progressFill, stripEl, pausedLabel;
 
   /* =====================================================
-     BUILD OVERLAY (once, on init)
+     STATE
+     ===================================================== */
+  let currentData  = null;
+  let activeIndex  = 0;
+  let layerActive  = 'A';   // which img layer is currently visible
+  let kbVariant    = 0;
+  let isAnimating  = false;
+  let queuedIndex  = null;  // navigation queued during transition
+  let autoTimer    = null;
+  let isPaused     = false;
+
+  const AUTO_DELAY = 6000;
+  const KB_ANIMS   = ['kb0', 'kb1', 'kb2', 'kb3'];
+
+  /* =====================================================
+     BUILD OVERLAY (once)
      ===================================================== */
   function buildOverlay() {
     overlay = document.createElement('div');
     overlay.className = 'pslider-overlay';
     overlay.setAttribute('role', 'dialog');
     overlay.setAttribute('aria-modal', 'true');
-    overlay.setAttribute('aria-label', 'Project image gallery');
+    overlay.setAttribute('aria-label', 'Project gallery');
 
     overlay.innerHTML = `
-      <div class="pslider-header">
+      <div class="pslider-stage" id="psliderStage">
+        <img class="pslider-img" id="psliderImgA" alt="" />
+        <img class="pslider-img" id="psliderImgB" alt="" />
+      </div>
+      <div class="pslider-vignette"></div>
+      <div class="pslider-grad-top"></div>
+      <div class="pslider-grad-bottom"></div>
+
+      <header class="pslider-header">
         <div class="pslider-title-group">
           <span class="pslider-eyebrow" id="psliderEyebrow"></span>
           <h2 class="pslider-title" id="psliderTitle"></h2>
@@ -157,24 +175,43 @@
           <span class="pslider-counter" id="psliderCounter"></span>
           <button class="pslider-close" id="psliderClose" aria-label="Close gallery">&#x2715;</button>
         </div>
+      </header>
+
+      <button class="pslider-arrow pslider-arrow--prev" id="psliderPrev" aria-label="Previous image">&#8592;</button>
+      <button class="pslider-arrow pslider-arrow--next" id="psliderNext" aria-label="Next image">&#8594;</button>
+
+      <div class="pslider-caption-area">
+        <span class="pslider-caption" id="psliderCaption"></span>
       </div>
-      <div class="pslider-panels" id="psliderPanels"></div>
-      <div class="pslider-footer" id="psliderDots"></div>
-      <span class="pslider-hint">&#8592; &#8594; to navigate &nbsp;&middot;&nbsp; Esc to close</span>
+
+      <div class="pslider-bottom">
+        <div class="pslider-progress">
+          <div class="pslider-progress-fill" id="psliderProgress"></div>
+        </div>
+        <div class="pslider-strip" id="psliderStrip"></div>
+      </div>
+
+      <div class="pslider-paused-label" id="psliderPausedLabel">Paused</div>
+      <span class="pslider-hint">&#8592; &#8594; navigate &nbsp;&middot;&nbsp; Space pause &nbsp;&middot;&nbsp; Esc close</span>
     `;
 
     document.body.appendChild(overlay);
 
-    eyebrowEl  = overlay.querySelector('#psliderEyebrow');
-    titleEl    = overlay.querySelector('#psliderTitle');
-    counterEl  = overlay.querySelector('#psliderCounter');
-    panelsWrap = overlay.querySelector('#psliderPanels');
-    dotsWrap   = overlay.querySelector('#psliderDots');
+    stage        = overlay.querySelector('#psliderStage');
+    imgA         = overlay.querySelector('#psliderImgA');
+    imgB         = overlay.querySelector('#psliderImgB');
+    eyebrowEl    = overlay.querySelector('#psliderEyebrow');
+    titleEl      = overlay.querySelector('#psliderTitle');
+    counterEl    = overlay.querySelector('#psliderCounter');
+    captionEl    = overlay.querySelector('#psliderCaption');
+    progressFill = overlay.querySelector('#psliderProgress');
+    stripEl      = overlay.querySelector('#psliderStrip');
+    pausedLabel  = overlay.querySelector('#psliderPausedLabel');
 
     overlay.querySelector('#psliderClose').addEventListener('click', closeSlider);
-    overlay.addEventListener('click', (e) => {
-      if (e.target === overlay) closeSlider();
-    });
+    overlay.querySelector('#psliderPrev').addEventListener('click', () => navigate(-1));
+    overlay.querySelector('#psliderNext').addEventListener('click', () => navigate(1));
+    overlay.addEventListener('click', (e) => { if (e.target === overlay) closeSlider(); });
   }
 
   /* =====================================================
@@ -186,18 +223,41 @@
 
     currentData = project;
     activeIndex = 0;
+    kbVariant   = Math.floor(Math.random() * 4);
+    isPaused    = false;
+    isAnimating = false;
+    queuedIndex = null;
+    layerActive = 'A';
+
+    // Reset both layers cleanly
+    [imgA, imgB].forEach(img => {
+      img.src = '';
+      img.className = 'pslider-img';
+      img.onload = null;
+      img.onerror = null;
+    });
+    captionEl.classList.remove('visible');
+    overlay.classList.remove('paused');
 
     eyebrowEl.textContent = project.category;
     titleEl.textContent   = project.title;
     counterEl.textContent = `1 / ${project.images.length}`;
 
-    renderPanels();
-    renderDots();
+    buildStrip();
 
-    requestAnimationFrame(() => {
-      overlay.classList.add('open');
-    });
+    // Open overlay immediately (dark bg shows while image loads)
+    requestAnimationFrame(() => overlay.classList.add('open'));
     document.body.style.overflow = 'hidden';
+
+    // Load first image into layer A — fade in when ready
+    loadIntoLayer(imgA, project.images[0], () => {
+      imgA.classList.add('visible');
+      updateCaption(project.images[0].caption);
+      startAuto();
+    });
+
+    // Preload image 2 in background
+    preload(1);
   }
 
   /* =====================================================
@@ -206,118 +266,221 @@
   function closeSlider() {
     overlay.classList.remove('open');
     document.body.style.overflow = '';
+    stopAuto();
+
     setTimeout(() => {
-      panelsWrap.innerHTML = '';
-      dotsWrap.innerHTML   = '';
-    }, 420);
-  }
-
-  /* =====================================================
-     LAZY LOAD — apply backgroundImage only when needed
-     ===================================================== */
-  function loadPanelImage(index) {
-    const panels = panelsWrap.querySelectorAll('.pslider-panel');
-    const panel  = panels[index];
-    if (!panel || panel.style.backgroundImage) return;
-    const src = panel.dataset.src;
-    if (src) panel.style.backgroundImage = `url('${src}')`;
-  }
-
-  /* =====================================================
-     RENDER PANELS
-     ===================================================== */
-  function renderPanels() {
-    panelsWrap.innerHTML = '';
-    const images = currentData.images;
-
-    images.forEach((img, i) => {
-      const panel = document.createElement('div');
-      panel.className = 'pslider-panel' + (i === 0 ? ' active' : '');
-      panel.dataset.src = img.src;
-      /* Load first panel immediately; rest load on activation */
-      if (i === 0) panel.style.backgroundImage = `url('${img.src}')`;
-      panel.setAttribute('role', 'button');
-      panel.setAttribute('tabindex', '0');
-      panel.setAttribute('aria-label', img.caption);
-
-      const numLabel = String(i + 1).padStart(2, '0');
-
-      panel.innerHTML = `
-        <div class="pslider-panel-shadow"></div>
-        <div class="pslider-panel-vnum">${numLabel}</div>
-        <div class="pslider-label">
-          <div class="pslider-label-inner">
-            <span class="pslider-label-num">${numLabel}</span>
-            <div class="pslider-label-text">
-              <span class="pslider-label-caption">${img.caption}</span>
-              <span class="pslider-label-count">${i + 1} / ${images.length}</span>
-            </div>
-          </div>
-        </div>
-      `;
-
-      panel.addEventListener('click', () => setActive(i));
-      panel.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') setActive(i);
+      [imgA, imgB].forEach(img => {
+        img.src = '';
+        img.className = 'pslider-img';
+        img.onload = null;
+        img.onerror = null;
       });
-
-      panelsWrap.appendChild(panel);
-    });
-
-    /* Preload panel 2 in background after panel 1 is set */
-    setTimeout(() => loadPanelImage(1), 200);
+      stripEl.innerHTML = '';
+      captionEl.classList.remove('visible');
+      overlay.classList.remove('paused');
+      progressFill.classList.remove('running');
+    }, 450);
   }
 
   /* =====================================================
-     RENDER DOTS
+     NAVIGATE (wraps setActive + restarts auto)
      ===================================================== */
-  function renderDots() {
-    dotsWrap.innerHTML = '';
-    currentData.images.forEach((_, i) => {
-      const dot = document.createElement('button');
-      dot.className = 'pslider-dot' + (i === 0 ? ' active' : '');
-      dot.setAttribute('aria-label', `Image ${i + 1}`);
-      dot.addEventListener('click', () => setActive(i));
-      dotsWrap.appendChild(dot);
-    });
+  function navigate(dir) {
+    const total = currentData.images.length;
+    setActive((activeIndex + dir + total) % total);
+    if (!isPaused) restartAuto();
   }
 
   /* =====================================================
-     SET ACTIVE PANEL
+     SET ACTIVE — crossfade with Ken Burns
      ===================================================== */
   function setActive(index) {
-    const panels = panelsWrap.querySelectorAll('.pslider-panel');
-    const dots   = dotsWrap.querySelectorAll('.pslider-dot');
-    const total  = currentData.images.length;
+    const total = currentData.images.length;
+    const target = (index + total) % total;
 
-    panels[activeIndex]?.classList.remove('active');
-    dots[activeIndex]?.classList.remove('active');
+    if (isAnimating) {
+      queuedIndex = target; // store latest requested index
+      return;
+    }
 
-    activeIndex = (index + total) % total;
+    queuedIndex  = null;
+    isAnimating  = true;
+    activeIndex  = target;
 
-    panels[activeIndex]?.classList.add('active');
-    dots[activeIndex]?.classList.add('active');
+    const inLayer  = layerActive === 'A' ? imgB : imgA;
+    const outLayer = layerActive === 'A' ? imgA : imgB;
+    const imgData  = currentData.images[activeIndex];
 
-    /* Load current + adjacent panels */
-    loadPanelImage(activeIndex);
-    loadPanelImage((activeIndex + 1) % total);
-    loadPanelImage((activeIndex - 1 + total) % total);
+    captionEl.classList.remove('visible');
 
-    counterEl.textContent = `${activeIndex + 1} / ${total}`;
+    loadIntoLayer(inLayer, imgData, () => {
+      // Crossfade: bring in new, fade out old
+      inLayer.classList.add('visible');
+      outLayer.classList.remove('visible');
+      layerActive = layerActive === 'A' ? 'B' : 'A';
+
+      updateCounter();
+      updateStrip();
+      updateCaption(imgData.caption);
+
+      // Preload next image while user is viewing current
+      preload((activeIndex + 1) % total);
+
+      setTimeout(() => {
+        isAnimating = false;
+        // Clean KB classes from outLayer for next use
+        KB_ANIMS.forEach(c => outLayer.classList.remove(c));
+
+        // Process queued navigation if any
+        if (queuedIndex !== null) {
+          const qi = queuedIndex;
+          queuedIndex = null;
+          setActive(qi);
+        }
+      }, 950);
+    });
   }
 
   /* =====================================================
-     KEYBOARD NAVIGATION
+     LOAD IMAGE INTO LAYER
+     Sets src, waits for load, applies Ken Burns, calls cb
+     ===================================================== */
+  function loadIntoLayer(imgEl, imgData, cb) {
+    KB_ANIMS.forEach(c => imgEl.classList.remove(c));
+    imgEl.classList.remove('visible');
+    imgEl.onload  = null;
+    imgEl.onerror = null;
+
+    function onReady() {
+      imgEl.onload  = null;
+      imgEl.onerror = null;
+      // Force reflow so CSS animation restarts from frame 0
+      void imgEl.offsetWidth;
+      imgEl.classList.add(KB_ANIMS[kbVariant % 4]);
+      kbVariant++;
+      cb();
+    }
+
+    imgEl.onload  = onReady;
+    imgEl.onerror = onReady; // still advance if image 404s
+    imgEl.alt     = imgData.caption;
+    imgEl.src     = imgData.src;
+
+    // If image already cached, onload may not fire — check complete
+    if (imgEl.complete && imgEl.naturalWidth > 0) {
+      imgEl.onload  = null;
+      imgEl.onerror = null;
+      void imgEl.offsetWidth;
+      imgEl.classList.add(KB_ANIMS[kbVariant % 4]);
+      kbVariant++;
+      cb();
+    }
+  }
+
+  /* =====================================================
+     PRELOAD (background fetch into browser cache)
+     ===================================================== */
+  function preload(index) {
+    const imgData = currentData.images[index];
+    if (!imgData) return;
+    const img = new Image();
+    img.src = imgData.src;
+  }
+
+  /* =====================================================
+     BUILD THUMBNAIL STRIP
+     ===================================================== */
+  function buildStrip() {
+    stripEl.innerHTML = '';
+    currentData.images.forEach((imgData, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'pslider-thumb' + (i === 0 ? ' active' : '');
+      btn.setAttribute('aria-label', `View image ${i + 1}: ${imgData.caption}`);
+      btn.addEventListener('click', () => {
+        setActive(i);
+        if (!isPaused) restartAuto();
+      });
+      stripEl.appendChild(btn);
+
+      // Stagger thumbnail bg loads to avoid network burst
+      setTimeout(() => {
+        btn.style.backgroundImage = `url('${imgData.src}')`;
+        btn.classList.add('loaded');
+      }, i * 200 + 400);
+    });
+  }
+
+  /* =====================================================
+     UPDATE HELPERS
+     ===================================================== */
+  function updateStrip() {
+    const thumbs = stripEl.querySelectorAll('.pslider-thumb');
+    thumbs.forEach((t, i) => t.classList.toggle('active', i === activeIndex));
+    thumbs[activeIndex]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  }
+
+  function updateCaption(text) {
+    captionEl.textContent = text;
+    // Double RAF ensures transition triggers after DOM paint
+    requestAnimationFrame(() => requestAnimationFrame(() => captionEl.classList.add('visible')));
+  }
+
+  function updateCounter() {
+    counterEl.textContent = `${activeIndex + 1} / ${currentData.images.length}`;
+  }
+
+  /* =====================================================
+     AUTO-ADVANCE
+     ===================================================== */
+  function startAuto() {
+    stopAuto();
+    restartProgress();
+    autoTimer = setTimeout(() => {
+      navigate(1);
+      if (!isPaused) startAuto();
+    }, AUTO_DELAY);
+  }
+
+  function stopAuto() {
+    clearTimeout(autoTimer);
+    autoTimer = null;
+  }
+
+  function restartAuto() {
+    stopAuto();
+    startAuto();
+  }
+
+  function restartProgress() {
+    progressFill.classList.remove('running');
+    void progressFill.offsetWidth; // force reflow to restart animation
+    progressFill.classList.add('running');
+  }
+
+  function togglePause() {
+    isPaused = !isPaused;
+    overlay.classList.toggle('paused', isPaused);
+    if (isPaused) {
+      stopAuto();
+      progressFill.classList.remove('running');
+    } else {
+      startAuto();
+    }
+  }
+
+  /* =====================================================
+     KEYBOARD
      ===================================================== */
   document.addEventListener('keydown', (e) => {
     if (!overlay?.classList.contains('open')) return;
-    if (e.key === 'Escape')      closeSlider();
-    if (e.key === 'ArrowRight')  setActive(activeIndex + 1);
-    if (e.key === 'ArrowLeft')   setActive(activeIndex - 1);
+    if (e.key === 'Escape')     { closeSlider(); return; }
+    if (e.key === 'ArrowRight') { navigate(1); return; }
+    if (e.key === 'ArrowLeft')  { navigate(-1); return; }
+    if (e.key === ' ')          { e.preventDefault(); togglePause(); }
   });
 
   /* =====================================================
-     TOUCH SWIPE SUPPORT
+     TOUCH SWIPE
      ===================================================== */
   let touchStartX = 0;
   document.addEventListener('touchstart', (e) => {
@@ -329,11 +492,11 @@
     if (!overlay?.classList.contains('open')) return;
     const delta = e.changedTouches[0].screenX - touchStartX;
     if (Math.abs(delta) < 40) return;
-    delta < 0 ? setActive(activeIndex + 1) : setActive(activeIndex - 1);
+    delta < 0 ? navigate(1) : navigate(-1);
   }, { passive: true });
 
   /* =====================================================
-     WIRE UP ALL [data-project] TRIGGERS
+     WIRE ALL [data-project] TRIGGERS
      ===================================================== */
   function wireLinks() {
     document.querySelectorAll('[data-project]').forEach(el => {
