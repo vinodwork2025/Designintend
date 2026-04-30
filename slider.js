@@ -158,35 +158,39 @@
     overlay.setAttribute('aria-label', 'Project gallery');
 
     overlay.innerHTML = `
-      <div class="pslider-frame">
-        <header class="pslider-header">
-          <div class="pslider-title-group">
-            <span class="pslider-eyebrow" id="psliderEyebrow"></span>
-            <h2 class="pslider-title" id="psliderTitle"></h2>
-          </div>
-          <div class="pslider-header-right">
-            <span class="pslider-counter" id="psliderCounter"></span>
-            <button class="pslider-close" id="psliderClose" aria-label="Close gallery">&#x2715;</button>
-          </div>
-        </header>
+      <div class="pslider-stage" id="psliderStage">
+        <img class="pslider-img" id="psliderImgA" alt="" />
+        <img class="pslider-img" id="psliderImgB" alt="" />
+      </div>
+      <div class="pslider-grad-top"></div>
+      <div class="pslider-grad-bottom"></div>
 
-        <div class="pslider-stage" id="psliderStage">
-          <img class="pslider-img" id="psliderImgA" alt="" />
-          <img class="pslider-img" id="psliderImgB" alt="" />
-          <button class="pslider-arrow pslider-arrow--prev" id="psliderPrev" aria-label="Previous image">&#8592;</button>
-          <button class="pslider-arrow pslider-arrow--next" id="psliderNext" aria-label="Next image">&#8594;</button>
-          <div class="pslider-paused-label" id="psliderPausedLabel">Paused</div>
+      <header class="pslider-header">
+        <div class="pslider-title-group">
+          <span class="pslider-eyebrow" id="psliderEyebrow"></span>
+          <h2 class="pslider-title" id="psliderTitle"></h2>
         </div>
-
-        <div class="pslider-info-bar">
-          <span class="pslider-caption" id="psliderCaption"></span>
-          <div class="pslider-progress">
-            <div class="pslider-progress-fill" id="psliderProgress"></div>
-          </div>
+        <div class="pslider-header-right">
+          <span class="pslider-counter" id="psliderCounter"></span>
+          <button class="pslider-close" id="psliderClose" aria-label="Close gallery">&#x2715;</button>
         </div>
+      </header>
 
+      <button class="pslider-arrow pslider-arrow--prev" id="psliderPrev" aria-label="Previous image">&#8592;</button>
+      <button class="pslider-arrow pslider-arrow--next" id="psliderNext" aria-label="Next image">&#8594;</button>
+
+      <div class="pslider-caption-area">
+        <span class="pslider-caption" id="psliderCaption"></span>
+      </div>
+
+      <div class="pslider-bottom">
+        <div class="pslider-progress">
+          <div class="pslider-progress-fill" id="psliderProgress"></div>
+        </div>
         <div class="pslider-strip" id="psliderStrip"></div>
       </div>
+
+      <div class="pslider-paused-label" id="psliderPausedLabel">Paused</div>
       <span class="pslider-hint">&#8592; &#8594; navigate &nbsp;&middot;&nbsp; Space pause &nbsp;&middot;&nbsp; Esc close</span>
     `;
 
