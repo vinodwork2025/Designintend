@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Design Intend · Architects &amp; Interiors, Hosur</title>
+  <meta name="description" content="Browse completed and ongoing architecture and interior design projects by Design Intend — residential homes, commercial offices, and more across Hosur, Krishnagiri, and Bengaluru." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="slider.css" />
+
+  <style>
+    /* =====================================================
+       PROJECTS PAGE — page-specific styles
+       ===================================================== */
+
+    /* PAGE HEADER */
+    .pg-header {
+      background: var(--section-dark-bg);
+      padding: calc(var(--nav-height) + 6rem) 5rem 6rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pg-header::before {
+      content: 'PROJECTS';
+      position: absolute;
+      right: -1rem;
+      bottom: -2.5rem;
+      font-family: var(--font-display);
+      font-size: clamp(6rem, 16vw, 14rem);
+      color: rgba(255,255,255,0.025);
+      letter-spacing: 0.06em;
+      pointer-events: none;
+      white-space: nowrap;
+      line-height: 1;
+      user-select: none;
+    }
+
+    .pg-header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      gap: 4rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .pg-header-eyebrow {
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--terracotta-lt);
+      margin-bottom: 1.25rem;
+      display: block;
+    }
+
+    .pg-header-title {
+      font-family: var(--font-display);
+      font-size: clamp(4rem, 8vw, 8rem);
+      line-height: 0.9;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: var(--warm-white);
+      margin-bottom: 1.75rem;
+    }
+
+    .pg-header-title em {
+      font-family: var(--font-serif);
+      font-style: italic;
+      text-transform: none;
+      letter-spacing: 0.01em;
+      color: var(--terracotta-lt);
+    }
+
+    .pg-header-desc {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-style: italic;
+      line-height: 1.75;
+      color: rgba(253,252,250,0.5);
+      max-width: 500px;
+    }
+
+    .pg-header-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .pg-stat-num {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 3rem;
+      letter-spacing: 0.05em;
+      color: var(--terracotta-lt);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+
+    .pg-stat-label {
+      font-family: var(--font-sans);
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(253,252,250,0.3);
+    }
+
+    /* FILTER BAR */
+    .pg-filter-bar {
+      position: sticky;
+      top: var(--nav-height);
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border-light);
+      padding: 0 5rem;
+      display: flex;
+      align-items: stretch;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .pg-filter-bar::-webkit-scrollbar { display: none; }
+
+    .pg-filter-btn {
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      padding: 1.1rem 1.5rem;
+      border-bottom: 2px solid transparent;
+      transition: color 0.3s ease, border-color 0.3s ease;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .pg-filter-count {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 18px;
+      height: 18px;
+      padding: 0 4px;
+      border-radius: 2px;
+      font-size: 0.6rem;
+      font-weight: 700;
+      background: var(--border-light);
+      color: var(--text-secondary);
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .pg-filter-btn.active {
+      color: var(--terracotta);
+      border-bottom-color: var(--terracotta);
+    }
+
+    .pg-filter-btn.active .pg-filter-count {
+      background: rgba(212,144,10,0.18);
+      color: var(--terracotta);
+    }
+
+    .pg-filter-btn:not(.active):hover {
+      color: var(--text-primary);
+    }
+
+    /* GRID SECTION */
+    .pg-grid-section {
+      padding: 4.5rem 5rem 8rem;
+      background: var(--bg);
+    }
+
+    .pg-section-label {
+      font-family: var(--font-sans);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .pg-section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border-light);
+    }
+
+    .pg-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem 2.5rem;
+    }
+
+    /* EMPTY STATE */
+    .pg-empty {
+      grid-column: 1 / -1;
+      padding: 5rem 0;
+      text-align: center;
+      display: none;
+    }
+
+    .pg-empty.visible { display: block; }
+
+    .pg-empty p {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+    }
+
+    /* PROJECT CARD */
+    .pg-card {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+
+    .pg-card:hover { transform: translateY(-6px); }
+
+    .pg-card-image {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: var(--section-dark-bg);
+      margin-bottom: 1.25rem;
+      flex-shrink: 0;
+    }
+
+    .pg-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.65s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+
+    .pg-card:hover .pg-card-image img { transform: scale(1.06); }
+
+    /* Badge */
+    .pg-card-badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      font-family: var(--font-sans);
+      font-size: 0.56rem;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.75rem;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .pg-card-badge--done {
+      background: var(--terracotta);
+      color: white;
+    }
+
+    .pg-card-badge--ongoing {
+      background: rgba(10,9,7,0.82);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: rgba(253,252,250,0.65);
+      border: 1px solid rgba(253,252,250,0.14);
+    }
+
+    /* Card body */
+    .pg-card-body { flex: 1; display: flex; flex-direction: column; }
+
+    .pg-card-category {
+      font-family: var(--font-sans);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 0.5rem;
+    }
+
+    .pg-card-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.9rem, 2.4vw, 2.6rem);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text-primary);
+      line-height: 0.95;
+      margin-bottom: 0.6rem;
+    }
+
+    .pg-card-meta {
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+      flex: 1;
+    }
+
+    .pg-card-link {
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      position: relative;
+      display: inline-block;
+    }
+
+    .pg-card-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: var(--terracotta);
+      transition: width 0.3s ease;
+    }
+
+    .pg-card:hover .pg-card-link::after { width: 100%; }
+
+    .pg-card-link--muted {
+      color: var(--text-secondary);
+      pointer-events: none;
+    }
+    .pg-card-link--muted::after { display: none; }
+
+    /* ONGOING CARD */
+    .pg-card--ongoing { cursor: default; }
+    .pg-card--ongoing:hover { transform: none; }
+
+    .pg-card-image--dark {
+      background: linear-gradient(145deg, #1a1814 0%, #0f0e0c 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pg-ongoing-visual {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .pg-ongoing-pulse {
+      position: relative;
+      width: 10px;
+      height: 10px;
+    }
+
+    .pg-ongoing-pulse::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: var(--terracotta);
+      animation: pgPulse 2.2s ease-in-out infinite;
+    }
+
+    .pg-ongoing-pulse::after {
+      content: '';
+      position: absolute;
+      inset: -7px;
+      border-radius: 50%;
+      border: 1.5px solid var(--terracotta);
+      opacity: 0;
+      animation: pgRipple 2.2s ease-in-out infinite;
+    }
+
+    @keyframes pgPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.55; transform: scale(1.2); }
+    }
+
+    @keyframes pgRipple {
+      0% { opacity: 0.55; transform: scale(0.7); }
+      100% { opacity: 0; transform: scale(2.2); }
+    }
+
+    .pg-ongoing-label {
+      font-family: var(--font-sans);
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(253,252,250,0.22);
+    }
+
+    /* HIDDEN (filter) */
+    .pg-card.hidden { display: none; }
+
+    /* CTA STRIP */
+    .pg-cta {
+      background: var(--section-dark-bg);
+      padding: 7rem 5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pg-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 50%, rgba(212,144,10,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .pg-cta-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .pg-cta .section-eyebrow { display: block; margin-bottom: 1.5rem; }
+
+    .pg-cta-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 5.5vw, 5.5rem);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--warm-white);
+      line-height: 0.95;
+      margin-bottom: 2.5rem;
+    }
+
+    .pg-cta-title em {
+      font-family: var(--font-serif);
+      font-style: italic;
+      text-transform: none;
+      color: var(--terracotta-lt);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1200px) {
+      .pg-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 1024px) {
+      .pg-header,
+      .pg-grid-section,
+      .pg-cta { padding-left: 3rem; padding-right: 3rem; }
+      .pg-filter-bar { padding: 0 3rem; }
+    }
+
+    @media (max-width: 768px) {
+      .pg-header { padding: calc(var(--nav-height) + 3rem) 1.5rem 3rem; }
+      .pg-header-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .pg-header-stats { flex-direction: row; text-align: left; flex-wrap: wrap; gap: 2rem; }
+      .pg-filter-bar { padding: 0 1.5rem; }
+      .pg-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .pg-grid-section { padding: 2.5rem 1.5rem 5rem; }
+      .pg-cta { padding: 5rem 1.5rem; }
+    }
+
+    @media (max-width: 480px) {
+      .pg-header-stats { gap: 1.5rem; }
+      .pg-stat-num { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body class="light-mode" data-theme="light">
+
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="nav" id="mainNav">
+    <div class="nav-logo">
+      <a href="index.html" class="logo-link" style="display:flex;align-items:center;gap:8px;">
+        <img src="Assets/DesignIntend-logo.png" alt="Design Intend" width="35" height="30" style="height:30px;width:auto;flex-shrink:0;" loading="eager" fetchpriority="high" />
+        <span class="logo-dot">DESIGN</span>&nbsp;INTEND
+      </a>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#works" class="nav-link">Works</a></li>
+      <li><a href="projects.html" class="nav-link" style="color:var(--terracotta);">Projects</a></li>
+      <li><a href="index.html#services" class="nav-link">Services</a></li>
+      <li><a href="index.html#studio" class="nav-link">About</a></li>
+      <li><a href="index.html#process" class="nav-link">Process</a></li>
+      <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <span class="toggle-icon">
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </span>
+      </button>
+      <a href="tel:+918045678900" class="nav-call" aria-label="Call us">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="width:14px;height:14px;flex-shrink:0;">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.47 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.06 6.06l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+        <span class="nav-call-text">Call Us</span>
+      </a>
+      <a href="index.html#contact" class="nav-cta">Start a Project</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" id="mobileClose">&#x2715;</button>
+    <ul class="mobile-nav-links">
+      <li><a href="index.html#works" class="mobile-nav-link">Works</a></li>
+      <li><a href="projects.html" class="mobile-nav-link" style="color:var(--terracotta);">Projects</a></li>
+      <li><a href="index.html#services" class="mobile-nav-link">Services</a></li>
+      <li><a href="index.html#studio" class="mobile-nav-link">About</a></li>
+      <li><a href="index.html#process" class="mobile-nav-link">Process</a></li>
+      <li><a href="index.html#contact" class="mobile-nav-link">Contact</a></li>
+    </ul>
+    <div class="mobile-menu-footer">
+      <p>Hosur, Tamil Nadu</p>
+      <a href="mailto:studio@designintend.in">studio@designintend.in</a>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- ========== PAGE HEADER ========== -->
+    <section class="pg-header">
+      <div class="pg-header-inner">
+        <div class="pg-header-left">
+          <span class="pg-header-eyebrow">Portfolio &bull; Design Intend</span>
+          <h1 class="pg-header-title">Our <em>Projects</em></h1>
+          <p class="pg-header-desc">Architecture and interior design across Hosur, Bengaluru, and the wider Krishnagiri region — every project built around the people who live in it.</p>
+        </div>
+        <div class="pg-header-stats">
+          <div>
+            <span class="pg-stat-num">3</span>
+            <span class="pg-stat-label">Showcased</span>
+          </div>
+          <div>
+            <span class="pg-stat-num">2</span>
+            <span class="pg-stat-label">In Progress</span>
+          </div>
+          <div>
+            <span class="pg-stat-num">180+</span>
+            <span class="pg-stat-label">Total Delivered</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FILTER BAR ========== -->
+    <div class="pg-filter-bar" id="pgFilterBar" role="tablist" aria-label="Filter projects">
+      <button class="pg-filter-btn active" data-filter="all" role="tab" aria-selected="true">
+        All <span class="pg-filter-count" id="countAll">5</span>
+      </button>
+      <button class="pg-filter-btn" data-filter="residential" role="tab" aria-selected="false">
+        Residential <span class="pg-filter-count" id="countResidential">2</span>
+      </button>
+      <button class="pg-filter-btn" data-filter="commercial" role="tab" aria-selected="false">
+        Commercial <span class="pg-filter-count" id="countCommercial">1</span>
+      </button>
+      <button class="pg-filter-btn" data-filter="ongoing" role="tab" aria-selected="false">
+        Ongoing <span class="pg-filter-count" id="countOngoing">2</span>
+      </button>
+    </div>
+
+    <!-- ========== PROJECTS GRID ========== -->
+    <section class="pg-grid-section" aria-label="Project list">
+      <div class="pg-grid" id="pgGrid">
+
+        <!-- ---- VINUTHA RESIDENCE ---- -->
+        <article class="pg-card" data-category="residential" data-project="vinutha-residence" tabindex="0" role="button" aria-label="View Vinutha Residence project">
+          <div class="pg-card-image">
+            <img src="Assets/vinutha-exterior.png" alt="Vinutha Residence — Exterior elevation, Bengaluru" loading="lazy" />
+            <span class="pg-card-badge pg-card-badge--done">Completed</span>
+          </div>
+          <div class="pg-card-body">
+            <p class="pg-card-category">Residential &bull; 2024</p>
+            <h2 class="pg-card-title">Vinutha<br />Residence</h2>
+            <p class="pg-card-meta">4,200 sq ft &bull; Bengaluru &bull; Contemporary Luxury</p>
+            <span class="pg-card-link">View Project &rarr;</span>
+          </div>
+        </article>
+
+        <!-- ---- AMBRISH RESIDENCE ---- -->
+        <article class="pg-card" data-category="residential" data-project="ambrish-hosur" tabindex="0" role="button" aria-label="View Ambrish Residence project">
+          <div class="pg-card-image">
+            <img src="Assets/ambrish-exterior.png" alt="Ambrish Residence — 5 bedroom duplex, Hosur" loading="lazy" />
+            <span class="pg-card-badge pg-card-badge--done">Completed</span>
+          </div>
+          <div class="pg-card-body">
+            <p class="pg-card-category">Residential &bull; 2025 &bull; Hosur</p>
+            <h2 class="pg-card-title">Ambrish<br />Residence</h2>
+            <p class="pg-card-meta">3,800 sq ft &bull; 5 Bedrooms &bull; Duplex with Home Theatre</p>
+            <span class="pg-card-link">View Project &rarr;</span>
+          </div>
+        </article>
+
+        <!-- ---- JAMNA AUTO INDUSTRIES ---- -->
+        <article class="pg-card" data-category="commercial" data-project="jamna-industries" tabindex="0" role="button" aria-label="View Jamna Auto Industries project">
+          <div class="pg-card-image">
+            <img src="Assets/jamna-reception.png" alt="Jamna Auto Industries — Corporate office interior, Hosur" loading="lazy" />
+            <span class="pg-card-badge pg-card-badge--done">Completed</span>
+          </div>
+          <div class="pg-card-body">
+            <p class="pg-card-category">Commercial &bull; 2025 &bull; Hosur</p>
+            <h2 class="pg-card-title">Jamna Auto<br />Industries</h2>
+            <p class="pg-card-meta">12,000 sq ft &bull; Corporate Office &bull; Full Interior</p>
+            <span class="pg-card-link">View Project &rarr;</span>
+          </div>
+        </article>
+
+        <!-- ---- ONGOING: PRIVATE RESIDENCE ---- -->
+        <article class="pg-card pg-card--ongoing" data-category="ongoing" tabindex="-1" aria-label="Private Residence — Ongoing project">
+          <div class="pg-card-image pg-card-image--dark">
+            <div class="pg-ongoing-visual">
+              <span class="pg-ongoing-pulse" aria-hidden="true"></span>
+              <span class="pg-ongoing-label">In Progress</span>
+            </div>
+            <span class="pg-card-badge pg-card-badge--ongoing">Ongoing</span>
+          </div>
+          <div class="pg-card-body">
+            <p class="pg-card-category">Residential &bull; 2026</p>
+            <h2 class="pg-card-title">Private<br />Residence</h2>
+            <p class="pg-card-meta">4,500 sq ft &bull; Hosur &bull; Est. Completion Q3 2026</p>
+            <span class="pg-card-link pg-card-link--muted">Details Releasing Soon</span>
+          </div>
+        </article>
+
+        <!-- ---- ONGOING: OFFICE COMPLEX ---- -->
+        <article class="pg-card pg-card--ongoing" data-category="ongoing" tabindex="-1" aria-label="Office Complex — Ongoing project">
+          <div class="pg-card-image pg-card-image--dark">
+            <div class="pg-ongoing-visual">
+              <span class="pg-ongoing-pulse" aria-hidden="true"></span>
+              <span class="pg-ongoing-label">In Progress</span>
+            </div>
+            <span class="pg-card-badge pg-card-badge--ongoing">Ongoing</span>
+          </div>
+          <div class="pg-card-body">
+            <p class="pg-card-category">Commercial &bull; 2026</p>
+            <h2 class="pg-card-title">Office<br />Complex</h2>
+            <p class="pg-card-meta">8,000 sq ft &bull; Krishnagiri &bull; Est. Completion Q4 2026</p>
+            <span class="pg-card-link pg-card-link--muted">Details Releasing Soon</span>
+          </div>
+        </article>
+
+        <!-- Empty state (shown when filter matches nothing) -->
+        <div class="pg-empty" id="pgEmpty" aria-live="polite">
+          <p>No projects in this category yet — check back soon.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========== CTA STRIP ========== -->
+    <section class="pg-cta">
+      <div class="pg-cta-inner">
+        <p class="section-eyebrow light">Start Your Project</p>
+        <h2 class="pg-cta-title">Have a project<br /><em>in mind?</em></h2>
+        <a href="index.html#contact" class="btn-primary">Get in Touch &rarr;</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo" style="display:flex;align-items:center;gap:14px;">
+          <svg viewBox="0 0 34 38" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:36px;height:40px;flex-shrink:0;">
+            <path d="M17 3 L31 22 L3 22 Z" fill="currentColor" opacity=".1"/>
+            <path d="M6 6 L6 32 L15 32 C23.8 32 29 27.4 29 19 C29 10.6 23.8 6 15 6 Z" fill="currentColor"/>
+            <path d="M10 10 L10 28 L15 28 C20.8 28 25 24.8 25 19 C25 13.2 20.8 10 15 10 Z" fill="var(--section-dark-bg)"/>
+            <rect x="5" y="18" width="4.5" height="13" rx="1.2" fill="currentColor"/>
+            <circle cx="7.2" cy="12" r="5.5" fill="var(--terracotta)"/>
+          </svg>
+          <span><span>DESIGN</span> INTEND</span>
+        </div>
+        <p class="footer-tagline">Architects &middot; Interiors &middot; Planners.<br />Hosur &bull; Since 2014.</p>
+      </div>
+      <div class="footer-nav-col">
+        <p class="footer-col-title">Studio</p>
+        <ul>
+          <li><a href="index.html#works">Our Work</a></li>
+          <li><a href="projects.html">All Projects</a></li>
+          <li><a href="index.html#studio">About Us</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-col">
+        <p class="footer-col-title">Services</p>
+        <ul>
+          <li><a href="index.html#services">Residential Architecture</a></li>
+          <li><a href="index.html#services">Commercial Design</a></li>
+          <li><a href="index.html#services">Interior Spaces</a></li>
+          <li><a href="index.html#services">Landscape Design</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-col">
+        <p class="footer-col-title">Follow</p>
+        <ul>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Pinterest</a></li>
+          <li><a href="#">Houzz</a></li>
+          <li><a href="#">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 Design Intend. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="slider.js"></script>
+
+  <script>
+    /* =====================================================
+       PROJECTS PAGE — filter logic
+       ===================================================== */
+    (function () {
+      const btns   = document.querySelectorAll('.pg-filter-btn');
+      const cards  = document.querySelectorAll('.pg-card');
+      const empty  = document.getElementById('pgEmpty');
+
+      function updateCounts() {
+        const categories = {};
+        cards.forEach(c => {
+          const cat = c.dataset.category;
+          categories[cat] = (categories[cat] || 0) + 1;
+        });
+        const total = cards.length;
+        document.getElementById('countAll').textContent          = total;
+        document.getElementById('countResidential').textContent  = categories['residential'] || 0;
+        document.getElementById('countCommercial').textContent   = categories['commercial']  || 0;
+        document.getElementById('countOngoing').textContent      = categories['ongoing']     || 0;
+      }
+
+      function applyFilter(filter) {
+        let visible = 0;
+        cards.forEach(card => {
+          const show = filter === 'all' || card.dataset.category === filter;
+          card.classList.toggle('hidden', !show);
+          if (show) visible++;
+        });
+        empty.classList.toggle('visible', visible === 0);
+      }
+
+      btns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          btns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+          btn.classList.add('active');
+          btn.setAttribute('aria-selected', 'true');
+          applyFilter(btn.dataset.filter);
+        });
+      });
+
+      /* Keyboard: Enter/Space on completed cards triggers slider */
+      document.querySelectorAll('.pg-card:not(.pg-card--ongoing)').forEach(card => {
+        card.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            card.click();
+          }
+        });
+      });
+
+      updateCounts();
+    })();
+  </script>
+
+</body>
+</html>
