@@ -55,6 +55,21 @@
         { src: 'Assets/ambrish-home-theatre.png',    caption: 'Home Theatre' },
       ]
     },
+    'ramesh-farmhouse': {
+      title: 'Ramesh Farmhouse',
+      category: 'Residential · 2025 · Courtyard Farmhouse · Denkanikottai, Hosur',
+      images: [
+        { src: '../../Designintend/Pradeep-farmhouse/Farmhouse-%20Exterior%20(1).png',        caption: 'Arrival — The Gateway' },
+        { src: '../../Designintend/Pradeep-farmhouse/Farmhouse-Exterior1%20(1).png',          caption: 'The Forecourt — Garden Pavilion' },
+        { src: '../../Designintend/Pradeep-farmhouse/Farmhouse%20Main%20Entrance%20(1).png',  caption: 'The Threshold — Main Entrance' },
+        { src: '../../Designintend/Pradeep-farmhouse/Farmhouse-Interior%20(1).png',           caption: 'The Passage — Entry Corridor' },
+        { src: '../../Designintend/Pradeep-farmhouse/Farmhouse%20Interior1%20(1).png',        caption: 'The Verandah — Sit-Out' },
+        { src: '../../Designintend/Pradeep-farmhouse/Farmhouse%20Interior2%20(1).png',        caption: 'Verandah Life — Afternoon Repose' },
+        { src: '../../Designintend/Pradeep-farmhouse/Farmhouse-Courtyard1%20(1).png',         caption: 'The Water Court — Lily Pond' },
+        { src: '../../Designintend/Pradeep-farmhouse/Farmhouse-Courtyard%20(1).png',          caption: 'Garden Heart — Open Sky' },
+        { src: '../../Designintend/Pradeep-farmhouse/Farmhouse-Courtyard%20Main%20(1).png',   caption: 'Golden Hour — The Living Court' },
+      ]
+    },
     'nexus-hq': {
       title: 'Nexus Headquarters',
       category: 'Commercial · 2023 · 12,000 sq ft · Koramangala',
