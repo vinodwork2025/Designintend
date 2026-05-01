@@ -334,47 +334,21 @@ function initHeroAnimation() {
   if (!slides.length) return;
 
   let currentIndex = 0;
-  let autoplayTimer;
 
   function goToSlide(index) {
     slides[currentIndex].classList.remove('active');
     dots[currentIndex].classList.remove('active');
-
     currentIndex = (index + slides.length) % slides.length;
-
     slides[currentIndex].classList.add('active');
     dots[currentIndex].classList.add('active');
   }
 
-  function startAutoplay() {
-    autoplayTimer = setInterval(() => {
-      goToSlide(currentIndex + 1);
-    }, 5500);
-  }
-
-  function resetAutoplay() {
-    clearInterval(autoplayTimer);
-    startAutoplay();
-  }
-
-  prevBtn && prevBtn.addEventListener('click', () => {
-    goToSlide(currentIndex - 1);
-    resetAutoplay();
-  });
-
-  nextBtn && nextBtn.addEventListener('click', () => {
-    goToSlide(currentIndex + 1);
-    resetAutoplay();
-  });
+  prevBtn && prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
+  nextBtn && nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
 
   dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => {
-      goToSlide(i);
-      resetAutoplay();
-    });
+    dot.addEventListener('click', () => goToSlide(i));
   });
-
-  startAutoplay();
 })();
 
 /* =====================================================
