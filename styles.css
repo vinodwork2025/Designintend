@@ -799,6 +799,41 @@ body.cursor-dark .cursor-follower { border-color: var(--warm-white); }
   overflow: hidden;
 }
 
+.project-image-wrap--clickable {
+  cursor: pointer;
+}
+
+.project-image-wrap--clickable::after {
+  content: 'View Gallery';
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.9);
+  background: rgba(0,0,0,0);
+  opacity: 0;
+  transition: opacity 0.35s ease, background 0.35s ease;
+  pointer-events: none;
+}
+
+.project-image-wrap--clickable:hover::after,
+.project-image-wrap--clickable:focus-visible::after {
+  opacity: 1;
+  background: rgba(0,0,0,0.38);
+}
+
+.project-image-wrap--clickable:focus-visible {
+  outline: 2px solid var(--terracotta);
+  outline-offset: -2px;
+}
+
 .project-image-inner {
   position: absolute;
   inset: 0;

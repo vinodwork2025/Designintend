@@ -547,6 +547,14 @@
         e.preventDefault();
         openSlider(el.dataset.project);
       });
+      if (el.getAttribute('role') === 'button') {
+        el.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openSlider(el.dataset.project);
+          }
+        });
+      }
     });
   }
 
