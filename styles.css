@@ -2155,8 +2155,6 @@ body.cursor-dark .cursor-follower { border-color: var(--warm-white); }
 @keyframes waBounce{0%,100%{transform:translateY(0)}40%{transform:translateY(-6px)}60%{transform:translateY(-3px)}}
 @media(max-width:480px){.whatsapp-float-label{display:none}.whatsapp-float{padding:0.85rem;border-radius:50%}}
 
-/* Bold nav call CTA */
-.nav-call--bold{background:var(--terracotta);border-color:var(--terracotta);color:#fff;font-size:0.82rem;font-weight:800;letter-spacing:0.06em;padding:0.6rem 1.3rem;animation:callPulse 2.5s 3s ease-in-out 3}
-.nav-call--bold:hover{background:var(--charcoal);border-color:var(--charcoal);color:#fff}
-@keyframes callPulse{0%,100%{box-shadow:0 0 0 0 rgba(212,144,10,0.5)}50%{box-shadow:0 0 0 8px rgba(212,144,10,0)}}
+/* Bold nav call CTA — display only, no hover, no pointer */
+.nav-call--bold{background:var(--terracotta);border-color:var(--terracotta);color:#fff;font-size:0.82rem;font-weight:800;letter-spacing:0.06em;padding:0.6rem 1.3rem;cursor:default;pointer-events:none}
 @media(max-width:900px){.nav-call--bold .nav-call-text{display:none}.nav-call--bold{padding:0.6rem 0.75rem}}
