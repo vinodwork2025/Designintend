@@ -142,7 +142,6 @@
       <li><a href="#studio" class="nav-link">About</a></li>
       <li><a href="#process" class="nav-link">Process</a></li>
       <li><a href="#contact" class="nav-link">Contact</a></li>
-      <li><a href="construction-cost-hosur.html" class="nav-link" style="color:var(--terracotta);font-weight:600;">Cost Guide</a></li>
     </ul>
     <div class="nav-actions">
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
@@ -202,6 +201,11 @@
             <a href="#works" class="btn-primary">View Our Work</a>
             <a href="#contact" class="btn-ghost">Start a Project</a>
           </div>
+          <a href="construction-cost-hosur.html" class="hero-cost-teaser reveal-left" data-delay="450">
+            <span class="hct-label">🏗 Building in Hosur?</span>
+            <span class="hct-rates">₹1,950 &nbsp;·&nbsp; ₹2,050 &nbsp;·&nbsp; ₹2,300 <em>/sq.ft</em></span>
+            <span class="hct-cta">Calculate Your Cost &nbsp;→</span>
+          </a>
           <div class="hero-stats reveal-left" data-delay="500">
             <div class="hero-stat">
               <span class="stat-number" data-target="180">0</span>
@@ -458,17 +462,58 @@
       </div>
     </section>
 
-    <!-- ========== COST CALCULATOR CTA STRIP ========== -->
-    <section style="background:var(--charcoal);padding:3.5rem 5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:2rem;">
-      <div>
-        <p style="font-family:var(--font-sans);font-size:0.68rem;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--terracotta);margin-bottom:0.6rem;">Free Tool</p>
-        <h3 style="font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.6rem);color:var(--warm-white);text-transform:uppercase;letter-spacing:0.04em;line-height:1;">How Much Will Your Home Cost in Hosur?</h3>
-        <p style="font-family:var(--font-serif);font-size:0.95rem;color:rgba(253,252,250,0.5);margin-top:0.5rem;">Standard ₹1,950 &nbsp;·&nbsp; Premium ₹2,050 &nbsp;·&nbsp; Luxury ₹2,300 &nbsp;per sq.ft</p>
+    <!-- ========== COST SECTION ========== -->
+    <section class="hp-cost" id="cost">
+      <div class="hp-cost-inner">
+        <div class="hp-cost-header">
+          <p class="section-eyebrow">Transparent Pricing · Hosur 2025</p>
+          <h2 class="section-title">What Does It Cost to<br /><em>Build in Hosur?</em></h2>
+          <p class="hp-cost-sub">Verified rates. No guesswork. No surprises.</p>
+        </div>
+        <div class="hp-cost-grid">
+          <div class="hp-tier">
+            <p class="hp-tier-name">Standard</p>
+            <p class="hp-tier-price">₹1,950<span>/sq.ft</span></p>
+            <ul class="hp-tier-list">
+              <li>RCC structure · M20 concrete</li>
+              <li>Vitrified tile flooring</li>
+              <li>Standard electrical &amp; plumbing</li>
+              <li>UPVC doors &amp; windows</li>
+              <li>2-coat exterior paint</li>
+            </ul>
+          </div>
+          <div class="hp-tier hp-tier--featured">
+            <span class="hp-tier-badge">Most Popular</span>
+            <p class="hp-tier-name">Premium</p>
+            <p class="hp-tier-price">₹2,050<span>/sq.ft</span></p>
+            <ul class="hp-tier-list">
+              <li>Everything in Standard, plus:</li>
+              <li>Large-format premium tiles</li>
+              <li>Modular electrical &amp; ELCB</li>
+              <li>Designer sanitary — Jaquar / Cera</li>
+              <li>False ceiling &amp; modular kitchen</li>
+            </ul>
+          </div>
+          <div class="hp-tier">
+            <p class="hp-tier-name">Luxury</p>
+            <p class="hp-tier-price">₹2,300<span>/sq.ft</span></p>
+            <ul class="hp-tier-list">
+              <li>Everything in Premium, plus:</li>
+              <li>Italian marble / engineered stone</li>
+              <li>Home automation</li>
+              <li>Premium CP — Grohe / Kohler</li>
+              <li>Full landscaping included</li>
+            </ul>
+          </div>
+        </div>
+        <div class="hp-cost-cta">
+          <a href="construction-cost-hosur.html" class="btn-primary">
+            <span>Calculate Your Exact Cost — Free</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <p class="hp-cost-cta-note">Takes 60 seconds &nbsp;·&nbsp; No signup &nbsp;·&nbsp; Instant estimate</p>
+        </div>
       </div>
-      <a href="construction-cost-hosur.html" style="display:inline-flex;align-items:center;gap:0.75rem;padding:1.1rem 2.5rem;background:var(--terracotta);color:#fff;font-family:var(--font-sans);font-size:0.82rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap;transition:background 0.25s ease;" onmouseover="this.style.background='#b87000'" onmouseout="this.style.background='var(--terracotta)'">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><path d="M9 7H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2v-3M13 3h8m0 0v8m0-8L11 13"/></svg>
-        Calculate My Home Cost
-      </a>
     </section>
 
     <!-- ========== SECTION 5: ABOUT / STUDIO ========== -->
