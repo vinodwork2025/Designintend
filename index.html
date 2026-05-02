@@ -98,11 +98,23 @@
   }
   </script>
 
+  <!-- Preload LCP image (hero — above fold, mobile) -->
+  <link rel="preload" as="image" href="Assets/chittarasan-hero.png" fetchpriority="high" />
+
+  <!-- Preconnect to font CDNs -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Async Google Fonts — non-render-blocking -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" /></noscript>
+
+  <!-- Critical CSS -->
   <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="slider.css" />
+
+  <!-- Slider CSS deferred — only needed on user interaction -->
+  <link rel="preload" as="style" href="slider.css" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="slider.css" /></noscript>
 </head>
 <body class="light-mode" data-theme="light">
 
@@ -207,8 +219,10 @@
               src="Assets/chittarasan-hero.png"
               alt="Ar. Chittrarasan — Founder &amp; Principal Architect, Design Intend"
               class="hero-image"
+              width="600" height="600"
               loading="eager"
               fetchpriority="high"
+              decoding="sync"
             />
           </div>
           <div class="hero-img-grade" aria-hidden="true"></div>
@@ -275,7 +289,7 @@
         <div class="project-image-wrap project-image-wrap--clickable" data-project="vinutha-residence" role="button" tabindex="0" aria-label="View Vinutha Residence gallery">
           <div class="project-image-inner reveal-scene">
             <div class="reveal-zoom">
-              <img src="Assets/vinutha-exterior.png" alt="Vinutha Residence — Exterior" class="reveal-img" loading="lazy" />
+              <img src="Assets/vinutha-exterior.png" alt="Vinutha Residence — Exterior" class="reveal-img" width="900" height="700" loading="lazy" decoding="async" />
             </div>
             <div class="reveal-curtain" aria-hidden="true"></div>
             <div class="reveal-vignette" aria-hidden="true"></div>
@@ -302,7 +316,7 @@
         <div class="project-image-wrap project-image-wrap--clickable" data-project="kishore-farmhouse" role="button" tabindex="0" aria-label="View Kishore Farmhouse gallery">
           <div class="project-image-inner reveal-scene">
             <div class="reveal-zoom">
-              <img src="Assets/farmhouse-exterior.png" alt="Kishore Farmhouse — Entrance gateway, Perithalmanna, Kerala" class="reveal-img" loading="lazy" />
+              <img src="Assets/farmhouse-exterior.png" alt="Kishore Farmhouse — Entrance gateway, Perithalmanna, Kerala" class="reveal-img" width="900" height="700" loading="lazy" decoding="async" />
             </div>
             <div class="reveal-curtain" aria-hidden="true"></div>
             <div class="reveal-vignette" aria-hidden="true"></div>
@@ -329,7 +343,7 @@
         <div class="project-image-wrap project-image-wrap--clickable" data-project="ambrish-hosur" role="button" tabindex="0" aria-label="View Ambrish Residence gallery">
           <div class="project-image-inner reveal-scene">
             <div class="reveal-zoom">
-              <img src="Assets/ambrish-exterior.png" alt="Ambrish Residence Hosur — Exterior" class="reveal-img" loading="lazy" />
+              <img src="Assets/ambrish-exterior.png" alt="Ambrish Residence Hosur — Exterior" class="reveal-img" width="900" height="700" loading="lazy" decoding="async" />
             </div>
             <div class="reveal-curtain" aria-hidden="true"></div>
             <div class="reveal-vignette" aria-hidden="true"></div>
@@ -356,7 +370,7 @@
         <div class="project-image-wrap project-image-wrap--clickable" data-project="jamna-industries" role="button" tabindex="0" aria-label="View Jamna Auto Industries gallery">
           <div class="project-image-inner reveal-scene">
             <div class="reveal-zoom">
-              <img src="Assets/jamna-reception.png" alt="Jamna Auto Industries Office — Reception, Hosur" class="reveal-img" loading="lazy" />
+              <img src="Assets/jamna-reception.png" alt="Jamna Auto Industries Office — Reception, Hosur" class="reveal-img" width="900" height="700" loading="lazy" decoding="async" />
             </div>
             <div class="reveal-curtain" aria-hidden="true"></div>
             <div class="reveal-vignette" aria-hidden="true"></div>
@@ -385,6 +399,7 @@
         <img
           src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1600&q=70&auto=format&fit=crop"
           alt="Architecture and interior detail"
+          width="1600" height="1067"
           loading="lazy"
         />
         <div class="services-bg-overlay"></div>
@@ -482,6 +497,7 @@
               src="Assets/designintend-team.png"
               alt="Design Intend team reviewing architectural plans — Hosur"
               class="studio-image"
+              width="800" height="600"
               loading="lazy"
             />
             <div class="studio-image-caption"><span>Design Intend Studio &bull; Hosur</span></div>

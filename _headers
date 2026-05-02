@@ -1,0 +1,37 @@
+# Cloudflare Pages — cache & security headers
+
+# HTML — revalidate on every request
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+
+/
+  Cache-Control: public, max-age=0, must-revalidate
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+
+# CSS & JS — 1 day (content changes occasionally)
+/*.css
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/*.js
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+# Images — 1 year immutable (filenames are content-stable)
+/Assets/*.png
+  Cache-Control: public, max-age=31536000, immutable
+
+/Assets/*.jpg
+  Cache-Control: public, max-age=31536000, immutable
+
+/Assets/*.jpeg
+  Cache-Control: public, max-age=31536000, immutable
+
+/Assets/*.webp
+  Cache-Control: public, max-age=31536000, immutable
+
+/Assets/*.svg
+  Cache-Control: public, max-age=31536000, immutable
