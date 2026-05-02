@@ -60,7 +60,7 @@
       category: 'Residential · 2025 · Courtyard Farmhouse · Perithalmanna, Kerala',
       images: [
         { src: 'Assets/farmhouse-exterior.jpg',        caption: 'Arrival — The Gateway' },
-        { src: 'Assets/farmhouse-exterior-1.png',      caption: 'The Forecourt — Garden Pavilion' },
+        { src: 'Assets/farmhouse-exterior-1.jpg',      caption: 'The Forecourt — Garden Pavilion' },
         { src: 'Assets/farmhouse-main-entrance.png',   caption: 'The Threshold — Main Entrance' },
         { src: 'Assets/farmhouse-interior.png',        caption: 'The Passage — Entry Corridor' },
         { src: 'Assets/farmhouse-interior-1.png',      caption: 'The Verandah — Sit-Out' },
