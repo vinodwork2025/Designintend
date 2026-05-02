@@ -2161,17 +2161,25 @@ body.cursor-dark .cursor-follower { border-color: var(--warm-white); }
 
 /* Hero cost hint */
 .hero-cost-hint{
+  display:flex;align-items:center;flex-wrap:wrap;gap:0.75rem 1rem;
+  margin-bottom:2.5rem;
+}
+.hch-text{
   font-family:var(--font-sans);font-size:0.72rem;font-weight:400;
   color:var(--text-secondary);letter-spacing:0.03em;
-  margin-bottom:2.5rem;line-height:1.6;
 }
-.hero-cost-hint a{
-  color:var(--terracotta);font-weight:600;
-  text-decoration:underline;text-underline-offset:3px;
-  text-decoration-color:rgba(212,144,10,0.4);
-  transition:text-decoration-color 0.2s,color 0.2s;
+.btn-cost-sm{
+  display:inline-flex;align-items:center;
+  font-family:var(--font-sans);font-size:0.65rem;font-weight:700;
+  letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--terracotta);border:1.5px solid var(--terracotta);
+  padding:0.35rem 0.85rem;
+  transition:background 0.2s,color 0.2s;
+  white-space:nowrap;
 }
-.hero-cost-hint a:hover{color:var(--terracotta-lt);text-decoration-color:var(--terracotta-lt)}
+.btn-cost-sm:hover{background:var(--terracotta);color:#fff}
+[data-theme="dark"] .btn-cost-sm{color:var(--terracotta-lt);border-color:var(--terracotta-lt)}
+[data-theme="dark"] .btn-cost-sm:hover{background:var(--terracotta-lt);color:var(--charcoal)}
 
 /* Homepage cost section */
 .hp-cost{background:#F0EDE8;padding:6rem 5rem}
