@@ -16,7 +16,7 @@
       title: 'Vinutha Residence',
       category: 'Residential · 2024 · 4,200 sq ft · Bengaluru',
       images: [
-        { src: 'Assets/vinutha-exterior.png',       caption: 'Exterior — Front Elevation' },
+        { src: 'Assets/vinutha-exterior.jpg',       caption: 'Exterior — Front Elevation' },
         { src: 'Assets/vinutha-living-room.png',    caption: 'Living Room' },
         { src: 'Assets/vinutha-living-room-1.png',  caption: 'Living Room — Lounge View' },
         { src: 'Assets/vinutha-bedroom-1.png',      caption: 'Master Bedroom' },
@@ -30,7 +30,7 @@
       title: 'Jamna Auto Industries',
       category: 'Commercial · 2025 · 12,000 sq ft · Hosur',
       images: [
-        { src: 'Assets/jamna-reception.png',       caption: 'Reception' },
+        { src: 'Assets/jamna-reception.jpg',       caption: 'Reception' },
         { src: 'Assets/jamna-office.png',           caption: 'Open Office' },
         { src: 'Assets/jamna-office-1.png',         caption: 'Office — Second View' },
         { src: 'Assets/jamna-conference-room.png',  caption: 'Conference Room' },
@@ -41,7 +41,7 @@
       title: 'Ambrish Residence',
       category: 'Residential · 2025 · 3,800 sq ft · Hosur',
       images: [
-        { src: 'Assets/ambrish-exterior.png',       caption: 'Exterior — Front Elevation' },
+        { src: 'Assets/ambrish-exterior.jpg',       caption: 'Exterior — Front Elevation' },
         { src: 'Assets/ambrish-foyer.png',           caption: 'Foyer' },
         { src: 'Assets/ambrish-living-room.png',     caption: 'Living Room' },
         { src: 'Assets/ambrish-livingroom1.png',     caption: 'Living Room — Second View' },
@@ -59,7 +59,7 @@
       title: 'Kishore Farmhouse',
       category: 'Residential · 2025 · Courtyard Farmhouse · Perithalmanna, Kerala',
       images: [
-        { src: 'Assets/farmhouse-exterior.png',        caption: 'Arrival — The Gateway' },
+        { src: 'Assets/farmhouse-exterior.jpg',        caption: 'Arrival — The Gateway' },
         { src: 'Assets/farmhouse-exterior-1.png',      caption: 'The Forecourt — Garden Pavilion' },
         { src: 'Assets/farmhouse-main-entrance.png',   caption: 'The Threshold — Main Entrance' },
         { src: 'Assets/farmhouse-interior.png',        caption: 'The Passage — Entry Corridor' },
