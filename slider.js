@@ -55,9 +55,9 @@
         { src: 'Assets/ambrish-home-theatre.png',    caption: 'Home Theatre' },
       ]
     },
-    'ramesh-farmhouse': {
-      title: 'Ramesh Farmhouse',
-      category: 'Residential · 2025 · Courtyard Farmhouse · Denkanikottai, Hosur',
+    'kishore-farmhouse': {
+      title: 'Kishore Farmhouse',
+      category: 'Residential · 2025 · Courtyard Farmhouse · Perithalmanna, Kerala',
       images: [
         { src: 'Assets/farmhouse-exterior.png',        caption: 'Arrival — The Gateway' },
         { src: 'Assets/farmhouse-exterior-1.png',      caption: 'The Forecourt — Garden Pavilion' },
