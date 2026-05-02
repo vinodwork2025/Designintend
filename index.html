@@ -99,7 +99,11 @@
   </script>
 
   <!-- Preload LCP image (hero — above fold, mobile) -->
-  <link rel="preload" as="image" href="Assets/chittarasan-hero.jpg" fetchpriority="high" />
+  <link rel="preload" as="image"
+    href="Assets/chittarasan-hero.jpg"
+    imagesrcset="Assets/chittarasan-hero-480.jpg 480w, Assets/chittarasan-hero.jpg 900w"
+    imagesizes="(max-width: 768px) 480px, 900px"
+    fetchpriority="high" />
 
   <!-- Preconnect to font CDNs -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -217,6 +221,8 @@
           <div class="hero-img-frame">
             <img
               src="Assets/chittarasan-hero.jpg"
+              srcset="Assets/chittarasan-hero-480.jpg 480w, Assets/chittarasan-hero.jpg 900w"
+              sizes="(max-width: 768px) 480px, 900px"
               alt="Ar. Chittrarasan — Founder &amp; Principal Architect, Design Intend"
               class="hero-image"
               width="900" height="720"
@@ -838,7 +844,7 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
-  <script src="slider.js"></script>
+  <script src="script.js" defer></script>
+  <script src="slider.js" defer></script>
 </body>
 </html>
