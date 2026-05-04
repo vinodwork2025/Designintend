@@ -639,7 +639,22 @@
     .btn-get-estimate:hover{background:var(--gold-lt)}
     .btn-get-estimate:disabled{opacity:0.5;cursor:not-allowed}
     .lc-trust-note{font-size:0.7rem;color:#6B6A68;text-align:center;margin-top:0.75rem}
-    .wa-followup{margin-top:1.5rem;text-align:center}
+    /* Tier card brand list */
+    .calc-zone .tc-brands{margin-top:0.75rem;padding-top:0.65rem;border-top:1px solid #E8E5E0;list-style:none;padding-left:0}
+    .calc-zone .tc-brands li{font-size:0.67rem;color:#6B6A68;line-height:1.55;padding:0.18rem 0 0.18rem 0.9rem;position:relative}
+    .calc-zone .tc-brands li::before{content:'—';position:absolute;left:0;color:var(--gold);font-size:0.6rem;top:0.22rem}
+    .calc-zone .tc.sel .tc-brands{border-top-color:rgba(212,144,10,0.25)}
+    .calc-zone .tc.sel .tc-brands li{color:#4A4948}
+    /* Result confirm block */
+    .result-confirm{margin-top:1.75rem;padding:1.5rem;background:#F8F5F0;border:1px solid #E0DDD8}
+    .rc-email-notice{display:flex;gap:0.9rem;align-items:flex-start;margin-bottom:1.25rem}
+    .rc-check-icon{width:36px;height:36px;border-radius:50%;background:rgba(37,211,102,0.12);border:1.5px solid rgba(37,211,102,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .rc-title{font-family:var(--ff-sans);font-size:0.82rem;font-weight:700;color:#1C1C1A;margin-bottom:0.3rem}
+    .rc-sub{font-family:var(--ff-sans);font-size:0.78rem;color:#6B6A68;line-height:1.6}
+    .rc-sub strong{color:#1C1C1A}
+    .rc-or{font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#AEAAA5;text-align:center;margin:1rem 0 0.75rem}
+    .rc-links{display:flex;gap:0.75rem;align-items:center;flex-wrap:wrap;margin-top:1.25rem}
+    .rc-links .btn-ghost-sm{margin-left:auto}
   </style>
 
   <!-- ===== WEBPAGE SCHEMA ===== -->
@@ -742,6 +757,13 @@
             <p class="tc-rate">₹1,950</p>
             <p class="tc-unit">per sq.ft · BUA</p>
             <p class="tc-desc">Solid build, quality finishes. A well-built home that lasts generations.</p>
+            <ul class="tc-brands">
+              <li>M20 concrete · TATA/JSW TMT steel</li>
+              <li>Kajaria vitrified tiles 600×600</li>
+              <li>Finolex/Havells wiring · MK switches</li>
+              <li>Astral CPVC · Parryware fittings</li>
+              <li>Asian/Birla 2-coat emulsion paint</li>
+            </ul>
           </div>
           <div class="tc" id="tc-premium" onclick="pickTier('premium',this)">
             <div class="tc-check">✓</div>
@@ -749,6 +771,13 @@
             <p class="tc-rate">₹2,050</p>
             <p class="tc-unit">per sq.ft · BUA</p>
             <p class="tc-desc">Elevated materials, modular electrical, designer sanitary. Most popular.</p>
+            <ul class="tc-brands">
+              <li>All Standard, plus upgrades:</li>
+              <li>RAK/Kajaria 800×800 large-format tiles</li>
+              <li>Legrand/Schneider MCBs + ELCB</li>
+              <li>Jaquar/Cera designer sanitary ware</li>
+              <li>False ceiling · modular kitchen shell</li>
+            </ul>
           </div>
           <div class="tc" id="tc-luxury" onclick="pickTier('luxury',this)">
             <div class="tc-check">✓</div>
@@ -756,6 +785,13 @@
             <p class="tc-rate">₹2,300</p>
             <p class="tc-unit">per sq.ft · BUA</p>
             <p class="tc-desc">Marble, automation, Grohe/Kohler fittings, full landscaping. No compromises.</p>
+            <ul class="tc-brands">
+              <li>Italian marble / Nitco engineered stone</li>
+              <li>Grohe/Kohler CP fittings throughout</li>
+              <li>Smart lighting · security automation</li>
+              <li>Custom joinery &amp; carpentry</li>
+              <li>Full landscaping · solar-ready structure</li>
+            </ul>
           </div>
         </div>
         <div class="step-nav">
@@ -815,23 +851,24 @@
           <p class="bd-title">How Your Budget Breaks Down</p>
         </div>
 
-        <div class="wa-followup" id="waFollowup" style="display:none">
-          <p class="lc-trust-note" style="margin-bottom:0.75rem">WhatsApp not opening? Send manually:</p>
-          <button class="wa-btn" id="waResendBtn">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="16" height="16"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.473 2.027 7.775L0 32l8.438-2.012A15.94 15.94 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.274 22.126c-.398-.199-2.355-1.162-2.72-1.295-.366-.132-.632-.199-.898.199-.265.398-1.029 1.295-1.261 1.561-.232.265-.465.298-.863.1-.398-.199-1.681-.62-3.2-1.976-1.183-1.056-1.981-2.36-2.213-2.758-.232-.398-.025-.613.174-.811.179-.179.398-.465.597-.698.199-.232.265-.398.398-.664.132-.265.066-.498-.033-.697-.1-.199-.898-2.164-1.23-2.963-.324-.778-.653-.672-.898-.684l-.764-.013c-.265 0-.697.1-1.063.498-.366.398-1.395 1.362-1.395 3.32s1.428 3.85 1.627 4.116c.199.265 2.81 4.29 6.809 6.016.952.411 1.695.657 2.274.841.956.304 1.826.261 2.514.158.767-.114 2.355-.963 2.688-1.893.332-.93.332-1.727.232-1.893-.1-.166-.365-.265-.763-.464z"/></svg>
-            Message Us on WhatsApp
-          </button>
-        </div>
-
-        <!-- CONFIRMATION (hidden until submit) -->
-        <div class="confirm-step" id="confirmStep" style="display:none">
-          <div class="confirm-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#25D366" stroke-width="2.5" width="24" height="24"><polyline points="20 6 9 17 4 12"/></svg>
+        <!-- EMAIL CONFIRMATION + WHATSAPP CTA -->
+        <div class="result-confirm">
+          <div class="rc-email-notice">
+            <div class="rc-check-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#25D366" stroke-width="2.5" width="20" height="20"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <p class="rc-title">Detailed estimate on its way</p>
+              <p class="rc-sub">Our architect will send a full cost breakdown, material list &amp; timeline to <strong id="rcEmailDisplay">your email</strong> within 2 hours.</p>
+            </div>
           </div>
-          <h3 class="confirm-title">Quote Sent to WhatsApp!</h3>
-          <p class="confirm-sub">Our architect will review your project and send a detailed breakdown within 2 hours. Meanwhile, take a look at our completed homes.</p>
-          <div class="confirm-links">
-            <a href="projects.html" class="btn-gold">See Our Projects →</a>
+          <p class="rc-or">Need a faster response?</p>
+          <button class="wa-btn" id="waQuickBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="16" height="16"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.473 2.027 7.775L0 32l8.438-2.012A15.94 15.94 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.274 22.126c-.398-.199-2.355-1.162-2.72-1.295-.366-.132-.632-.199-.898.199-.265.398-1.029 1.295-1.261 1.561-.232.265-.465.298-.863.1-.398-.199-1.681-.62-3.2-1.976-1.183-1.056-1.981-2.36-2.213-2.758-.232-.398-.025-.613.174-.811.179-.179.398-.465.597-.698.199-.232.265-.398.398-.664.132-.265.066-.498-.033-.697-.1-.199-.898-2.164-1.23-2.963-.324-.778-.653-.672-.898-.684l-.764-.013c-.265 0-.697.1-1.063.498-.366.398-1.395 1.362-1.395 3.32s1.428 3.85 1.627 4.116c.199.265 2.81 4.29 6.809 6.016.952.411 1.695.657 2.274.841.956.304 1.826.261 2.514.158.767-.114 2.355-.963 2.688-1.893.332-.93.332-1.727.232-1.893-.1-.166-.365-.265-.763-.464z"/></svg>
+            WhatsApp Us for Instant Response
+          </button>
+          <div class="rc-links">
+            <a href="projects.html" class="btn-gold">See Our Projects &rarr;</a>
             <button class="btn-ghost-sm" onclick="resetCalc()">Calculate Again</button>
           </div>
         </div>
@@ -1066,12 +1103,9 @@
     fd.append('Description','Cost Calculator | '+area.toLocaleString('en-IN')+' sq.ft | '+label+' | Est: '+lo+'–'+hi+' | Hosur');
     fetch('https://crm.zoho.in/crm/WebToLeadForm',{method:'POST',mode:'no-cors',body:fd}).catch(function(){});
 
-    // WhatsApp
-    var waMsg='Hi Design Intend! 🏠\n\nI calculated my construction cost on your website.\n\n👤 Name: '+name+'\n📱 WhatsApp: '+phone+'\n📧 Email: '+email+'\n\n🏗 Project:\nBuilt-up Area: '+area.toLocaleString('en-IN')+' sq.ft\nStandard: '+label+'\nEstimate: '+lo+' – '+hi+'\nLocation: Hosur / nearby\n\nPlease send me a detailed cost breakdown, material list, and construction timeline. Thank you!';
-    window.open('https://wa.me/917397606382?text='+encodeURIComponent(waMsg),'_blank');
-
-    // Store lead info for result display
-    st.leadName=name;st.leadPhone=phone;
+    // Store for WhatsApp button on result screen
+    var waMsg='Hi Design Intend! 🏠\n\nI calculated my construction cost on your website.\n\n👤 Name: '+name+'\n📱 WhatsApp: '+phone+'\n📧 Email: '+email+'\n\n🏗 Project:\nBuilt-up Area: '+area.toLocaleString('en-IN')+' sq.ft\nStandard: '+label+'\nEstimate: '+lo+' – '+hi+'\nLocation: Hosur / nearby\n\nPlease send a detailed cost breakdown, material list, and construction timeline. Thank you!';
+    st.leadName=name;st.leadEmail=email;st.leadPhone=phone;st.waMsg=waMsg;
 
     // Show result (step 4)
     setTimeout(function(){showResult();},300);
@@ -1092,31 +1126,23 @@
     bd.innerHTML='<p class="bd-title">How Your Budget Breaks Down</p>'+
       BREAKDOWN[tier].map(function(b){return '<div class="bd-row"><span class="bd-lbl">'+b.l+'</span><div class="bd-track"><div class="bd-fill" data-p="'+b.p+'"></div></div><span class="bd-pct">'+b.p+'%</span></div>';}).join('');
 
+    // Wire WhatsApp button
+    var wbtn=document.getElementById('waQuickBtn');
+    if(wbtn&&st.waMsg){wbtn.onclick=function(){window.open('https://wa.me/917397606382?text='+encodeURIComponent(st.waMsg),'_blank');};}
+    // Show email in confirmation
+    var emailDisp=document.getElementById('rcEmailDisplay');
+    if(emailDisp&&st.leadEmail)emailDisp.textContent=st.leadEmail;
+
     showStep(4);
     setTimeout(function(){
       document.querySelectorAll('.bd-fill').forEach(function(f){f.style.width=f.dataset.p+'%';});
-      // Show WhatsApp fallback after 2s
-      setTimeout(function(){
-        var wf=document.getElementById('waFollowup');
-        var wbtn=document.getElementById('waResendBtn');
-        if(wf){
-          wf.style.display='block';
-          // Set up resend button
-          if(wbtn&&st.leadName&&st.leadPhone){
-            var loF=fmt(lo),hiF=fmt(hi),label=rateObj.label;
-            var waMsg2='Hi Design Intend! 🏠\n\nI calculated my construction cost on your website.\n\n👤 Name: '+st.leadName+'\n📱 WhatsApp: '+st.leadPhone+'\n\n🏗 Project:\nBuilt-up Area: '+area.toLocaleString('en-IN')+' sq.ft\nStandard: '+label+'\nEstimate: '+loF+' – '+hiF+'\nLocation: Hosur / nearby\n\nPlease send me a detailed cost breakdown, material list, and construction timeline. Thank you!';
-            wbtn.onclick=function(){window.open('https://wa.me/917397606382?text='+encodeURIComponent(waMsg2),'_blank');};
-          }
-        }
-      },2000);
     },120);
 
-    document.getElementById('confirmStep').style.display='none';
     document.getElementById('backToStep2Wrap').style.display='flex';
   }
 
   function resetCalc(){
-    st={area:0,tier:'standard',leadName:'',leadPhone:''};
+    st={area:0,tier:'standard',leadName:'',leadEmail:'',leadPhone:'',waMsg:''};
     document.getElementById('areaInput').value='';
     document.querySelectorAll('.ap-btn').forEach(function(b){b.classList.remove('sel');});
     document.querySelectorAll('.tc').forEach(function(c){c.classList.remove('sel');});
@@ -1126,7 +1152,6 @@
     });
     var btn=document.getElementById('getEstimateBtn');
     if(btn){btn.disabled=false;btn.textContent='Get My Free Estimate →';}
-    document.getElementById('confirmStep').style.display='none';
     toStep1();
   }
 
