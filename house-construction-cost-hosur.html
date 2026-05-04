@@ -127,6 +127,30 @@
 .cost-table tr:last-child td{border-bottom:none}
 [data-theme="dark"] .cost-table td{border-bottom-color:#2A2825}
 @media(max-width:768px){.cp-hero{padding:6rem 1.5rem 3.5rem}.cp-section{padding:3.5rem 1.5rem}.cp-faq-section{padding:3.5rem 1.5rem}.cp-cta-band{padding:3.5rem 1.5rem}.cost-table{font-size:0.78rem}.cost-table th,.cost-table td{padding:0.6rem 0.7rem}}
+
+/* ===== INLINE LEAD SECTION ===== */
+.cp-lead-section{background:#FFFFFF;padding:5rem 2rem;border-top:1px solid #E8E4DF;border-bottom:1px solid #E8E4DF}
+.cp-lead-wrap{max-width:680px;margin:0 auto}
+.cp-lead-eyebrow{font-family:'Inter',sans-serif;font-size:0.62rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:#D4900A;margin-bottom:0.75rem}
+.cp-lead-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.8rem,3.5vw,2.8rem);line-height:1.05;letter-spacing:0.02em;text-transform:uppercase;color:#1C1C1A;margin-bottom:0.75rem}
+.cp-lead-sub{font-family:'Inter',sans-serif;font-size:0.9rem;color:#6B6A68;line-height:1.7;margin-bottom:2rem}
+.cp-lead-fields{display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;margin-bottom:0.75rem}
+.cp-lead-field{display:flex;flex-direction:column;gap:0.35rem}
+.cp-lead-field label{font-family:'Inter',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#1C1C1A}
+.cp-lead-req{color:#D4900A}
+.cp-lead-field input{padding:0.8rem 1rem;background:#FFFFFF;border:1.5px solid #D8D5D0;color:#1C1C1A;font-family:'Inter',sans-serif;font-size:0.875rem;outline:none;transition:border-color 0.2s;box-sizing:border-box;-webkit-appearance:none}
+.cp-lead-field input:focus{border-color:#D4900A}
+.cp-lead-field input::placeholder{color:#AEAAA5}
+.cp-lead-btn{width:100%;background:#1C1C1A;color:#F8F5F0;font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;padding:1rem;border:none;cursor:pointer;transition:background 0.2s;margin-top:0.25rem}
+.cp-lead-btn:hover{background:#D4900A;color:#000}
+.cp-lead-btn:disabled{opacity:0.5;cursor:not-allowed}
+.cp-lead-trust{font-family:'Inter',sans-serif;font-size:0.7rem;color:#6B6A68;text-align:center;margin-top:0.75rem}
+.cp-lead-ok{text-align:center;padding:2rem 0}
+.cp-lead-ok-icon{width:52px;height:52px;border-radius:50%;background:rgba(37,211,102,0.1);border:1.5px solid rgba(37,211,102,0.3);display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:#25D366;margin:0 auto 1.25rem}
+.cp-lead-ok h3{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:#1C1C1A;letter-spacing:0.06em;margin-bottom:0.6rem}
+.cp-lead-ok p{font-family:'Inter',sans-serif;font-size:0.88rem;color:#6B6A68;line-height:1.7}
+.cp-lead-ok a{color:#D4900A;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:640px){.cp-lead-fields{grid-template-columns:1fr}.cp-lead-section{padding:3.5rem 1.5rem}}
   </style>
   <!-- ===== WEBPAGE SCHEMA ===== -->
   <script type="application/ld+json">
@@ -414,6 +438,38 @@
     </div>
   </section>
 
+  <!-- INLINE LEAD CAPTURE -->
+  <section class="cp-lead-section">
+    <div class="cp-lead-wrap">
+      <p class="cp-lead-eyebrow">Free Estimate</p>
+      <h2 class="cp-lead-title">Get a Free Construction Estimate from Design Intend's Architects</h2>
+      <p class="cp-lead-sub">Tell us your built-up area and finish preference. Our architect will send you a detailed cost breakdown, material list, and construction timeline — within 2 hours. No obligation.</p>
+      <form class="cp-lead-form" id="cpLeadForm" onsubmit="return cpLeadSubmit()">
+        <div class="cp-lead-fields">
+          <div class="cp-lead-field">
+            <label for="cpLcName">Your Name <span class="cp-lead-req">*</span></label>
+            <input type="text" id="cpLcName" placeholder="Rajesh Kumar" autocomplete="given-name" required />
+          </div>
+          <div class="cp-lead-field">
+            <label for="cpLcEmail">Email Address <span class="cp-lead-req">*</span></label>
+            <input type="email" id="cpLcEmail" placeholder="you@email.com" autocomplete="email" required />
+          </div>
+          <div class="cp-lead-field">
+            <label for="cpLcPhone">WhatsApp Number <span class="cp-lead-req">*</span></label>
+            <input type="tel" id="cpLcPhone" placeholder="+91 98765 43210" autocomplete="tel" inputmode="numeric" required />
+          </div>
+        </div>
+        <button type="submit" class="cp-lead-btn" id="cpLeadBtn">Get My Free Estimate &rarr;</button>
+        <p class="cp-lead-trust">&#128274; No spam &nbsp;&middot;&nbsp; We reply within 2 hrs &nbsp;&middot;&nbsp; 100% free, no obligation</p>
+      </form>
+      <div class="cp-lead-ok" id="cpLeadOK" style="display:none">
+        <div class="cp-lead-ok-icon">&#10003;</div>
+        <h3>We've Received Your Request!</h3>
+        <p>Our architect will send a detailed cost estimate to your WhatsApp and email within 2 hours. In the meantime, try our <a href="construction-cost-hosur.html">free cost calculator</a>.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- FAQ SECTION -->
   <section class="cp-faq-section">
     <div class="cp-faq-inner">
@@ -673,6 +729,40 @@
 <!-- Zoho SalesIQ Live Chat -->
   <script>window.$zoho=window.$zoho || {};$zoho.salesiq=$zoho.salesiq||{ready:function(){$zoho.salesiq.floatbutton.position("bottomleft");}}</script>
   <script id="zsiqscript" src="https://salesiq.zohopublic.in/widget?wc=siqa3e40446a804a30dd5f265a56ce673713b439045713901b66f1d7e2ac02caf70" defer></script>
+
+<script>
+function cpLeadSubmit(){
+  var name=document.getElementById('cpLcName').value.trim();
+  var email=document.getElementById('cpLcEmail').value.trim();
+  var phone=document.getElementById('cpLcPhone').value.trim();
+  if(!name||!phone||!email||email.indexOf('@')<1)return false;
+  var btn=document.getElementById('cpLeadBtn');
+  btn.disabled=true;btn.textContent='Sending…';
+  var nameParts=name.split(/\s+/);
+  var firstName=nameParts.length>1?nameParts.slice(0,-1).join(' '):'';
+  var lastName=nameParts[nameParts.length-1];
+  var fd=new FormData();
+  fd.append('xnQsjsdp','3f83c2d6a9bcd6559180cdf242fcd7f331bf9c71e0e823e554290ee0833a5282');
+  fd.append('zc_gad','');
+  fd.append('xmIwtLD','11dbc838c54bd5ef2f6331ffef5f3b66d07e5c64c37bcf13e13022a55638c325192f044c5545b8a07b53284e71a651e1');
+  fd.append('actionType','TGVhZHM=');
+  fd.append('returnURL','https://www.designintend.com/');
+  fd.append('aG9uZXlwb3Q','');
+  fd.append('First Name',firstName);
+  fd.append('Last Name',lastName);
+  fd.append('Email',email);
+  fd.append('Phone',phone);
+  fd.append('Description','House Construction Cost Guide — Free Estimate Request | Hosur');
+  fetch('https://crm.zoho.in/crm/WebToLeadForm',{method:'POST',mode:'no-cors',body:fd})
+    .then(function(){cpLeadShowOK();}).catch(function(){cpLeadShowOK();});
+  setTimeout(function(){if(btn.disabled)cpLeadShowOK();},8000);
+  return false;
+}
+function cpLeadShowOK(){
+  document.getElementById('cpLeadForm').style.display='none';
+  document.getElementById('cpLeadOK').style.display='block';
+}
+</script>
 </body>
 </html>
 

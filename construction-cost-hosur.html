@@ -594,6 +594,52 @@
       .site-header{padding:0 1.25rem}
       .page-hero{padding:3rem 1.25rem 2.5rem}
     }
+
+    /* ===== CALC ZONE LIGHT THEME OVERRIDES ===== */
+    .calc-zone{background:#F5F3EF}
+    .calc-zone .step-q{color:#1C1C1A}
+    .calc-zone .step-hint{color:#6B6A68}
+    .calc-zone .area-field{background:#FFF;border:1.5px solid #D8D5D0;border-right:none;color:#1C1C1A}
+    .calc-zone .area-field:focus{border-color:var(--gold)}
+    .calc-zone .ap-btn{background:#FFF;border:1.5px solid #D8D5D0;color:#1C1C1A}
+    .calc-zone .ap-btn.sel,.calc-zone .ap-btn:hover{background:var(--gold);border-color:var(--gold);color:#000}
+    .calc-zone .tc{background:#FFFFFF;border:2px solid #E0DDD8}
+    .calc-zone .tc-name{color:#1C1C1A}
+    .calc-zone .tc-rate{color:var(--gold)}
+    .calc-zone .tc-unit,.calc-zone .tc-desc{color:#6B6A68}
+    .calc-zone .tc.sel{border-color:var(--gold);background:#FFFBF0}
+    .calc-zone .tc.sel .tc-check{background:var(--gold);border-color:var(--gold);color:#000}
+    .calc-zone .tc-check{border-color:#D8D5D0}
+    .calc-zone .btn-next{background:#1C1C1A;color:#F8F5F0}
+    .calc-zone .btn-next:hover{background:#2E2D2B}
+    .calc-zone .btn-back{border:1.5px solid #D8D5D0;color:#6B6A68;background:transparent;padding:0.45rem 1rem}
+    .calc-zone .btn-back:hover{color:#1C1C1A;border-color:#1C1C1A}
+    .calc-zone .cpb-seg{background:#E0DDD8}
+    .calc-zone .cpb-seg.active{background:var(--gold)}
+    .calc-zone .cpb-seg.done{background:#1C1C1A}
+    .calc-zone .calc-step-count{color:#6B6A68}
+    .calc-zone .calc-step-count span{color:var(--gold)}
+    .calc-zone .result-summary-card{background:#FFFFFF;border:1.5px solid #E0DDD8}
+    .calc-zone .rs-chip-label,.calc-zone .estimate-label,.calc-zone .estimate-note,.calc-zone .bd-lbl,.calc-zone .bd-pct{color:#6B6A68}
+    .calc-zone .rs-chip-val,.calc-zone .estimate-range,.calc-zone .bd-title{color:#1C1C1A}
+    .calc-zone .rs-divider{background:#E0DDD8}
+    .calc-zone .bd-track{background:#E0DDD8}
+    .calc-zone .breakdown{border-color:#E0DDD8}
+    .calc-zone .confirm-title{color:#1C1C1A}
+    .calc-zone .confirm-sub{color:#6B6A68}
+
+    /* ===== LEAD GATE FORM ===== */
+    .lc-form-field{margin-bottom:1rem}
+    .lc-form-field label{display:block;font-size:0.64rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#1C1C1A;margin-bottom:0.4rem}
+    .lc-form-field input{width:100%;background:#FFFFFF;border:1.5px solid #D8D5D0;color:#1C1C1A;font-family:var(--ff-sans);font-size:0.9rem;padding:0.75rem 1rem;outline:none;transition:border-color 0.2s;-webkit-appearance:none;box-sizing:border-box}
+    .lc-form-field input:focus{border-color:var(--gold)}
+    .lc-form-field input::placeholder{color:#AEAAA5}
+    .lc-form-field input.lc-error{border-color:#C0392B}
+    .btn-get-estimate{width:100%;background:var(--gold);color:#000;font-family:var(--ff-sans);font-size:0.82rem;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;padding:1rem;border:none;cursor:pointer;margin-top:0.5rem;transition:background 0.2s}
+    .btn-get-estimate:hover{background:var(--gold-lt)}
+    .btn-get-estimate:disabled{opacity:0.5;cursor:not-allowed}
+    .lc-trust-note{font-size:0.7rem;color:#6B6A68;text-align:center;margin-top:0.75rem}
+    .wa-followup{margin-top:1.5rem;text-align:center}
   </style>
 
   <!-- ===== WEBPAGE SCHEMA ===== -->
@@ -659,8 +705,9 @@
         <div class="cpb-seg active" id="seg1"></div>
         <div class="cpb-seg" id="seg2"></div>
         <div class="cpb-seg" id="seg3"></div>
+        <div class="cpb-seg" id="seg4"></div>
       </div>
-      <p class="calc-step-count" id="stepCount"><span>Step 1</span> of 3</p>
+      <p class="calc-step-count" id="stepCount"><span>Step 1</span> of 4</p>
 
       <!-- STEP 1: AREA -->
       <div class="calc-step active" id="step1">
@@ -717,8 +764,31 @@
         </div>
       </div>
 
-      <!-- STEP 3: RESULT -->
+      <!-- STEP 3: LEAD GATE -->
       <div class="calc-step" id="step3">
+        <h2 class="step-q">One last step —<br/>where do we send it?</h2>
+        <p class="step-hint">Enter your details and we'll open WhatsApp with your personalised estimate. Our architect also sends a full material list + timeline within 2 hours. Free, no obligation.</p>
+        <div class="lc-form-field">
+          <label for="lcName">Your Name <span style="color:var(--gold)">*</span></label>
+          <input type="text" id="lcName" placeholder="Rajesh Kumar" autocomplete="given-name" />
+        </div>
+        <div class="lc-form-field">
+          <label for="lcEmail">Email Address <span style="color:var(--gold)">*</span></label>
+          <input type="email" id="lcEmail" placeholder="you@email.com" autocomplete="email" />
+        </div>
+        <div class="lc-form-field">
+          <label for="lcPhone">WhatsApp Number <span style="color:var(--gold)">*</span></label>
+          <input type="tel" id="lcPhone" placeholder="+91 98765 43210" autocomplete="tel" inputmode="numeric" />
+        </div>
+        <button class="btn-get-estimate" id="getEstimateBtn" onclick="submitLead()">Get My Free Estimate &rarr;</button>
+        <p class="lc-trust-note">&#128274; No spam &nbsp;&middot;&nbsp; We reply within 2 hrs &nbsp;&middot;&nbsp; 100% free</p>
+        <div class="step-nav" style="margin-top:1.25rem">
+          <button class="btn-back" onclick="toStep2()">&#8592; Back</button>
+        </div>
+      </div>
+
+      <!-- STEP 4: RESULT -->
+      <div class="calc-step" id="step4">
         <div class="result-summary-card">
           <div class="rs-inputs">
             <div class="rs-chip">
@@ -745,38 +815,12 @@
           <p class="bd-title">How Your Budget Breaks Down</p>
         </div>
 
-        <!-- LEAD CAPTURE -->
-        <div class="lead-capture" id="leadCapture">
-          <h3 class="lc-heading">Get Your Full Breakdown<br />on WhatsApp</h3>
-          <p class="lc-sub">Our architect will send you a detailed cost sheet, material list, and construction timeline — within 2 hours. Free, no obligation.</p>
-          <div class="lc-fields">
-            <div class="lc-field">
-              <label for="lcName">Your Name</label>
-              <input type="text" id="lcName" placeholder="Rajesh Kumar" autocomplete="given-name" />
-            </div>
-            <div class="lc-field">
-              <label for="lcPhone">WhatsApp Number</label>
-              <input type="tel" id="lcPhone" placeholder="+91 98765 43210" autocomplete="tel" inputmode="numeric" />
-            </div>
-          </div>
-          <button class="wa-btn" onclick="sendLead()">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="18" height="18"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.473 2.027 7.775L0 32l8.438-2.012A15.94 15.94 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.274 22.126c-.398-.199-2.355-1.162-2.72-1.295-.366-.132-.632-.199-.898.199-.265.398-1.029 1.295-1.261 1.561-.232.265-.465.298-.863.1-.398-.199-1.681-.62-3.2-1.976-1.183-1.056-1.981-2.36-2.213-2.758-.232-.398-.025-.613.174-.811.179-.179.398-.465.597-.698.199-.232.265-.398.398-.664.132-.265.066-.498-.033-.697-.1-.199-.898-2.164-1.23-2.963-.324-.778-.653-.672-.898-.684l-.764-.013c-.265 0-.697.1-1.063.498-.366.398-1.395 1.362-1.395 3.32s1.428 3.85 1.627 4.116c.199.265 2.81 4.29 6.809 6.016.952.411 1.695.657 2.274.841.956.304 1.826.261 2.514.158.767-.114 2.355-.963 2.688-1.893.332-.93.332-1.727.232-1.893-.1-.166-.365-.265-.763-.464z"/></svg>
-            Send Me the Full Breakdown on WhatsApp
+        <div class="wa-followup" id="waFollowup" style="display:none">
+          <p class="lc-trust-note" style="margin-bottom:0.75rem">WhatsApp not opening? Send manually:</p>
+          <button class="wa-btn" id="waResendBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="16" height="16"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.473 2.027 7.775L0 32l8.438-2.012A15.94 15.94 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm7.274 22.126c-.398-.199-2.355-1.162-2.72-1.295-.366-.132-.632-.199-.898.199-.265.398-1.029 1.295-1.261 1.561-.232.265-.465.298-.863.1-.398-.199-1.681-.62-3.2-1.976-1.183-1.056-1.981-2.36-2.213-2.758-.232-.398-.025-.613.174-.811.179-.179.398-.465.597-.698.199-.232.265-.398.398-.664.132-.265.066-.498-.033-.697-.1-.199-.898-2.164-1.23-2.963-.324-.778-.653-.672-.898-.684l-.764-.013c-.265 0-.697.1-1.063.498-.366.398-1.395 1.362-1.395 3.32s1.428 3.85 1.627 4.116c.199.265 2.81 4.29 6.809 6.016.952.411 1.695.657 2.274.841.956.304 1.826.261 2.514.158.767-.114 2.355-.963 2.688-1.893.332-.93.332-1.727.232-1.893-.1-.166-.365-.265-.763-.464z"/></svg>
+            Message Us on WhatsApp
           </button>
-          <div class="lc-trust">
-            <span class="lct">
-              <svg viewBox="0 0 16 16" fill="currentColor" width="12" height="12"><path d="M8 1l1.5 4.5H14l-3.7 2.7 1.4 4.3L8 10l-3.7 2.5 1.4-4.3L2 5.5h4.5z"/></svg>
-              No spam, ever
-            </span>
-            <span class="lct">
-              <svg viewBox="0 0 16 16" fill="currentColor" width="12" height="12"><path d="M8 1l1.5 4.5H14l-3.7 2.7 1.4 4.3L8 10l-3.7 2.5 1.4-4.3L2 5.5h4.5z"/></svg>
-              Response within 2 hours
-            </span>
-            <span class="lct">
-              <svg viewBox="0 0 16 16" fill="currentColor" width="12" height="12"><path d="M8 1l1.5 4.5H14l-3.7 2.7 1.4 4.3L8 10l-3.7 2.5 1.4-4.3L2 5.5h4.5z"/></svg>
-              100% free, no obligation
-            </span>
-          </div>
         </div>
 
         <!-- CONFIRMATION (hidden until submit) -->
@@ -936,157 +980,172 @@
     premium:[{l:'Structure & Slab',p:34},{l:'Masonry & Plaster',p:13},{l:'Flooring (Premium)',p:12},{l:'Electrical',p:10},{l:'Plumbing',p:7},{l:'Doors & Windows',p:11},{l:'Painting',p:7},{l:'Supervision',p:6}],
     luxury:[{l:'Structure & Slab',p:30},{l:'Masonry & Plaster',p:12},{l:'Flooring (Marble)',p:17},{l:'Electrical & Auto',p:12},{l:'Plumbing & CP',p:8},{l:'Doors & Windows',p:13},{l:'Painting & Texture',p:8},{l:'Landscaping',p:0}]
   };
-  let st={area:0,tier:'standard'};
+  var st={area:0,tier:'standard',leadName:'',leadPhone:''};
 
   function fmt(n){if(n>=10000000)return'₹'+(n/10000000).toFixed(2)+' Cr';if(n>=100000)return'₹'+(n/100000).toFixed(1)+' L';return'₹'+n.toLocaleString('en-IN')}
 
   function setArea(v,btn){
     document.getElementById('areaInput').value=v;
-    document.querySelectorAll('.ap-btn').forEach(b=>b.classList.remove('sel'));
+    document.querySelectorAll('.ap-btn').forEach(function(b){b.classList.remove('sel');});
     btn.classList.add('sel');
   }
 
   function setProgress(n){
-    ['seg1','seg2','seg3'].forEach((id,i)=>{
-      const el=document.getElementById(id);
+    ['seg1','seg2','seg3','seg4'].forEach(function(id,i){
+      var el=document.getElementById(id);
+      if(!el)return;
       el.classList.remove('active','done');
       if(i+1<n)el.classList.add('done');
       if(i+1===n)el.classList.add('active');
     });
-    const sc=document.getElementById('stepCount');
-    if(n<=3)sc.innerHTML=`<span>Step ${n}</span> of 3`;
+    var sc=document.getElementById('stepCount');
+    if(n<=4)sc.innerHTML='<span>Step '+n+'</span> of 4';
   }
 
   function showStep(n){
-    document.querySelectorAll('.calc-step').forEach(s=>s.classList.remove('active'));
-    document.getElementById('step'+n).classList.add('active');
+    document.querySelectorAll('.calc-step').forEach(function(s){s.classList.remove('active');});
+    var el=document.getElementById('step'+n);
+    if(el)el.classList.add('active');
     setProgress(n);
     document.getElementById('calculator').scrollIntoView({behavior:'smooth',block:'start'});
   }
 
-  function toStep1(){showStep(1)}
+  function toStep1(){showStep(1);}
 
   function toStep2(){
-    const a=parseInt(document.getElementById('areaInput').value);
+    var a=parseInt(document.getElementById('areaInput').value);
     if(!a||a<200){alert('Please enter a valid area (min 200 sq.ft).');return;}
     st.area=a;showStep(2);
   }
 
+  function toStep3(){showStep(3);}
+
   function pickTier(tier,el){
     st.tier=tier;
-    document.querySelectorAll('.tc').forEach(c=>c.classList.remove('sel'));
+    document.querySelectorAll('.tc').forEach(function(c){c.classList.remove('sel');});
     el.classList.add('sel');
-    setTimeout(()=>showResult(),250);
+    setTimeout(function(){toStep3();},250);
+  }
+
+  function submitLead(){
+    var name=document.getElementById('lcName').value.trim();
+    var email=document.getElementById('lcEmail').value.trim();
+    var phone=document.getElementById('lcPhone').value.trim();
+    ['lcName','lcEmail','lcPhone'].forEach(function(id){document.getElementById(id).classList.remove('lc-error');});
+    var ok=true;
+    if(!name){document.getElementById('lcName').classList.add('lc-error');document.getElementById('lcName').focus();ok=false;}
+    if(!email||email.indexOf('@')<1){if(ok){document.getElementById('lcEmail').classList.add('lc-error');document.getElementById('lcEmail').focus();}ok=false;}
+    if(!phone){if(ok){document.getElementById('lcPhone').classList.add('lc-error');document.getElementById('lcPhone').focus();}ok=false;}
+    if(!ok)return;
+
+    var btn=document.getElementById('getEstimateBtn');
+    btn.disabled=true;btn.textContent='Getting Your Estimate…';
+
+    var area=st.area,tier=st.tier;
+    var rateObj=RATES[tier];
+    var base=area*rateObj.rate;
+    var lo=fmt(Math.round(base*(1-rateObj.v)/10000)*10000);
+    var hi=fmt(Math.round(base*(1+rateObj.v)/10000)*10000);
+    var label=rateObj.label;
+
+    // Zoho CRM
+    var nameParts=name.split(/\s+/);
+    var firstName=nameParts.length>1?nameParts.slice(0,-1).join(' '):'';
+    var lastName=nameParts[nameParts.length-1];
+    var fd=new FormData();
+    fd.append('xnQsjsdp','3f83c2d6a9bcd6559180cdf242fcd7f331bf9c71e0e823e554290ee0833a5282');
+    fd.append('zc_gad','');
+    fd.append('xmIwtLD','11dbc838c54bd5ef2f6331ffef5f3b66d07e5c64c37bcf13e13022a55638c325192f044c5545b8a07b53284e71a651e1');
+    fd.append('actionType','TGVhZHM=');
+    fd.append('returnURL','https://www.designintend.com/');
+    fd.append('aG9uZXlwb3Q','');
+    fd.append('First Name',firstName);
+    fd.append('Last Name',lastName);
+    fd.append('Email',email);
+    fd.append('Phone',phone);
+    fd.append('Description','Cost Calculator | '+area.toLocaleString('en-IN')+' sq.ft | '+label+' | Est: '+lo+'–'+hi+' | Hosur');
+    fetch('https://crm.zoho.in/crm/WebToLeadForm',{method:'POST',mode:'no-cors',body:fd}).catch(function(){});
+
+    // WhatsApp
+    var waMsg='Hi Design Intend! 🏠\n\nI calculated my construction cost on your website.\n\n👤 Name: '+name+'\n📱 WhatsApp: '+phone+'\n📧 Email: '+email+'\n\n🏗 Project:\nBuilt-up Area: '+area.toLocaleString('en-IN')+' sq.ft\nStandard: '+label+'\nEstimate: '+lo+' – '+hi+'\nLocation: Hosur / nearby\n\nPlease send me a detailed cost breakdown, material list, and construction timeline. Thank you!';
+    window.open('https://wa.me/917397606382?text='+encodeURIComponent(waMsg),'_blank');
+
+    // Store lead info for result display
+    st.leadName=name;st.leadPhone=phone;
+
+    // Show result (step 4)
+    setTimeout(function(){showResult();},300);
   }
 
   function showResult(){
-    const{area,tier}=st;
-    const{rate,label,v}=RATES[tier];
-    const base=area*rate;
-    const lo=Math.round(base*(1-v)/10000)*10000;
-    const hi=Math.round(base*(1+v)/10000)*10000;
+    var area=st.area,tier=st.tier;
+    var rateObj=RATES[tier];
+    var base=area*rateObj.rate;
+    var lo=Math.round(base*(1-rateObj.v)/10000)*10000;
+    var hi=Math.round(base*(1+rateObj.v)/10000)*10000;
 
     document.getElementById('rArea').textContent=area.toLocaleString('en-IN')+' sq.ft';
-    document.getElementById('rTier').textContent=label;
+    document.getElementById('rTier').textContent=rateObj.label;
     document.getElementById('estimateRange').textContent=fmt(lo)+' – '+fmt(hi);
 
-    // Build breakdown bars
-    const bd=document.getElementById('breakdown');
+    var bd=document.getElementById('breakdown');
     bd.innerHTML='<p class="bd-title">How Your Budget Breaks Down</p>'+
-      BREAKDOWN[tier].map(b=>`
-        <div class="bd-row">
-          <span class="bd-lbl">${b.l}</span>
-          <div class="bd-track"><div class="bd-fill" data-p="${b.p}"></div></div>
-          <span class="bd-pct">${b.p}%</span>
-        </div>`).join('');
+      BREAKDOWN[tier].map(function(b){return '<div class="bd-row"><span class="bd-lbl">'+b.l+'</span><div class="bd-track"><div class="bd-fill" data-p="'+b.p+'"></div></div><span class="bd-pct">'+b.p+'%</span></div>';}).join('');
 
-    showStep(3);
-    setTimeout(()=>{
-      document.querySelectorAll('.bd-fill').forEach(f=>{f.style.width=f.dataset.p+'%';});
+    showStep(4);
+    setTimeout(function(){
+      document.querySelectorAll('.bd-fill').forEach(function(f){f.style.width=f.dataset.p+'%';});
+      // Show WhatsApp fallback after 2s
+      setTimeout(function(){
+        var wf=document.getElementById('waFollowup');
+        var wbtn=document.getElementById('waResendBtn');
+        if(wf){
+          wf.style.display='block';
+          // Set up resend button
+          if(wbtn&&st.leadName&&st.leadPhone){
+            var loF=fmt(lo),hiF=fmt(hi),label=rateObj.label;
+            var waMsg2='Hi Design Intend! 🏠\n\nI calculated my construction cost on your website.\n\n👤 Name: '+st.leadName+'\n📱 WhatsApp: '+st.leadPhone+'\n\n🏗 Project:\nBuilt-up Area: '+area.toLocaleString('en-IN')+' sq.ft\nStandard: '+label+'\nEstimate: '+loF+' – '+hiF+'\nLocation: Hosur / nearby\n\nPlease send me a detailed cost breakdown, material list, and construction timeline. Thank you!';
+            wbtn.onclick=function(){window.open('https://wa.me/917397606382?text='+encodeURIComponent(waMsg2),'_blank');};
+          }
+        }
+      },2000);
     },120);
 
-    // Show lead form, hide confirmation
-    document.getElementById('leadCapture').style.display='block';
     document.getElementById('confirmStep').style.display='none';
     document.getElementById('backToStep2Wrap').style.display='flex';
   }
 
-  function sendLead(){
-    const name=document.getElementById('lcName').value.trim();
-    const phone=document.getElementById('lcPhone').value.trim();
-    if(!name){alert('Please enter your name.');document.getElementById('lcName').focus();return;}
-    if(!phone){alert('Please enter your WhatsApp number.');document.getElementById('lcPhone').focus();return;}
-
-    const{area,tier}=st;
-    const{rate,label,v}=RATES[tier];
-    const base=area*rate;
-    const lo=fmt(Math.round(base*(1-v)/10000)*10000);
-    const hi=fmt(Math.round(base*(1+v)/10000)*10000);
-
-    const msg=`Hi Design Intend! 🏠
-
-I calculated my construction cost on your website.
-
-👤 Name: ${name}
-📱 WhatsApp: ${phone}
-
-🏗 Project:
-Built-up Area: ${area.toLocaleString('en-IN')} sq.ft
-Standard: ${label}
-Estimate: ${lo} – ${hi}
-Location: Hosur / nearby
-
-Please send me a detailed cost breakdown, material list, and construction timeline. Thank you!`;
-
-    window.open('https://wa.me/917397606382?text='+encodeURIComponent(msg),'_blank');
-
-    // Capture in Zoho CRM
-    (function(){
-      var nameParts=name.split(/\s+/);
-      var firstName=nameParts.length>1?nameParts.slice(0,-1).join(' '):'';
-      var lastName=nameParts[nameParts.length-1];
-      var fd=new FormData();
-      fd.append('xnQsjsdp','3f83c2d6a9bcd6559180cdf242fcd7f331bf9c71e0e823e554290ee0833a5282');
-      fd.append('zc_gad','');
-      fd.append('xmIwtLD','11dbc838c54bd5ef2f6331ffef5f3b66d07e5c64c37bcf13e13022a55638c325192f044c5545b8a07b53284e71a651e1');
-      fd.append('actionType','TGVhZHM=');
-      fd.append('returnURL','https://www.designintend.com/');
-      fd.append('aG9uZXlwb3Q','');
-      fd.append('First Name',firstName);
-      fd.append('Last Name',lastName);
-      fd.append('Phone',phone);
-      fd.append('Description','Cost Calculator lead | '+area.toLocaleString('en-IN')+' sq.ft | '+label+' | Estimate: '+lo+'–'+hi+' | Hosur');
-      fetch('https://crm.zoho.in/crm/WebToLeadForm',{method:'POST',mode:'no-cors',body:fd}).catch(function(){});
-    })();
-
-    // Show confirmation
-    document.getElementById('leadCapture').style.display='none';
-    document.getElementById('confirmStep').style.display='block';
-    document.getElementById('backToStep2Wrap').style.display='none';
-    setProgress(4);
-    document.getElementById('stepCount').innerHTML='<span style="color:var(--green)">✓ Quote Sent</span>';
-  }
-
   function resetCalc(){
-    st={area:0,tier:'standard'};
+    st={area:0,tier:'standard',leadName:'',leadPhone:''};
     document.getElementById('areaInput').value='';
-    document.querySelectorAll('.ap-btn').forEach(b=>b.classList.remove('sel'));
-    document.querySelectorAll('.tc').forEach(c=>c.classList.remove('sel'));
-    document.getElementById('leadCapture').style.display='block';
+    document.querySelectorAll('.ap-btn').forEach(function(b){b.classList.remove('sel');});
+    document.querySelectorAll('.tc').forEach(function(c){c.classList.remove('sel');});
+    ['lcName','lcEmail','lcPhone'].forEach(function(id){
+      var el=document.getElementById(id);
+      if(el){el.value='';el.classList.remove('lc-error');}
+    });
+    var btn=document.getElementById('getEstimateBtn');
+    if(btn){btn.disabled=false;btn.textContent='Get My Free Estimate →';}
     document.getElementById('confirmStep').style.display='none';
     toStep1();
   }
 
   function toggleFaq(el){
-    const item=el.closest('.faq-item');
-    const open=item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(f=>f.classList.remove('open'));
+    var item=el.closest('.faq-item');
+    var open=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(function(f){f.classList.remove('open');});
     if(!open)item.classList.add('open');
   }
 
   // Enter key advances from area input
-  document.getElementById('areaInput').addEventListener('keydown',e=>{
+  document.getElementById('areaInput').addEventListener('keydown',function(e){
     if(e.key==='Enter')toStep2();
+  });
+
+  // Enter key submits lead gate
+  ['lcName','lcEmail','lcPhone'].forEach(function(id){
+    var el=document.getElementById(id);
+    if(el)el.addEventListener('keydown',function(e){if(e.key==='Enter')submitLead();});
   });
   </script>
 
