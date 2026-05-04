@@ -11,12 +11,6 @@
 
   <!-- Portfolio / Projects -->
   <url>
-    <loc>https://www.designintend.com/portfolio.html</loc>
-    <lastmod>2026-05-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.designintend.com/projects.html</loc>
     <lastmod>2026-05-04</lastmod>
     <changefreq>monthly</changefreq>
