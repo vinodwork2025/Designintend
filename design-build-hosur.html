@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en-IN">
 <head>
   <meta charset="UTF-8" />
@@ -570,8 +570,166 @@
   <a href="https://wa.me/917397606382" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="28" height="28"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.473 2.027 7.775L0 32l8.438-2.012A15.94 15.94 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 0 1-6.773-1.853l-.485-.288-5.01 1.195 1.228-4.877-.316-.5A13.254 13.254 0 0 1 2.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.274-9.874c-.398-.199-2.355-1.162-2.72-1.295-.366-.132-.632-.199-.898.199-.265.398-1.029 1.295-1.261 1.561-.232.265-.465.298-.863.1-.398-.199-1.681-.62-3.2-1.976-1.183-1.056-1.981-2.36-2.213-2.758-.232-.398-.025-.613.174-.811.179-.179.398-.465.597-.698.199-.232.265-.398.398-.664.132-.265.066-.498-.033-.697-.1-.199-.898-2.164-1.23-2.963-.324-.778-.653-.672-.898-.684l-.764-.013c-.265 0-.697.1-1.063.498-.366.398-1.395 1.362-1.395 3.32s1.428 3.85 1.627 4.116c.199.265 2.81 4.29 6.809 6.016.952.411 1.695.657 2.274.841.956.304 1.826.261 2.514.158.767-.114 2.355-.963 2.688-1.893.332-.93.332-1.727.232-1.893-.1-.166-.365-.265-.763-.464z"/></svg><span class="whatsapp-float-label">Talk to Us</span></a>
   <script src="script.js" defer></script>
 
-  <!-- Zoho SalesIQ Live Chat -->
-  <script>window.$zoho=window.$zoho || {};$zoho.salesiq=$zoho.salesiq||{ready:function(){}}</script>
+  <!-- ===== ZOHO CRM LEAD PANEL ===== -->
+<style>
+#diCrmOverlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:9000;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+#diCrmOverlay.open{display:block}
+#diCrmPanel{position:fixed;top:0;right:-500px;width:100%;max-width:460px;height:100%;background:#1A1816;z-index:9001;overflow-y:auto;transition:right 0.38s cubic-bezier(0.25,0.46,0.45,0.94);padding:2.25rem 1.75rem 3rem;box-shadow:-8px 0 50px rgba(0,0,0,0.6);border-left:1px solid rgba(212,144,10,0.2)}
+#diCrmPanel.open{right:0}
+.di-ph{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1.5rem;padding-bottom:1.25rem;border-bottom:1px solid rgba(255,255,255,0.08)}
+.di-pt{font-family:'Bebas Neue',sans-serif;font-size:1.85rem;letter-spacing:0.06em;color:#FDFCFA;line-height:1.05}
+.di-pt span{color:#D4900A}
+.di-ps{font-family:'Inter',sans-serif;font-size:0.71rem;color:rgba(253,252,250,0.4);margin-top:0.3rem;line-height:1.5}
+.di-cx{background:none;border:1px solid rgba(255,255,255,0.12);color:rgba(253,252,250,0.5);width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:0.9rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:border-color 0.2s,color 0.2s;margin-top:2px}
+.di-cx:hover{border-color:#D4900A;color:#D4900A}
+.di-fl{margin-bottom:0.95rem}
+.di-fl label{display:block;font-family:'Inter',sans-serif;font-size:0.64rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(253,252,250,0.4);margin-bottom:0.38rem}
+.di-fl label span{color:#D4900A}
+.di-fl input,.di-fl textarea{width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#FDFCFA;font-family:'Inter',sans-serif;font-size:0.875rem;padding:0.68rem 0.9rem;border-radius:4px;outline:none;transition:border-color 0.2s,background 0.2s;box-sizing:border-box;-webkit-appearance:none;-moz-appearance:none}
+.di-fl textarea{height:88px;resize:vertical}
+.di-fl input:focus,.di-fl textarea:focus{border-color:#D4900A;background:rgba(212,144,10,0.05)}
+.di-fl input::placeholder,.di-fl textarea::placeholder{color:rgba(253,252,250,0.2);font-size:0.82rem}
+.di-2col{display:grid;grid-template-columns:1fr 1fr;gap:0.7rem}
+.di-sbm{width:100%;background:#D4900A;color:#000;font-family:'Inter',sans-serif;font-size:0.74rem;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;padding:0.9rem;border:none;border-radius:4px;cursor:pointer;transition:background 0.2s;margin-top:0.6rem}
+.di-sbm:hover{background:#F0A820}
+.di-sbm:disabled{opacity:0.45;cursor:not-allowed}
+.di-note{font-family:'Inter',sans-serif;font-size:0.66rem;color:rgba(253,252,250,0.3);text-align:center;margin-top:0.65rem;line-height:1.55}
+.di-ok{display:none;text-align:center;padding:3rem 0 2rem}
+.di-ok-ic{width:50px;height:50px;background:#D4900A;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;font-size:1.3rem;color:#000}
+.di-ok h3{font-family:'Bebas Neue',sans-serif;font-size:1.75rem;color:#FDFCFA;letter-spacing:0.06em;margin-bottom:0.5rem}
+.di-ok p{font-family:'Inter',sans-serif;font-size:0.82rem;color:rgba(253,252,250,0.45);line-height:1.65}
+.di-ok-wa{display:inline-flex;align-items:center;gap:0.45rem;margin-top:1.5rem;background:#25D366;color:#fff;font-family:'Inter',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.6rem 1.2rem;border-radius:30px;text-decoration:none}
+#diCrmTrigger{position:fixed;bottom:90px;right:1.25rem;z-index:8998;background:#D4900A;color:#000;font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;padding:0.58rem 1rem;border:none;border-radius:30px;cursor:pointer;box-shadow:0 4px 18px rgba(212,144,10,0.45);transition:background 0.2s,transform 0.2s,box-shadow 0.2s;display:flex;align-items:center;gap:0.4rem;white-space:nowrap}
+#diCrmTrigger:hover{background:#F0A820;transform:translateY(-2px);box-shadow:0 6px 24px rgba(212,144,10,0.55)}
+@media(max-width:520px){#diCrmPanel{max-width:100%;padding:1.5rem 1rem 2.5rem}.di-2col{grid-template-columns:1fr}}
+</style>
+
+<!-- Floating trigger -->
+<button id="diCrmTrigger" onclick="diCrmOpen()" aria-label="Get free estimate">
+  <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+  Free Estimate
+</button>
+
+<!-- Overlay -->
+<div id="diCrmOverlay" onclick="diCrmClose()"></div>
+
+<!-- Slide panel -->
+<div id="diCrmPanel" role="dialog" aria-modal="true" aria-label="Get a free estimate from Design Intend">
+
+  <div class="di-ph">
+    <div>
+      <div class="di-pt">Get a <span>Free</span><br>Estimate</div>
+      <div class="di-ps">We reply within 2 hrs &nbsp;&middot;&nbsp; No obligation</div>
+    </div>
+    <button class="di-cx" onclick="diCrmClose()" aria-label="Close">&#x2715;</button>
+  </div>
+
+  <!-- Success state -->
+  <div class="di-ok" id="diCrmOK">
+    <div class="di-ok-ic">&#10003;</div>
+    <h3>Received</h3>
+    <p>Our team will call you within 2 hours.<br>Need faster response?</p>
+    <a class="di-ok-wa" href="https://wa.me/917397606382" target="_blank" rel="noopener noreferrer">WhatsApp Us Now</a>
+  </div>
+
+  <!-- Form state -->
+  <div id="diCrmFormWrap">
+    <!-- Do not remove this --- iframe captures Zoho response without page navigation -->
+    <iframe name="di_zoho_frame" id="di_zoho_frame" style="display:none;" title="Form submission response"></iframe>
+    <form id="webform1264804000000452562" name="WebToLeads1264804000000452562"
+          action="https://crm.zoho.in/crm/WebToLeadForm"
+          method="POST"
+          target="di_zoho_frame"
+          onsubmit="return diCrmSubmit()"
+          accept-charset="UTF-8">
+
+      <!-- Do not remove this code. -->
+      <input type="text" style="display:none;" name="xnQsjsdp" value="0ae1397d58eb1d980607e4fe702d1abf071ffe762ad7a4a5c3e247a549489ae4">
+      <input type="hidden" name="zc_gad" id="zc_gad" value="">
+      <input type="text" style="display:none;" name="xmIwtLD" value="7dacb3596b11e3087921a39fc240e709c18a3272b819efc708eade9d09f70b07e91240d91ec679ea3e3b7ec8eab73210">
+      <input type="text" style="display:none;" name="actionType" value="TGVhZHM=">
+      <input type="text" style="display:none;" name="returnURL" value="null">
+      <!-- Do not remove this code. -->
+
+      <div class="di-2col">
+        <div class="di-fl">
+          <label for="di_fn">First Name <span>*</span></label>
+          <input type="text" id="di_fn" name="First Name" maxlength="40" placeholder="First name" required>
+        </div>
+        <div class="di-fl">
+          <label for="di_ln">Last Name <span>*</span></label>
+          <input type="text" id="di_ln" name="Last Name" maxlength="80" placeholder="Last name" required>
+        </div>
+      </div>
+      <div class="di-fl">
+        <label for="di_ph">Phone <span>*</span></label>
+        <input type="tel" id="di_ph" name="Phone" maxlength="30" placeholder="+91 98765 43210" required>
+      </div>
+      <div class="di-fl">
+        <label for="di_em">Email <span>*</span></label>
+        <input type="email" ftype="email" id="di_em" name="Email" maxlength="100" crmlabel="" placeholder="you@email.com" required>
+      </div>
+      <div class="di-fl">
+        <label for="di_desc">Your Requirement <span>*</span></label>
+        <textarea id="di_desc" name="Description" placeholder="E.g. 3BHK house construction in Hosur, plot 30x40, budget &#x20B9;55L&#x2026;" required></textarea>
+      </div>
+
+      <!-- Do not remove this code. -->
+      <input type="text" style="display:none;" name="aG9uZXlwb3Q" value="">
+      <!-- Do not remove this code. -->
+
+      <button type="submit" class="di-sbm" id="diCrmSubmitBtn">Send My Requirement &rarr;</button>
+      <p class="di-note">Goes directly to our team &nbsp;&middot;&nbsp; We never share your data</p>
+    </form>
+  </div>
+</div>
+
+<!-- Do not remove this --- Analytics Tracking code starts -->
+<script id="wf_anal" src="https://crm.zohopublic.in/crm/WebFormAnalyticsServeServlet?rid=7f702dc56652a2dab17293fe1ba6291c6b076a8b0572f94e2e2ae53517db09a59c3ba871e7da1fa71a0c93d295835b63gid962341f3d1042ed09dde36abde671ea704634086f0e74b47e11c026d3db07ffbgid1a19425a0fdda47bcd9fb4bc13a9a1328bccf14e529d3525fb54f7e99c1ff020gid918ccd07789211fee316f738fb7a393221376416e719f44a76600be1668fa4d3&tw=b74b18923c3d868c883c437146aa609bcc2099f953eada5aaa797ecf5fb8aed1"></script>
+<!-- Do not remove this --- Analytics Tracking code ends. -->
+
+<script>
+(function(){
+  function diCrmOpen(){
+    document.getElementById('diCrmPanel').classList.add('open');
+    document.getElementById('diCrmOverlay').classList.add('open');
+    document.body.style.overflow='hidden';
+  }
+  function diCrmClose(){
+    document.getElementById('diCrmPanel').classList.remove('open');
+    document.getElementById('diCrmOverlay').classList.remove('open');
+    document.body.style.overflow='';
+  }
+  function diCrmSubmit(){
+    var f=document.getElementById('webform1264804000000452562');
+    var req=[['First Name','First name'],['Last Name','Last name'],['Phone','Phone'],['Email','Email'],['Description','Your requirement']];
+    for(var i=0;i<req.length;i++){
+      var el=f[req[i][0]];
+      if(!el||el.value.replace(/^\s+|\s+$/g,'').length===0){if(el)el.focus();return false;}
+    }
+    var em=f['Email'].value.replace(/^\s+|\s+$/g,'');
+    var at=em.indexOf('@'),dot=em.lastIndexOf('.');
+    if(at<1||dot<at+2||dot+2>=em.length){f['Email'].focus();return false;}
+    document.getElementById('diCrmSubmitBtn').disabled=true;
+    document.getElementById('diCrmSubmitBtn').textContent='Sending…';
+    document.getElementById('di_zoho_frame').onload=function(){
+      if(document.getElementById('diCrmSubmitBtn').disabled){
+        document.getElementById('diCrmFormWrap').style.display='none';
+        document.getElementById('diCrmOK').style.display='block';
+      }
+    };
+    return true;
+  }
+  window.diCrmOpen=diCrmOpen;
+  window.diCrmClose=diCrmClose;
+  window.diCrmSubmit=diCrmSubmit;
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')diCrmClose();});
+})();
+</script>
+<!-- ===== END ZOHO CRM LEAD PANEL ===== -->
+
+<!-- Zoho SalesIQ Live Chat -->
+  <script>window.$zoho=window.$zoho || {};$zoho.salesiq=$zoho.salesiq||{ready:function(){$zoho.salesiq.floatbutton.position("bottomleft");}}</script>
   <script id="zsiqscript" src="https://salesiq.zohopublic.in/widget?wc=siqa3e40446a804a30dd5f265a56ce673713b439045713901b66f1d7e2ac02caf70" defer></script>
 </body>
 </html>
