@@ -616,12 +616,9 @@
 
   <!-- Form state -->
   <div id="diCrmFormWrap">
-    <!-- Do not remove this --- iframe captures Zoho response without page navigation -->
-    <iframe name="di_zoho_frame" id="di_zoho_frame" style="display:none;" title="Form submission response"></iframe>
     <form id="webform1264804000000452562" name="WebToLeads1264804000000452562"
           action="https://crm.zoho.in/crm/WebToLeadForm"
           method="POST"
-          target="di_zoho_frame"
           onsubmit="return diCrmSubmit()"
           accept-charset="UTF-8">
 
@@ -682,25 +679,33 @@
     document.getElementById('diCrmOverlay').classList.remove('open');
     document.body.style.overflow='';
   }
+  function diCrmShowSuccess(){
+    document.getElementById('diCrmFormWrap').style.display='none';
+    document.getElementById('diCrmOK').style.display='block';
+  }
   function diCrmSubmit(){
     var f=document.getElementById('webform1264804000000452562');
     var req=[['First Name','First name'],['Last Name','Last name'],['Phone','Phone'],['Email','Email'],['Description','Your requirement']];
     for(var i=0;i<req.length;i++){
-      var el=f[req[i][0]];
+      var el=f.elements[req[i][0]];
       if(!el||el.value.replace(/^\s+|\s+$/g,'').length===0){if(el)el.focus();return false;}
     }
-    var em=f['Email'].value.replace(/^\s+|\s+$/g,'');
+    var em=f.elements['Email'].value.replace(/^\s+|\s+$/g,'');
     var at=em.indexOf('@'),dot=em.lastIndexOf('.');
-    if(at<1||dot<at+2||dot+2>=em.length){f['Email'].focus();return false;}
-    document.getElementById('diCrmSubmitBtn').disabled=true;
-    document.getElementById('diCrmSubmitBtn').textContent='Sending…';
-    document.getElementById('di_zoho_frame').onload=function(){
-      if(document.getElementById('diCrmSubmitBtn').disabled){
-        document.getElementById('diCrmFormWrap').style.display='none';
-        document.getElementById('diCrmOK').style.display='block';
-      }
-    };
-    return true;
+    if(at<1||dot<at+2||dot+2>=em.length){f.elements['Email'].focus();return false;}
+    var btn=document.getElementById('diCrmSubmitBtn');
+    btn.disabled=true;
+    btn.textContent='Sending…';
+    /* POST via fetch no-cors — browser sends request, Zoho creates lead,
+       opaque response is fine since we only need the fire-and-forget */
+    fetch('https://crm.zoho.in/crm/WebToLeadForm',{
+      method:'POST',
+      mode:'no-cors',
+      body:new FormData(f)
+    }).then(diCrmShowSuccess).catch(diCrmShowSuccess);
+    /* Fallback: show success after 8 s if fetch hangs */
+    setTimeout(function(){if(btn.disabled)diCrmShowSuccess();},8000);
+    return false;
   }
   window.diCrmOpen=diCrmOpen;
   window.diCrmClose=diCrmClose;
@@ -709,6 +714,7 @@
 })();
 </script>
 <!-- ===== END ZOHO CRM LEAD PANEL ===== -->
+
 
 <!-- Zoho SalesIQ Live Chat -->
   <script>window.$zoho=window.$zoho || {};$zoho.salesiq=$zoho.salesiq||{ready:function(){$zoho.salesiq.floatbutton.position("bottomleft");}}</script>
