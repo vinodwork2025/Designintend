@@ -364,27 +364,40 @@ function initHeroAnimation() {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    // Basic validation
     const required = form.querySelectorAll('[required]');
     let valid = true;
-
     required.forEach(field => {
       if (!field.value.trim()) {
         valid = false;
         field.style.borderColor = 'var(--terracotta)';
-        field.addEventListener('input', () => {
-          field.style.borderColor = '';
-        }, { once: true });
+        field.addEventListener('input', () => { field.style.borderColor = ''; }, { once: true });
       }
     });
-
     if (!valid) return;
 
-    // Simulate submission
     submitBtn.disabled = true;
     const btnText = submitBtn.querySelector('.btn-text');
     const originalText = btnText.textContent;
     btnText.textContent = 'Sending...';
+
+    const fd = new FormData();
+    fd.append('xnQsjsdp', '3f83c2d6a9bcd6559180cdf242fcd7f331bf9c71e0e823e554290ee0833a5282');
+    fd.append('zc_gad', '');
+    fd.append('xmIwtLD', '11dbc838c54bd5ef2f6331ffef5f3b66d07e5c64c37bcf13e13022a55638c325192f044c5545b8a07b53284e71a651e1');
+    fd.append('actionType', 'TGVhZHM=');
+    fd.append('returnURL', 'https://www.designintend.com/');
+    fd.append('aG9uZXlwb3Q', '');
+    fd.append('First Name', form.elements['firstName'] ? form.elements['firstName'].value.trim() : '');
+    fd.append('Last Name', form.elements['lastName'] ? form.elements['lastName'].value.trim() : '');
+    fd.append('Email', form.elements['email'] ? form.elements['email'].value.trim() : '');
+    fd.append('Phone', form.elements['phone'] ? form.elements['phone'].value.trim() : '');
+    const projectType = form.elements['projectType'] ? form.elements['projectType'].value : '';
+    const budget = form.elements['budget'] ? form.elements['budget'].value : '';
+    const message = form.elements['message'] ? form.elements['message'].value.trim() : '';
+    fd.append('Description', [projectType && 'Project: ' + projectType, budget && 'Budget: ' + budget, message].filter(Boolean).join(' | '));
+
+    fetch('https://crm.zoho.in/crm/WebToLeadForm', { method: 'POST', mode: 'no-cors', body: fd })
+      .catch(() => {});
 
     setTimeout(() => {
       form.reset();
@@ -392,7 +405,7 @@ function initHeroAnimation() {
       btnText.textContent = originalText;
       successMsg.classList.add('visible');
       setTimeout(() => successMsg.classList.remove('visible'), 6000);
-    }, 1500);
+    }, 1200);
   });
 })();
 

@@ -1040,6 +1040,25 @@ Please send me a detailed cost breakdown, material list, and construction timeli
 
     window.open('https://wa.me/917397606382?text='+encodeURIComponent(msg),'_blank');
 
+    // Capture in Zoho CRM
+    (function(){
+      var nameParts=name.split(/\s+/);
+      var firstName=nameParts.length>1?nameParts.slice(0,-1).join(' '):'';
+      var lastName=nameParts[nameParts.length-1];
+      var fd=new FormData();
+      fd.append('xnQsjsdp','3f83c2d6a9bcd6559180cdf242fcd7f331bf9c71e0e823e554290ee0833a5282');
+      fd.append('zc_gad','');
+      fd.append('xmIwtLD','11dbc838c54bd5ef2f6331ffef5f3b66d07e5c64c37bcf13e13022a55638c325192f044c5545b8a07b53284e71a651e1');
+      fd.append('actionType','TGVhZHM=');
+      fd.append('returnURL','https://www.designintend.com/');
+      fd.append('aG9uZXlwb3Q','');
+      fd.append('First Name',firstName);
+      fd.append('Last Name',lastName);
+      fd.append('Phone',phone);
+      fd.append('Description','Cost Calculator lead | '+area.toLocaleString('en-IN')+' sq.ft | '+label+' | Estimate: '+lo+'–'+hi+' | Hosur');
+      fetch('https://crm.zoho.in/crm/WebToLeadForm',{method:'POST',mode:'no-cors',body:fd}).catch(function(){});
+    })();
+
     // Show confirmation
     document.getElementById('leadCapture').style.display='none';
     document.getElementById('confirmStep').style.display='block';
