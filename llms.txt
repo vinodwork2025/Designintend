@@ -1,4 +1,4 @@
-# Design Intend
+﻿# Design Intend
 
 > Architecture, construction, and interior design studio in Hosur, Tamil Nadu, India. Founded 2014 by Ar. Chittrarasan.
 
@@ -6,42 +6,43 @@ Design Intend provides end-to-end architectural and interior design services in 
 
 Principal architect: Ar. Chittrarasan (Adhiyaman College of Engineering, Hosur). Founded: 2014. Service area: Hosur, Krishnagiri, Bengaluru, Perithalmanna (Kerala).
 
-Contact: +91 73976 06382 | info@designintend.in | https://wa.me/917397606382
+Contact: +91 73976 06382 | info@designintend.com | https://wa.me/917397606382
 
 Address: No.2, Second Floor, Balamurugan Towers, Nanjundeeswar Nagar Ring Road, Hosur, Tamil Nadu 635109, India
 
 ## Main Pages
 
-- [Home](https://www.designintend.in/): Studio overview, services, featured projects, testimonials, and contact
-- [Portfolio](https://www.designintend.in/portfolio.html): Full project gallery — residential, commercial, and interior projects
-- [Build Your Home Guide](https://www.designintend.in/build-your-home-hosur.html): Comprehensive guide to building a home in Hosur — planning, approvals, costs, choosing a builder
+- [Home](https://www.designintend.com/): Studio overview, services, featured projects, testimonials, and contact
+- [Portfolio](https://www.designintend.com/portfolio.html): Full project gallery — residential, commercial, and interior projects
+- [Build Your Home Guide](https://www.designintend.com/build-your-home-hosur.html): Comprehensive guide to building a home in Hosur — planning, approvals, costs, choosing a builder
 
 ## Architecture Services
 
-- [Architects in Hosur](https://www.designintend.in/architects-hosur.html): Residential and commercial architectural design, concept to completion
-- [Design & Build Hosur](https://www.designintend.in/design-build-hosur.html): Single-contract architecture + construction — one team, one fee, full responsibility
+- [Architects in Hosur](https://www.designintend.com/architects-hosur.html): Residential and commercial architectural design, concept to completion
+- [Design & Build Hosur](https://www.designintend.com/design-build-hosur.html): Single-contract architecture + construction — one team, one fee, full responsibility
 
 ## Construction Services
 
-- [Construction Company Hosur](https://www.designintend.in/construction-company-hosur.html): House and commercial construction with fixed-price contracts and site engineer supervision
-- [House Construction Hosur](https://www.designintend.in/house-construction-hosur.html): End-to-end house construction from foundation to handover
-- [Villa Construction Hosur](https://www.designintend.in/villa-construction-hosur.html): Premium and luxury villa construction in Hosur
-- [Turnkey Construction Hosur](https://www.designintend.in/turnkey-construction-hosur.html): Complete turnkey construction including civil work and interiors
+- [Construction Company Hosur](https://www.designintend.com/construction-company-hosur.html): House and commercial construction with fixed-price contracts and site engineer supervision
+- [House Construction Hosur](https://www.designintend.com/house-construction-hosur.html): End-to-end house construction from foundation to handover
+- [Villa Construction Hosur](https://www.designintend.com/villa-construction-hosur.html): Premium and luxury villa construction in Hosur
+- [Turnkey Construction Hosur](https://www.designintend.com/turnkey-construction-hosur.html): Complete turnkey construction including civil work and interiors
 
 ## Interior Design Services
 
-- [Interior Designers Hosur](https://www.designintend.in/interior-designers-hosur.html): Full-home interior design and execution — living, bedroom, kitchen, bathrooms
-- [Home Interiors Hosur](https://www.designintend.in/home-interiors-hosur.html): Interior design packages for completed homes
-- [Modular Kitchen Hosur](https://www.designintend.in/modular-kitchen-hosur.html): Custom modular kitchen design with Hettich/Hafele hardware and quartz countertops
-- [2BHK Interior Design Hosur](https://www.designintend.in/2bhk-interior-design-hosur.html): Complete 2BHK interior packages with transparent pricing
+- [Interior Designers Hosur](https://www.designintend.com/interior-designers-hosur.html): Full-home interior design and execution — living, bedroom, kitchen, bathrooms
+- [Home Interiors Hosur](https://www.designintend.com/home-interiors-hosur.html): Interior design packages for completed homes
+- [Modular Kitchen Hosur](https://www.designintend.com/modular-kitchen-hosur.html): Custom modular kitchen design with Hettich/Hafele hardware and quartz countertops
+- [2BHK Interior Design Hosur](https://www.designintend.com/2bhk-interior-design-hosur.html): Complete 2BHK interior packages with transparent pricing
 
 ## Cost Guides & Calculator
 
-- [Construction Cost Calculator](https://www.designintend.in/construction-cost-hosur.html): Interactive 3-step calculator — instant estimate for Standard, Premium, or Luxury build
-- [House Construction Cost Hosur](https://www.designintend.in/house-construction-cost-hosur.html): 2026 guide — Standard Rs 1,950, Premium Rs 2,050, Luxury Rs 2,300 per sq ft
-- [Interior Design Cost Hosur](https://www.designintend.in/interior-design-cost-hosur.html): 2026 guide — room-by-room breakdown, package tiers, red flags to watch for
+- [Construction Cost Calculator](https://www.designintend.com/construction-cost-hosur.html): Interactive 3-step calculator — instant estimate for Standard, Premium, or Luxury build
+- [House Construction Cost Hosur](https://www.designintend.com/house-construction-cost-hosur.html): 2026 guide — Standard Rs 1,950, Premium Rs 2,050, Luxury Rs 2,300 per sq ft
+- [Interior Design Cost Hosur](https://www.designintend.com/interior-design-cost-hosur.html): 2026 guide — room-by-room breakdown, package tiers, red flags to watch for
 
 ## Comparison / Best-of Pages
 
-- [Best Interior Designers Hosur](https://www.designintend.in/best-interior-designers-hosur.html): How to evaluate and choose an interior designer in Hosur — criteria and red flags
-- [Best Builders Hosur](https://www.designintend.in/best-builders-hosur.html): How to choose a reliable builder — what to check before signing a contract
+- [Best Interior Designers Hosur](https://www.designintend.com/best-interior-designers-hosur.html): How to evaluate and choose an interior designer in Hosur — criteria and red flags
+- [Best Builders Hosur](https://www.designintend.com/best-builders-hosur.html): How to choose a reliable builder — what to check before signing a contract
+

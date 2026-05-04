@@ -1,4 +1,4 @@
-User-agent: *
+﻿User-agent: *
 Allow: /
 
 # Search engines
@@ -60,4 +60,5 @@ Allow: /
 User-agent: ia_archiver
 Allow: /
 
-Sitemap: https://www.designintend.in/sitemap.xml
+Sitemap: https://www.designintend.com/sitemap.xml
+
