@@ -257,6 +257,12 @@
 
   <!-- Preload LCP image (hero — above fold, mobile) -->
   <link rel="preload" as="image"
+    href="Assets/chittarasan-hero-480.webp"
+    imagesrcset="Assets/chittarasan-hero-480.webp 480w"
+    imagesizes="(max-width: 768px) 480px, 900px"
+    fetchpriority="high"
+    type="image/webp" />
+  <link rel="preload" as="image"
     href="Assets/chittarasan-hero.jpg"
     imagesrcset="Assets/chittarasan-hero-480.jpg 480w, Assets/chittarasan-hero.jpg 900w"
     imagesizes="(max-width: 768px) 480px, 900px"
@@ -383,17 +389,22 @@
       <div class="hero-right reveal-right">
         <div class="hero-image-wrap">
           <div class="hero-img-frame">
-            <img
-              src="Assets/chittarasan-hero.jpg"
-              srcset="Assets/chittarasan-hero-480.jpg 480w, Assets/chittarasan-hero.jpg 900w"
-              sizes="(max-width: 768px) 480px, 900px"
-              alt="Ar. Chittrarasan — Founder &amp; Principal Architect, Design Intend"
-              class="hero-image"
-              width="900" height="720"
-              loading="eager"
-              fetchpriority="high"
-              decoding="async"
-            />
+            <picture>
+              <source type="image/webp"
+                srcset="Assets/chittarasan-hero-480.webp 480w"
+                sizes="(max-width: 768px) 480px, 900px" />
+              <img
+                src="Assets/chittarasan-hero.jpg"
+                srcset="Assets/chittarasan-hero-480.jpg 480w, Assets/chittarasan-hero.jpg 900w"
+                sizes="(max-width: 768px) 480px, 900px"
+                alt="Ar. Chittrarasan — Founder &amp; Principal Architect, Design Intend"
+                class="hero-image"
+                width="900" height="720"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
+              />
+            </picture>
           </div>
           <div class="hero-img-grade" aria-hidden="true"></div>
           <div class="hero-img-vignette" aria-hidden="true"></div>
@@ -459,7 +470,10 @@
         <div class="project-image-wrap project-image-wrap--clickable" data-project="vinutha-residence" role="button" tabindex="0" aria-label="View Vinutha Residence gallery">
           <div class="project-image-inner reveal-scene">
             <div class="reveal-zoom">
-              <img src="Assets/vinutha-exterior.jpg" alt="Vinutha Residence — Exterior" class="reveal-img" width="900" height="657" loading="lazy" decoding="async" />
+              <picture>
+                <source type="image/webp" srcset="Assets/vinutha-exterior.webp" />
+                <img src="Assets/vinutha-exterior.jpg" alt="Vinutha Residence — Exterior" class="reveal-img" width="900" height="657" loading="lazy" decoding="async" />
+              </picture>
             </div>
             <div class="reveal-curtain" aria-hidden="true"></div>
             <div class="reveal-vignette" aria-hidden="true"></div>
@@ -486,7 +500,10 @@
         <div class="project-image-wrap project-image-wrap--clickable" data-project="kishore-farmhouse" role="button" tabindex="0" aria-label="View Kishore Farmhouse gallery">
           <div class="project-image-inner reveal-scene">
             <div class="reveal-zoom">
-              <img src="Assets/farmhouse-exterior.jpg" alt="Kishore Farmhouse — Entrance gateway, Perithalmanna, Kerala" class="reveal-img" width="900" height="600" loading="lazy" decoding="async" />
+              <picture>
+                <source type="image/webp" srcset="Assets/farmhouse-exterior.webp" />
+                <img src="Assets/farmhouse-exterior.jpg" alt="Kishore Farmhouse — Entrance gateway, Perithalmanna, Kerala" class="reveal-img" width="900" height="600" loading="lazy" decoding="async" />
+              </picture>
             </div>
             <div class="reveal-curtain" aria-hidden="true"></div>
             <div class="reveal-vignette" aria-hidden="true"></div>
@@ -513,7 +530,10 @@
         <div class="project-image-wrap project-image-wrap--clickable" data-project="ambrish-hosur" role="button" tabindex="0" aria-label="View Ambrish Residence gallery">
           <div class="project-image-inner reveal-scene">
             <div class="reveal-zoom">
-              <img src="Assets/ambrish-exterior.jpg" alt="Ambrish Residence Hosur — Exterior" class="reveal-img" width="900" height="675" loading="lazy" decoding="async" />
+              <picture>
+                <source type="image/webp" srcset="Assets/ambrish-exterior.webp" />
+                <img src="Assets/ambrish-exterior.jpg" alt="Ambrish Residence Hosur — Exterior" class="reveal-img" width="900" height="675" loading="lazy" decoding="async" />
+              </picture>
             </div>
             <div class="reveal-curtain" aria-hidden="true"></div>
             <div class="reveal-vignette" aria-hidden="true"></div>
