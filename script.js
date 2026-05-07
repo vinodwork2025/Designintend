@@ -16,11 +16,9 @@
   document.body.prepend(loader);
 
   window.addEventListener('load', () => {
-    setTimeout(() => {
-      loader.classList.add('hidden');
-      loader.addEventListener('transitionend', () => loader.remove(), { once: true });
-      initHeroAnimation();
-    }, 300);
+    loader.classList.add('hidden');
+    loader.addEventListener('transitionend', () => loader.remove(), { once: true });
+    initHeroAnimation();
   });
 })();
 
@@ -43,16 +41,22 @@
     mouseY = e.clientY;
     cursor.style.left = mouseX + 'px';
     cursor.style.top = mouseY + 'px';
+    if (!raf) raf = requestAnimationFrame(animateFollower);
   });
 
   function animateFollower() {
-    followerX += (mouseX - followerX) * 0.12;
-    followerY += (mouseY - followerY) * 0.12;
+    const dx = mouseX - followerX;
+    const dy = mouseY - followerY;
+    followerX += dx * 0.12;
+    followerY += dy * 0.12;
     follower.style.left = followerX + 'px';
     follower.style.top = followerY + 'px';
-    raf = requestAnimationFrame(animateFollower);
+    if (Math.abs(dx) > 0.3 || Math.abs(dy) > 0.3) {
+      raf = requestAnimationFrame(animateFollower);
+    } else {
+      raf = null;
+    }
   }
-  animateFollower();
 
   // Hover states
   const hoverTargets = 'a, button, .service-card, .project-row, input, select, textarea, .t-btn';
@@ -75,12 +79,15 @@
     document.querySelector('.contact-left')
   ].filter(Boolean);
 
+  let darkRects = darkSections.map(el => el.getBoundingClientRect());
+  window.addEventListener('resize', () => { darkRects = darkSections.map(el => el.getBoundingClientRect()); }, { passive: true });
+  window.addEventListener('scroll', () => { darkRects = darkSections.map(el => el.getBoundingClientRect()); }, { passive: true });
+
   document.addEventListener('mousemove', (e) => {
-    const isDark = darkSections.some(el => {
-      const rect = el.getBoundingClientRect();
-      return e.clientX >= rect.left && e.clientX <= rect.right &&
-             e.clientY >= rect.top && e.clientY <= rect.bottom;
-    });
+    const isDark = darkRects.some(rect =>
+      e.clientX >= rect.left && e.clientX <= rect.right &&
+      e.clientY >= rect.top && e.clientY <= rect.bottom
+    );
     document.body.classList.toggle('cursor-dark', isDark);
   });
 })();
@@ -417,13 +424,14 @@ function initHeroAnimation() {
   if (!heroImage) return;
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
+  const hero = document.querySelector('.hero');
+  let heroHeight = hero ? hero.offsetHeight : 0;
+  window.addEventListener('resize', () => { heroHeight = hero ? hero.offsetHeight : 0; }, { passive: true });
+
   window.addEventListener('scroll', () => {
     const scrollY = window.scrollY;
-    const heroHeight = document.querySelector('.hero').offsetHeight;
     if (scrollY > heroHeight) return;
-
-    const offset = scrollY * 0.25;
-    heroImage.style.transform = `scale(1.05) translateY(${offset}px)`;
+    heroImage.style.transform = `scale(1.05) translateY(${scrollY * 0.25}px)`;
   }, { passive: true });
 })();
 

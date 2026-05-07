@@ -1332,7 +1332,14 @@
 </div>
 
 <!-- Do not remove this --- Analytics Tracking code starts -->
-<script id="wf_anal" src="https://crm.zohopublic.in/crm/WebFormAnalyticsServeServlet?rid=82edc9230c6c0710213fe13ffb6f549956b1b54aca1e6fccf139d450868acef4fe04cbfe03ed20ef2506c9fd79ed8576gid48193318e33365b5ab743df763875c0fa7a0c369536d8231e1a36b6b3aeb46f4gidfb570ae6a75c3eea48eee3959b96cf8e4abe20a21ad06bd594f94bc656320755gid6173e8c26d3a0128b201aa115ea6ba38b828f233ace75ff94832a677d7780c3e&tw=3c6ad43df95cfe28feeb0b9ba8874630d9e11c9a0d556832c43cc58efb72bd56"></script>
+<script>
+window.addEventListener('load', function() {
+  var s = document.createElement('script');
+  s.id = 'wf_anal';
+  s.src = 'https://crm.zohopublic.in/crm/WebFormAnalyticsServeServlet?rid=82edc9230c6c0710213fe13ffb6f549956b1b54aca1e6fccf139d450868acef4fe04cbfe03ed20ef2506c9fd79ed8576gid48193318e33365b5ab743df763875c0fa7a0c369536d8231e1a36b6b3aeb46f4gidfb570ae6a75c3eea48eee3959b96cf8e4abe20a21ad06bd594f94bc656320755gid6173e8c26d3a0128b201aa115ea6ba38b828f233ace75ff94832a677d7780c3e&tw=3c6ad43df95cfe28feeb0b9ba8874630d9e11c9a0d556832c43cc58efb72bd56';
+  document.body.appendChild(s);
+}, { once: true });
+</script>
 <!-- Do not remove this --- Analytics Tracking code ends. -->
 
 <script>
@@ -1383,9 +1390,17 @@
 <!-- ===== END ZOHO CRM LEAD PANEL ===== -->
 
 
-<!-- Zoho SalesIQ Live Chat -->
-  <script>window.$zoho=window.$zoho || {};$zoho.salesiq=$zoho.salesiq||{ready:function(){$zoho.salesiq.floatbutton.position("bottomleft");}}</script>
-  <script id="zsiqscript" src="https://salesiq.zohopublic.in/widget?wc=siqa3e40446a804a30dd5f265a56ce673713b439045713901b66f1d7e2ac02caf70" defer></script>
+<!-- Zoho SalesIQ Live Chat — loaded after page load to avoid LCP impact -->
+<script>
+window.addEventListener('load', function() {
+  window.$zoho = window.$zoho || {};
+  $zoho.salesiq = $zoho.salesiq || { ready: function() { $zoho.salesiq.floatbutton.position("bottomleft"); } };
+  var s = document.createElement('script');
+  s.id = 'zsiqscript';
+  s.src = 'https://salesiq.zohopublic.in/widget?wc=siqa3e40446a804a30dd5f265a56ce673713b439045713901b66f1d7e2ac02caf70';
+  document.body.appendChild(s);
+}, { once: true });
+</script>
 </body>
 </html>
 
