@@ -255,17 +255,9 @@
   }
   </script>
 
-  <!-- Preload LCP image (hero — above fold, mobile) -->
+  <!-- Preload LCP image (hero — above fold) -->
   <link rel="preload" as="image"
-    href="Assets/chittarasan-hero-480.webp"
-    imagesrcset="Assets/chittarasan-hero-480.webp 480w"
-    imagesizes="(max-width: 768px) 480px, 900px"
-    fetchpriority="high"
-    type="image/webp" />
-  <link rel="preload" as="image"
-    href="Assets/chittarasan-hero.jpg"
-    imagesrcset="Assets/chittarasan-hero-480.jpg 480w, Assets/chittarasan-hero.jpg 900w"
-    imagesizes="(max-width: 768px) 480px, 900px"
+    href="Assets/chittarasan-hero.png"
     fetchpriority="high" />
 
   <!-- Preconnect to font CDNs -->
@@ -392,22 +384,15 @@
       <div class="hero-right reveal-right">
         <div class="hero-image-wrap">
           <div class="hero-img-frame">
-            <picture>
-              <source type="image/webp"
-                srcset="Assets/chittarasan-hero-480.webp 480w"
-                sizes="(max-width: 768px) 480px, 900px" />
-              <img
-                src="Assets/chittarasan-hero.jpg"
-                srcset="Assets/chittarasan-hero-480.jpg 480w, Assets/chittarasan-hero.jpg 900w"
-                sizes="(max-width: 768px) 480px, 900px"
-                alt="Ar. Chittrarasan — Founder &amp; Principal Architect, Design Intend"
-                class="hero-image"
-                width="900" height="720"
-                loading="eager"
-                fetchpriority="high"
-                decoding="async"
-              />
-            </picture>
+            <img
+              src="Assets/chittarasan-hero.png"
+              alt="Ar. Chittrarasan — Founder &amp; Principal Architect, Design Intend"
+              class="hero-image"
+              width="900" height="720"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+            />
           </div>
           <div class="hero-img-grade" aria-hidden="true"></div>
           <div class="hero-img-vignette" aria-hidden="true"></div>
