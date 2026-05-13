@@ -1,42 +1,4 @@
 # Cloudflare Pages — canonical redirect rules
-# Force canonical URL structure: https://www.designintend.com/page.html
 
 # Homepage deduplication
 /index.html / 301
-
-# Extensionless → .html (prevents /page from resolving as non-canonical duplicate)
-/about /about.html 301
-/projects /projects.html 301
-/architects-hosur /architects-hosur.html 301
-/residential-architects-hosur /residential-architects-hosur.html 301
-/design-build-hosur /design-build-hosur.html 301
-/construction-company-hosur /construction-company-hosur.html 301
-/house-construction-hosur /house-construction-hosur.html 301
-/villa-construction-hosur /villa-construction-hosur.html 301
-/turnkey-construction-hosur /turnkey-construction-hosur.html 301
-/building-contractors-hosur /building-contractors-hosur.html 301
-/home-builders-hosur /home-builders-hosur.html 301
-/home-renovation-hosur /home-renovation-hosur.html 301
-/house-construction-attibele /house-construction-attibele.html 301
-/house-construction-bagalur /house-construction-bagalur.html 301
-/house-construction-denkanikottai /house-construction-denkanikottai.html 301
-/house-construction-sarjapura /house-construction-sarjapura.html 301
-/interior-designers-hosur /interior-designers-hosur.html 301
-/interior-designers-bagalur /interior-designers-bagalur.html 301
-/interior-designers-denkanikottai /interior-designers-denkanikottai.html 301
-/interior-designers-sarjapura /interior-designers-sarjapura.html 301
-/home-interiors-hosur /home-interiors-hosur.html 301
-/modular-kitchen-hosur /modular-kitchen-hosur.html 301
-/2bhk-interior-design-hosur /2bhk-interior-design-hosur.html 301
-/3bhk-interior-design-hosur /3bhk-interior-design-hosur.html 301
-/interior-design-cost-hosur /interior-design-cost-hosur.html 301
-/house-construction-cost-hosur /house-construction-cost-hosur.html 301
-/construction-cost-hosur /construction-cost-hosur.html 301
-/build-your-home-hosur /build-your-home-hosur.html 301
-/best-interior-designers-hosur /best-interior-designers-hosur.html 301
-/best-builders-hosur /best-builders-hosur.html 301
-/best-architects-in-hosur /best-architects-in-hosur.html 301
-/best-construction-company-in-hosur /best-construction-company-in-hosur.html 301
-/villa-builders-hosur /villa-builders-hosur.html 301
-/luxury-home-builders-hosur /luxury-home-builders-hosur.html 301
-/modern-house-architects-hosur /modern-house-architects-hosur.html 301
