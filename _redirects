@@ -2,3 +2,7 @@
 
 # Homepage deduplication
 /index.html / 301
+
+# Renamed pages — preserve link equity
+/portfolio /projects 301
+/portfolio.html /projects 301
