@@ -1,5 +1,7 @@
 ﻿User-agent: *
 Allow: /
+Disallow: /index-1.html
+Disallow: /_zoho_crm_panel.html
 
 # Search engines
 User-agent: Googlebot
@@ -58,6 +60,16 @@ User-agent: YouBot
 Allow: /
 
 User-agent: ia_archiver
+Allow: /
+
+# SEO audit tools
+User-agent: AhrefsBot
+Allow: /
+
+User-agent: SemrushBot
+Allow: /
+
+User-agent: MJ12bot
 Allow: /
 
 Sitemap: https://www.designintend.com/sitemap.xml
