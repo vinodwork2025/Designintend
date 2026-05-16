@@ -1,17 +1,11 @@
 # Cloudflare Pages — cache & security headers
 
-# HTML — revalidate on every request
-/*.html
-  Cache-Control: public, max-age=0, must-revalidate
+# All responses — security headers + default HTML cache (covers pretty-URL paths)
+/*
   X-Content-Type-Options: nosniff
   X-Frame-Options: SAMEORIGIN
   Referrer-Policy: strict-origin-when-cross-origin
-
-/
   Cache-Control: public, max-age=0, must-revalidate
-  X-Content-Type-Options: nosniff
-  X-Frame-Options: SAMEORIGIN
-  Referrer-Policy: strict-origin-when-cross-origin
 
 # CSS & JS — 1 day (content changes occasionally)
 /*.css
