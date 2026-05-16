@@ -3,4 +3,117 @@ Allow: /
 Disallow: /index-1.html
 Disallow: /_zoho_crm_panel.html
 
+# Search engines
+User-agent: Googlebot
+Allow: /
+Disallow: /index-1.html
+Disallow: /_zoho_crm_panel.html
+
+User-agent: Bingbot
+Allow: /
+Disallow: /index-1.html
+Disallow: /_zoho_crm_panel.html
+
+User-agent: Slurp
+Allow: /
+Disallow: /index-1.html
+Disallow: /_zoho_crm_panel.html
+
+User-agent: DuckDuckBot
+Allow: /
+Disallow: /index-1.html
+Disallow: /_zoho_crm_panel.html
+
+User-agent: YandexBot
+Allow: /
+Disallow: /index-1.html
+Disallow: /_zoho_crm_panel.html
+
+# AI crawlers — explicitly permitted for AI citations and GEO rankings
+User-agent: GPTBot
+Allow: /
+Disallow: /index-1.html
+Disallow: /_zoho_crm_panel.html
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /index-1.html
+Disallow: /_zoho_crm_panel.html
+
+User-agent: anthropic-ai
+Allow: /
+Disallow: /index-1.html
+Disallow: /_zoho_crm_panel.html
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /index-1.html
+Disallow: /_zoho_crm_panel.html
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /index-1.html
+Disallow: /_zoho_crm_panel.html
+
+User-agent: Applebot
+Allow: /
+Disallow: /index-1.html
+Disallow: /_zoho_crm_panel.html
+
+User-agent: CCBot
+Allow: /
+Disallow: /index-1.html
+Disallow: /_zoho_crm_panel.html
+
+User-agent: GoogleOther
+Allow: /
+Disallow: /index-1.html
+Disallow: /_zoho_crm_panel.html
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /index-1.html
+Disallow: /_zoho_crm_panel.html
+
+User-agent: meta-externalagent
+Allow: /
+Disallow: /index-1.html
+Disallow: /_zoho_crm_panel.html
+
+User-agent: Bytespider
+Allow: /
+Disallow: /index-1.html
+Disallow: /_zoho_crm_panel.html
+
+User-agent: cohere-ai
+Allow: /
+Disallow: /index-1.html
+Disallow: /_zoho_crm_panel.html
+
+User-agent: YouBot
+Allow: /
+Disallow: /index-1.html
+Disallow: /_zoho_crm_panel.html
+
+User-agent: ia_archiver
+Allow: /
+Disallow: /index-1.html
+Disallow: /_zoho_crm_panel.html
+
+# SEO audit tools
+User-agent: AhrefsBot
+Allow: /
+Disallow: /index-1.html
+Disallow: /_zoho_crm_panel.html
+
+User-agent: SemrushBot
+Allow: /
+Disallow: /index-1.html
+Disallow: /_zoho_crm_panel.html
+
+User-agent: MJ12bot
+Allow: /
+Disallow: /index-1.html
+Disallow: /_zoho_crm_panel.html
+
 Sitemap: https://www.designintend.com/sitemap.xml
