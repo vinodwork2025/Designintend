@@ -1,10 +1,13 @@
 # Cloudflare Pages — canonical redirect rules
+# Rules are first-match. Most specific first.
 
-# Specific overrides FIRST (rules are first-match)
+# Force www to non-www (site-wide canonical)
+https://www.designintend.com/*  https://designintend.com/:splat  301!
+
+# Specific overrides
 /index.html / 301
 /portfolio /projects 301
 /portfolio.html /projects 301
 
 # Strip .html extension — explicit 301 for all pages
-# Covers any .html URL Google finds via old links or backlinks
 /*.html /:splat 301

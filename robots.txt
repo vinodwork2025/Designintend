@@ -116,4 +116,4 @@ Allow: /
 Disallow: /index-1.html
 Disallow: /_zoho_crm_panel.html
 
-Sitemap: https://www.designintend.com/sitemap.xml
+Sitemap: https://designintend.com/sitemap.xml

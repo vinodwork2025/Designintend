@@ -392,7 +392,7 @@ function initHeroAnimation() {
     fd.append('zc_gad', '');
     fd.append('xmIwtLD', '11dbc838c54bd5ef2f6331ffef5f3b66d07e5c64c37bcf13e13022a55638c325192f044c5545b8a07b53284e71a651e1');
     fd.append('actionType', 'TGVhZHM=');
-    fd.append('returnURL', 'https://www.designintend.com/');
+    fd.append('returnURL', 'https://designintend.com/');
     fd.append('aG9uZXlwb3Q', '');
     fd.append('First Name', form.elements['firstName'] ? form.elements['firstName'].value.trim() : '');
     fd.append('Last Name', form.elements['lastName'] ? form.elements['lastName'].value.trim() : '');
