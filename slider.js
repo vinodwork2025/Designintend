@@ -543,6 +543,7 @@
      ===================================================== */
   function wireLinks() {
     document.querySelectorAll('[data-project]').forEach(el => {
+      if (!PROJECTS[el.dataset.project]) return;
       el.addEventListener('click', (e) => {
         e.preventDefault();
         openSlider(el.dataset.project);

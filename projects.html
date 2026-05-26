@@ -896,6 +896,22 @@
       });
 
       updateCounts();
+
+      // Cards with dedicated project pages — navigate on click (capture phase
+      // runs before slider.js bubble-phase listeners, so gallery never opens)
+      const projectPages = {
+        'kishore-farmhouse': '/projects/kishore-farmhouse-perithalmanna-kerala',
+        'jamna-industries':  '/projects/jamna-auto-industries-hosur'
+      };
+      document.querySelectorAll('.pg-card[data-project]').forEach(card => {
+        const href = projectPages[card.dataset.project];
+        if (href) {
+          card.addEventListener('click', e => {
+            e.stopImmediatePropagation();
+            window.location.href = href;
+          }, true);
+        }
+      });
     })();
   </script>
 
