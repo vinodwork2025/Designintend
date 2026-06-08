@@ -9,5 +9,17 @@ https://www.designintend.com/*  https://designintend.com/:splat  301!
 /portfolio /projects 301
 /portfolio.html /projects 301
 
+# Cannibalization merges — 2026-06-08
+/best-architects-in-hosur        /architects-hosur               301
+/best-architects-in-hosur.html   /architects-hosur               301
+/best-builders-hosur             /building-contractors-hosur     301
+/best-builders-hosur.html        /building-contractors-hosur     301
+/home-builders-hosur             /building-contractors-hosur     301
+/home-builders-hosur.html        /building-contractors-hosur     301
+/best-interior-designers-hosur   /interior-designers-hosur       301
+/best-interior-designers-hosur.html /interior-designers-hosur    301
+/construction-cost-hosur         /house-construction-cost-hosur  301
+/construction-cost-hosur.html    /house-construction-cost-hosur  301
+
 # Strip .html extension — explicit 301 for all pages
 /*.html /:splat 301

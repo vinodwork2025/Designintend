@@ -4,7 +4,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://designintend.com/</loc>
-    <lastmod>2026-05-13</lastmod>
+    <lastmod>2026-06-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -25,18 +25,10 @@
     <priority>0.7</priority>
   </url>
 
-  <!-- Cost Calculator -->
-  <url>
-    <loc>https://designintend.com/construction-cost-hosur</loc>
-    <lastmod>2026-05-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
   <!-- Cornerstone Guide -->
   <url>
     <loc>https://designintend.com/build-your-home-hosur</loc>
-    <lastmod>2026-05-13</lastmod>
+    <lastmod>2026-06-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -44,7 +36,7 @@
   <!-- Architecture Services -->
   <url>
     <loc>https://designintend.com/architects-hosur</loc>
-    <lastmod>2026-05-13</lastmod>
+    <lastmod>2026-06-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -52,10 +44,16 @@
     <loc>https://designintend.com/residential-architects-hosur</loc>
     <lastmod>2026-05-13</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://designintend.com/design-build-hosur</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://designintend.com/modern-house-architects-hosur</loc>
     <lastmod>2026-05-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -64,13 +62,19 @@
   <!-- Construction Services -->
   <url>
     <loc>https://designintend.com/construction-company-hosur</loc>
-    <lastmod>2026-05-13</lastmod>
+    <lastmod>2026-06-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://designintend.com/house-construction-hosur</loc>
+    <loc>https://designintend.com/best-construction-company-in-hosur</loc>
     <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://designintend.com/house-construction-hosur</loc>
+    <lastmod>2026-06-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -78,23 +82,29 @@
     <loc>https://designintend.com/villa-construction-hosur</loc>
     <lastmod>2026-05-13</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://designintend.com/villa-builders-hosur</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://designintend.com/luxury-home-builders-hosur</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://designintend.com/turnkey-construction-hosur</loc>
-    <lastmod>2026-05-13</lastmod>
+    <lastmod>2026-06-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://designintend.com/building-contractors-hosur</loc>
-    <lastmod>2026-05-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://designintend.com/home-builders-hosur</loc>
-    <lastmod>2026-05-13</lastmod>
+    <lastmod>2026-06-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -102,34 +112,40 @@
     <loc>https://designintend.com/home-renovation-hosur</loc>
     <lastmod>2026-05-13</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://designintend.com/house-construction-attibele</loc>
     <lastmod>2026-05-13</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://designintend.com/house-construction-bagalur</loc>
     <lastmod>2026-05-13</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://designintend.com/house-construction-denkanikottai</loc>
     <lastmod>2026-05-13</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://designintend.com/house-construction-sarjapura</loc>
     <lastmod>2026-05-13</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
 
   <!-- Interior Design Services -->
+  <url>
+    <loc>https://designintend.com/interior-designers-hosur</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
   <url>
     <loc>https://designintend.com/interior-designers-bagalur</loc>
     <lastmod>2026-05-13</lastmod>
@@ -147,12 +163,6 @@
     <lastmod>2026-05-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://designintend.com/interior-designers-hosur</loc>
-    <lastmod>2026-05-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://designintend.com/home-interiors-hosur</loc>
@@ -174,7 +184,7 @@
   </url>
   <url>
     <loc>https://designintend.com/3bhk-interior-design-hosur</loc>
-    <lastmod>2026-05-13</lastmod>
+    <lastmod>2026-06-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -182,61 +192,15 @@
   <!-- Cost Guides -->
   <url>
     <loc>https://designintend.com/house-construction-cost-hosur</loc>
-    <lastmod>2026-05-13</lastmod>
+    <lastmod>2026-06-08</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://designintend.com/interior-design-cost-hosur</loc>
-    <lastmod>2026-05-13</lastmod>
+    <lastmod>2026-06-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-
-  <!-- Comparison / Best-of Pages -->
-  <url>
-    <loc>https://designintend.com/best-interior-designers-hosur</loc>
-    <lastmod>2026-05-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://designintend.com/best-builders-hosur</loc>
-    <lastmod>2026-05-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Money Pages — High-Commercial Intent -->
-  <url>
-    <loc>https://designintend.com/best-architects-in-hosur</loc>
-    <lastmod>2026-05-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://designintend.com/best-construction-company-in-hosur</loc>
-    <lastmod>2026-05-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://designintend.com/villa-builders-hosur</loc>
-    <lastmod>2026-05-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://designintend.com/luxury-home-builders-hosur</loc>
-    <lastmod>2026-05-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://designintend.com/modern-house-architects-hosur</loc>
-    <lastmod>2026-05-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
   </url>
 
   <!-- Author Page -->

@@ -132,7 +132,15 @@
   .cp-serving{background:#1C1C1A;padding:2rem;margin:0}
   .cp-serving p{font-family:'Inter',sans-serif;font-size:0.8rem;color:rgba(253,252,250,0.5);text-align:center;max-width:700px;margin:0 auto;line-height:1.7}
   .cp-serving strong{color:#F0A820}
-  @media(max-width:768px){.cp-hero{padding:6rem 1.5rem 3.5rem}.cp-section{padding:3.5rem 1.5rem}.cp-faq-section{padding:3.5rem 1.5rem}.cp-cta-band{padding:3.5rem 1.5rem}}
+  .milestone-grid{display:flex;flex-direction:column;gap:0;border:1px solid #D4D0CA;margin:1.5rem 0}
+  .milestone-row{display:grid;grid-template-columns:3fr 1fr;padding:0.9rem 1.25rem;border-bottom:1px solid #D4D0CA;font-family:'Inter',sans-serif;font-size:0.85rem}
+  .milestone-row:last-child{border-bottom:none}
+  .milestone-row .m-stage{color:var(--text-secondary);line-height:1.4}
+  .milestone-row .m-pct{font-weight:700;color:#D4900A;text-align:right}
+  .milestone-row.header .m-stage{font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:var(--text-primary)}
+  .milestone-row.header .m-pct{font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:var(--text-primary)}
+  [data-theme="dark"] .milestone-row{border-bottom-color:#2A2825}
+  @media(max-width:768px){.cp-hero{padding:6rem 1.5rem 3.5rem}.cp-section{padding:3.5rem 1.5rem}.cp-faq-section{padding:3.5rem 1.5rem}.cp-cta-band{padding:3.5rem 1.5rem}.milestone-row{grid-template-columns:2fr 1fr;font-size:0.78rem}}
   </style>
 <script src="https://analytics.ahrefs.com/analytics.js" data-key="4cTmSfL8MYWWGoiO+XpNAw" async></script>
 </head>
@@ -316,7 +324,7 @@
           <div class="unit">per sq ft, custom design</div>
         </div>
       </div>
-      <p class="cp-body">A 1,200 sq ft house in Hosur built to a standard finish typically costs Rs 28 to 35 lakh all inclusive. A 1,800 sq ft home at the same specification is Rs 43 to 50 lakh. Use our <a href="https://designintend.com/construction-cost-hosur" style="color:#D4900A;">construction cost calculator</a> for a detailed estimate based on your plot size and specification.</p>
+      <p class="cp-body">A 1,200 sq ft house in Hosur built to a standard finish typically costs Rs 28 to 35 lakh all inclusive. A 1,800 sq ft home at the same specification is Rs 43 to 50 lakh. Use our <a href="https://designintend.com/house-construction-cost-hosur" style="color:#D4900A;">construction cost calculator</a> for a detailed estimate based on your plot size and specification.</p>
     </div>
   </section>
 
@@ -349,6 +357,64 @@
 
       <h3 class="cp-h3">One point of contact</h3>
       <p class="cp-body">One architect from our team is responsible for your project from start to finish. They visit site regularly, are reachable by phone, and are the person who signs off on every quality milestone. You never call a central number and get a different person every time.</p>
+    </div>
+  </section>
+
+  <!-- MILESTONE PAYMENT STRUCTURE -->
+  <section class="cp-section">
+    <div class="cp-wrap">
+      <p class="cp-eyebrow">Payment Schedule</p>
+      <h2 class="cp-h2">Our Milestone <em>Payment Structure</em></h2>
+      <p class="cp-body">Every payment you make is tied to a completed, visible stage of construction. You never pay ahead of work done.</p>
+
+      <div class="milestone-grid">
+        <div class="milestone-row header">
+          <div class="m-stage">Construction Stage</div>
+          <div class="m-pct">Payment</div>
+        </div>
+        <div class="milestone-row">
+          <div class="m-stage">Contract signing and material procurement</div>
+          <div class="m-pct">10%</div>
+        </div>
+        <div class="milestone-row">
+          <div class="m-stage">Foundation completion</div>
+          <div class="m-pct">20%</div>
+        </div>
+        <div class="milestone-row">
+          <div class="m-stage">Ground floor slab cast</div>
+          <div class="m-pct">20%</div>
+        </div>
+        <div class="milestone-row">
+          <div class="m-stage">First floor slab or roof slab cast</div>
+          <div class="m-pct">20%</div>
+        </div>
+        <div class="milestone-row">
+          <div class="m-stage">Brickwork, plaster, electrical, plumbing complete</div>
+          <div class="m-pct">15%</div>
+        </div>
+        <div class="milestone-row">
+          <div class="m-stage">Tiling, painting, fixtures complete</div>
+          <div class="m-pct">10%</div>
+        </div>
+        <div class="milestone-row">
+          <div class="m-stage">Final handover after snag clearance</div>
+          <div class="m-pct">5%</div>
+        </div>
+      </div>
+
+      <p class="cp-body">Any builder in Hosur who asks for 60 to 80 percent payment before the structure is up is asking you to fund their working capital risk. Our structure means your money only moves when your building moves forward.</p>
+    </div>
+  </section>
+
+  <!-- BAGALUR CLIENT STORY -->
+  <section class="cp-section bg-alt">
+    <div class="cp-wrap">
+      <p class="cp-eyebrow">Real Client Story</p>
+      <h2 class="cp-h2">A First-Time Builder Who <em>Did Not Want to Get Cheated</em></h2>
+      <p class="cp-body">A plot owner in Bagalur had been sitting on a 2,400 sq ft plot for 3 years. He wanted to build but kept delaying because he had heard too many stories of contractors disappearing mid-project. He had spoken to 4 builders before calling Design Intend.</p>
+      <p class="cp-body">The other 4 gave him verbal quotes ranging from Rs 38 lakh to Rs 52 lakh. Two asked for 50 percent payment before any work started. None could show him a completed project he could walk through. None provided a written BOQ with brand specifications.</p>
+      <p class="cp-body">Design Intend gave him a 47-page BOQ with every spec and brand listed, a milestone payment schedule, and the address of two completed projects in Bagalur he could visit before signing. He chose us over a lower quote because we were the only firm where he felt he understood exactly what he was getting.</p>
+      <p class="cp-body">We handed over his Premium-grade G+1 home 2 weeks ahead of the agreed timeline. He has since referred 2 family members who have also built with us.</p>
     </div>
   </section>
 
@@ -439,16 +505,16 @@
       <span>&bull;</span>
       <a href="https://designintend.com/build-your-home-hosur">Build Your Home</a>
       <span>&bull;</span>
-      <a href="https://designintend.com/construction-cost-hosur">Cost Calculator</a>
+      <a href="https://designintend.com/house-construction-cost-hosur">Cost Calculator</a>
     </div>
   </section>
 
   <footer class="footer">
     <div class="footer-top">
       <div class="footer-brand"><div class="footer-logo" style="display:flex;align-items:center;gap:10px;font-size:1.8rem;"><img src="Assets/DesignIntend-logo.png" alt="Design Intend" width="35" height="30" style="height:30px;width:auto;" loading="lazy" /><span><span style="color:var(--terracotta)">DESIGN</span> INTEND</span></div><p class="footer-tagline">Architects &middot; Interiors &middot; Planners.<br />Hosur &bull; Since 2014.</p><a href="https://share.google/CrNoqttvWClTMjamb" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.35rem;font-family:'Inter',sans-serif;font-size:0.7rem;color:#E8B800;text-decoration:none;margin-top:0.6rem;letter-spacing:0.03em;">&#9733; Design Intend on Google</a></div>
-      <div class="footer-nav-col"><p class="footer-col-title">Studio</p><ul><li><a href="https://designintend.com/#works">Our Work</a></li><li><a href="https://designintend.com/projects">Projects</a></li><li><a href="https://designintend.com/#services">Services</a></li><li><a href="https://designintend.com/#contact">Contact</a></li><li><a href="https://designintend.com/construction-cost-hosur" style="color:var(--terracotta)">Cost Calculator</a></li></ul></div>
+      <div class="footer-nav-col"><p class="footer-col-title">Studio</p><ul><li><a href="https://designintend.com/#works">Our Work</a></li><li><a href="https://designintend.com/projects">Projects</a></li><li><a href="https://designintend.com/#services">Services</a></li><li><a href="https://designintend.com/#contact">Contact</a></li><li><a href="https://designintend.com/house-construction-cost-hosur" style="color:var(--terracotta)">Cost Calculator</a></li></ul></div>
       <div class="footer-nav-col"><p class="footer-col-title">Services</p><ul><li><a href="https://designintend.com/architects-hosur">Architects</a></li><li><a href="https://designintend.com/interior-designers-hosur">Interior Designers</a></li><li><a href="https://designintend.com/construction-company-hosur">Construction</a></li><li><a href="https://designintend.com/turnkey-construction-hosur">Turnkey</a></li><li><a href="https://designintend.com/villa-construction-hosur">Villa Construction</a></li></ul></div>
-      <div class="footer-nav-col"><p class="footer-col-title">Resources</p><ul><li><a href="https://designintend.com/construction-cost-hosur">Cost Calculator</a></li><li><a href="https://designintend.com/house-construction-cost-hosur">Construction Cost</a></li><li><a href="https://designintend.com/interior-design-cost-hosur">Interior Cost</a></li><li><a href="https://designintend.com/build-your-home-hosur">Build Your Home</a></li></ul></div>
+      <div class="footer-nav-col"><p class="footer-col-title">Resources</p><ul><li><a href="https://designintend.com/house-construction-cost-hosur">Cost Calculator</a></li><li><a href="https://designintend.com/house-construction-cost-hosur">Construction Cost</a></li><li><a href="https://designintend.com/interior-design-cost-hosur">Interior Cost</a></li><li><a href="https://designintend.com/build-your-home-hosur">Build Your Home</a></li></ul></div>
       <div class="footer-nav-col"><p class="footer-col-title">Follow</p><ul><li><a href="https://www.instagram.com/designintend.hosur/" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://www.facebook.com/DesignIntend/" target="_blank" rel="noopener">Facebook</a></li><li><a href="https://www.pinterest.com/designintendhosur" target="_blank" rel="noopener">Pinterest</a></li></ul></div>
     </div>
     <!-- More Services — internal links for SEO crawlability -->
@@ -458,7 +524,7 @@
         <a href="https://designintend.com/house-construction-hosur" style="font-family:'Inter',system-ui,sans-serif;font-size:0.7rem;color:rgba(253,252,250,0.4);padding:0.65rem 0.75rem;min-height:3rem;display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,0.08);text-decoration:none;">House Construction Hosur</a>
         <a href="https://designintend.com/residential-architects-hosur" style="font-family:'Inter',system-ui,sans-serif;font-size:0.7rem;color:rgba(253,252,250,0.4);padding:0.65rem 0.75rem;min-height:3rem;display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,0.08);text-decoration:none;">Residential Architects Hosur</a>
         <a href="https://designintend.com/building-contractors-hosur" style="font-family:'Inter',system-ui,sans-serif;font-size:0.7rem;color:rgba(253,252,250,0.4);padding:0.65rem 0.75rem;min-height:3rem;display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,0.08);text-decoration:none;">Building Contractors Hosur</a>
-        <a href="https://designintend.com/home-builders-hosur" style="font-family:'Inter',system-ui,sans-serif;font-size:0.7rem;color:rgba(253,252,250,0.4);padding:0.65rem 0.75rem;min-height:3rem;display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,0.08);text-decoration:none;">Home Builders Hosur</a>
+        <a href="https://designintend.com/building-contractors-hosur" style="font-family:'Inter',system-ui,sans-serif;font-size:0.7rem;color:rgba(253,252,250,0.4);padding:0.65rem 0.75rem;min-height:3rem;display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,0.08);text-decoration:none;">Home Builders Hosur</a>
         <a href="https://designintend.com/home-renovation-hosur" style="font-family:'Inter',system-ui,sans-serif;font-size:0.7rem;color:rgba(253,252,250,0.4);padding:0.65rem 0.75rem;min-height:3rem;display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,0.08);text-decoration:none;">Home Renovation Hosur</a>
         <a href="https://designintend.com/modular-kitchen-hosur" style="font-family:'Inter',system-ui,sans-serif;font-size:0.7rem;color:rgba(253,252,250,0.4);padding:0.65rem 0.75rem;min-height:3rem;display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,0.08);text-decoration:none;">Modular Kitchen Hosur</a>
         <a href="https://designintend.com/2bhk-interior-design-hosur" style="font-family:'Inter',system-ui,sans-serif;font-size:0.7rem;color:rgba(253,252,250,0.4);padding:0.65rem 0.75rem;min-height:3rem;display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,0.08);text-decoration:none;">2 BHK Interior Design Hosur</a>
