@@ -18,8 +18,6 @@ https://www.designintend.com/*  https://designintend.com/:splat  301!
 /home-builders-hosur.html        /building-contractors-hosur     301
 /best-interior-designers-hosur   /interior-designers-hosur       301
 /best-interior-designers-hosur.html /interior-designers-hosur    301
-/construction-cost-hosur         /house-construction-cost-hosur  301
-/construction-cost-hosur.html    /house-construction-cost-hosur  301
 
 # Strip .html extension — explicit 301 for all pages
 /*.html /:splat 301

@@ -191,6 +191,12 @@
 
   <!-- Cost Guides -->
   <url>
+    <loc>https://designintend.com/construction-cost-hosur</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://designintend.com/house-construction-cost-hosur</loc>
     <lastmod>2026-06-08</lastmod>
     <changefreq>monthly</changefreq>
