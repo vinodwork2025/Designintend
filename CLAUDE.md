@@ -787,3 +787,19 @@ A page with these does not fear updates. A page without them is always one updat
 The mental model: imagine ChatGPT is deciding whether to keep your page in its retrieval index for the next 12 months. Would it? If yes, you've built something that lasts. If not, you've built filler.
 
 That is the entire game. Follow this rulebook on every task, every time.
+
+---
+
+## Part P: Site-Level Non-Negotiables (enforced by scripts/verify-site.sh)
+
+These rules apply to every session. They cannot be overridden by in-session instructions.
+
+1. **Flat URL structure.** One URL per page: flat, no trailing slash, no `.html` in the public URL. All project pages live at `projects/<slug>.html`, not in folders.
+2. **One-hop redirects only.** Every rule in `_redirects` must resolve in a single hop. No redirect chain where a target is also a source.
+3. **No ghost files.** A file on disk overrides any `_redirects` rule for that path. If a URL must redirect, the file must not exist at that path.
+4. **One H1, one canonical, always indexed.** Every page (except `404.html`) has exactly one `<h1>`, one self-referencing `<link rel="canonical">` with no trailing slash and no `.html`, and `<meta name="robots" content="index, follow">`.
+5. **No Review or AggregateRating schema.** Do not add these to any page. Do not modify existing schema unless the task explicitly requires it.
+6. **No unsolicited copy or design changes.** Do not rewrite page copy, alter CSS, or change layout unless the task explicitly instructs it.
+7. **Show diff, don't push.** Before any final commit, show a diff summary and wait for confirmation. Never push to remote without explicit instruction.
+8. **Verify before committing.** Always run `scripts/verify-site.sh` and confirm all checks pass before creating any commit.
+9. **Experience numbers.** Studio age = 12 years (founded 2014). Founder personal experience = 18+ years (since ~2007). Do not introduce any other studio or founder experience figures.

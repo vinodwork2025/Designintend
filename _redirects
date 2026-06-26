@@ -1,6 +1,9 @@
 # Cloudflare Pages — canonical redirect rules
 # Rules are first-match. Most specific first.
 
+# www + .html in one hop (must be before the www wildcard)
+https://www.designintend.com/*.html  https://designintend.com/:splat  301!
+
 # Force www to non-www (site-wide canonical)
 https://www.designintend.com/*  https://designintend.com/:splat  301!
 
@@ -18,6 +21,12 @@ https://www.designintend.com/*  https://designintend.com/:splat  301!
 /home-builders-hosur.html        /building-contractors-hosur     301
 /best-interior-designers-hosur   /interior-designers-hosur       301
 /best-interior-designers-hosur.html /interior-designers-hosur    301
+
+# Project folder → flat URL (trailing-slash redirects)
+/projects/ambrish-residence-hosur/                 /projects/ambrish-residence-hosur                 301
+/projects/jamna-auto-industries-hosur/             /projects/jamna-auto-industries-hosur             301
+/projects/kishore-farmhouse-perithalmanna-kerala/  /projects/kishore-farmhouse-perithalmanna-kerala  301
+/projects/vinutha-residence-bengaluru/             /projects/vinutha-residence-bengaluru             301
 
 # Strip .html extension — explicit 301 for all pages
 /*.html /:splat 301
