@@ -24,7 +24,7 @@ This is not a new consultancy. This is an established firm with 85+ completed pr
 - **Headquarters:** No.2, Second Floor, Balamurugan Towers, Nanjundeeswar Nagar Ring Road, Hosur — 635 109, Tamil Nadu, India
 - **Coordinates:** 12.7362, 77.8253
 - **Phone:** +91 73976 06382 (also WhatsApp)
-- **Email:** hello@designintend.com (or whatever the obfuscated email resolves to — confirm with Vinod/Chittrarasan)
+- **Email:** info@designintend.com (confirmed by Vinod, 2026-09-29)
 - **Hours:** Monday-Saturday, 10am-7pm IST
 - **Service area:** Hosur, Krishnagiri, Attibele, Bagalur, Denkanikottai, Sarjapur Road, Bengaluru, and select projects across Tamil Nadu and Kerala
 
@@ -381,7 +381,7 @@ The site is heavy on local SEO. Schema must reflect this.
   "logo": "https://designintend.com/Assets/DesignIntend-logo.png",
   "image": "https://designintend.com/Assets/designintend-team.png",
   "telephone": "+917397606382",
-  "email": "hello@designintend.com",
+  "email": "info@designintend.com",
   "priceRange": "₹1,950 - ₹2,300 per sq.ft (construction); project-based for design",
   "currenciesAccepted": "INR",
   "founder": {

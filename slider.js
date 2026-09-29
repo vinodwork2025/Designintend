@@ -17,13 +17,13 @@
       category: 'Residential · 2024 · 4,200 sq ft · Bengaluru',
       images: [
         { src: 'Assets/vinutha-exterior.jpg',       caption: 'Exterior — Front Elevation' },
-        { src: 'Assets/vinutha-living-room.png',    caption: 'Living Room' },
-        { src: 'Assets/vinutha-living-room-1.png',  caption: 'Living Room — Lounge View' },
-        { src: 'Assets/vinutha-bedroom-1.png',      caption: 'Master Bedroom' },
-        { src: 'Assets/vinutha-bedroom-4.png',      caption: 'Bedroom 4' },
-        { src: 'Assets/vinutha-bedroom-5.png',      caption: 'Bedroom 5' },
-        { src: 'Assets/vinutha-bedroom-6.png',      caption: 'Bedroom 6' },
-        { src: 'Assets/vinutha-bedroom-7.png',      caption: 'Bedroom 7' },
+        { src: 'Assets/vinutha-living-room.webp',    caption: 'Living Room' },
+        { src: 'Assets/vinutha-living-room-1.webp',  caption: 'Living Room — Lounge View' },
+        { src: 'Assets/vinutha-bedroom-1.webp',      caption: 'Master Bedroom' },
+        { src: 'Assets/vinutha-bedroom-4.webp',      caption: 'Bedroom 4' },
+        { src: 'Assets/vinutha-bedroom-5.webp',      caption: 'Bedroom 5' },
+        { src: 'Assets/vinutha-bedroom-6.webp',      caption: 'Bedroom 6' },
+        { src: 'Assets/vinutha-bedroom-7.webp',      caption: 'Bedroom 7' },
       ]
     },
     'jamna-industries': {
@@ -31,10 +31,10 @@
       category: 'Commercial · 2025 · 12,000 sq ft · Hosur',
       images: [
         { src: 'Assets/jamna-reception.jpg',       caption: 'Reception' },
-        { src: 'Assets/jamna-office.png',           caption: 'Open Office' },
-        { src: 'Assets/jamna-office-1.png',         caption: 'Office — Second View' },
-        { src: 'Assets/jamna-conference-room.png',  caption: 'Conference Room' },
-        { src: 'Assets/jamna-cafeteria.png',        caption: 'Cafeteria' },
+        { src: 'Assets/jamna-office.webp',           caption: 'Open Office' },
+        { src: 'Assets/jamna-office-1.webp',         caption: 'Office — Second View' },
+        { src: 'Assets/jamna-conference-room.webp',  caption: 'Conference Room' },
+        { src: 'Assets/jamna-cafeteria.webp',        caption: 'Cafeteria' },
       ]
     },
     'ambrish-hosur': {
@@ -42,17 +42,17 @@
       category: 'Residential · 2025 · 3,800 sq ft · Hosur',
       images: [
         { src: 'Assets/ambrish-exterior.jpg',       caption: 'Exterior — Front Elevation' },
-        { src: 'Assets/ambrish-foyer.png',           caption: 'Foyer' },
-        { src: 'Assets/ambrish-living-room.png',     caption: 'Living Room' },
-        { src: 'Assets/ambrish-livingroom1.png',     caption: 'Living Room — Second View' },
-        { src: 'Assets/ambrish-upper-living.png',    caption: 'Upper Living' },
-        { src: 'Assets/ambrish-dining.png',          caption: 'Dining' },
-        { src: 'Assets/ambrish-kitchen.png',         caption: 'Kitchen' },
-        { src: 'Assets/ambrish-master-bedroom.png',  caption: 'Master Bedroom' },
-        { src: 'Assets/ambrish-bedroom-1.png',       caption: 'Bedroom' },
-        { src: 'Assets/ambrish-guestroom.png',       caption: 'Guest Room' },
-        { src: 'Assets/ambrish-bathroom.png',        caption: 'Bathroom' },
-        { src: 'Assets/ambrish-home-theatre.png',    caption: 'Home Theatre' },
+        { src: 'Assets/ambrish-foyer.webp',           caption: 'Foyer' },
+        { src: 'Assets/ambrish-living-room.webp',     caption: 'Living Room' },
+        { src: 'Assets/ambrish-livingroom1.webp',     caption: 'Living Room — Second View' },
+        { src: 'Assets/ambrish-upper-living.webp',    caption: 'Upper Living' },
+        { src: 'Assets/ambrish-dining.webp',          caption: 'Dining' },
+        { src: 'Assets/ambrish-kitchen.webp',         caption: 'Kitchen' },
+        { src: 'Assets/ambrish-master-bedroom.webp',  caption: 'Master Bedroom' },
+        { src: 'Assets/ambrish-bedroom-1.webp',       caption: 'Bedroom' },
+        { src: 'Assets/ambrish-guestroom.webp',       caption: 'Guest Room' },
+        { src: 'Assets/ambrish-bathroom.webp',        caption: 'Bathroom' },
+        { src: 'Assets/ambrish-home-theatre.webp',    caption: 'Home Theatre' },
       ]
     },
     'kishore-farmhouse': {
@@ -61,13 +61,13 @@
       images: [
         { src: 'Assets/farmhouse-exterior.jpg',        caption: 'Arrival — The Gateway' },
         { src: 'Assets/farmhouse-exterior-1.jpg',      caption: 'The Forecourt — Garden Pavilion' },
-        { src: 'Assets/farmhouse-main-entrance.png',   caption: 'The Threshold — Main Entrance' },
-        { src: 'Assets/farmhouse-interior.png',        caption: 'The Passage — Entry Corridor' },
-        { src: 'Assets/farmhouse-interior-1.png',      caption: 'The Verandah — Sit-Out' },
-        { src: 'Assets/farmhouse-interior-2.png',      caption: 'Verandah Life — Afternoon Repose' },
-        { src: 'Assets/farmhouse-courtyard-1.png',     caption: 'The Water Court — Lily Pond' },
-        { src: 'Assets/farmhouse-courtyard.png',       caption: 'Garden Heart — Open Sky' },
-        { src: 'Assets/farmhouse-courtyard-main.png',  caption: 'Golden Hour — The Living Court' },
+        { src: 'Assets/farmhouse-main-entrance.webp',   caption: 'The Threshold — Main Entrance' },
+        { src: 'Assets/farmhouse-interior.webp',        caption: 'The Passage — Entry Corridor' },
+        { src: 'Assets/farmhouse-interior-1.webp',      caption: 'The Verandah — Sit-Out' },
+        { src: 'Assets/farmhouse-interior-2.webp',      caption: 'Verandah Life — Afternoon Repose' },
+        { src: 'Assets/farmhouse-courtyard-1.webp',     caption: 'The Water Court — Lily Pond' },
+        { src: 'Assets/farmhouse-courtyard.webp',       caption: 'Garden Heart — Open Sky' },
+        { src: 'Assets/farmhouse-courtyard-main.webp',  caption: 'Golden Hour — The Living Court' },
       ]
     },
     'nexus-hq': {
@@ -84,23 +84,23 @@
       category: 'Residential · 2023 · 7,200 sq ft · Sarjapur Road',
       images: [
         { src: 'https://images.unsplash.com/photo-1615873968403-89e068629265?w=1400&q=85&auto=format&fit=crop', caption: 'Master Suite' },
-        { src: 'Assets/house-angle-2.png', caption: 'Exterior Elevation' },
-        { src: 'Assets/house-angle-3.png', caption: 'Side View' },
+        { src: 'Assets/house-angle-2.webp', caption: 'Exterior Elevation' },
+        { src: 'Assets/house-angle-3.webp', caption: 'Side View' },
       ]
     },
     'whitefield-duplex': {
       title: 'Whitefield Duplex',
       category: 'Residential · 2022 · 3,600 sq ft · Whitefield',
       images: [
-        { src: 'Assets/house-angle-2.png', caption: 'Front Elevation' },
-        { src: 'Assets/house-angle-3.png', caption: 'Side Angle' },
+        { src: 'Assets/house-angle-2.webp', caption: 'Front Elevation' },
+        { src: 'Assets/house-angle-3.webp', caption: 'Side Angle' },
       ]
     },
     'indiranagar-penthouse': {
       title: 'Indiranagar Penthouse',
       category: 'Interiors · 2024 · 2,800 sq ft · Indiranagar',
       images: [
-        { src: 'Assets/hero-living-room.png', caption: 'Main Living Space' },
+        { src: 'Assets/hero-living-room.webp', caption: 'Main Living Space' },
         { src: 'Assets/vinutha-3d.jpg',       caption: 'Architectural Study' },
       ]
     },
@@ -116,11 +116,11 @@
       title: 'Vinutha — Interior Study',
       category: 'Interiors · 2023 · 4,200 sq ft · Bengaluru',
       images: [
-        { src: 'Assets/vinutha-living-room.png',   caption: 'Living Room' },
-        { src: 'Assets/vinutha-living-room-1.png', caption: 'Living Room — Lounge View' },
-        { src: 'Assets/vinutha-bedroom-1.png',     caption: 'Master Bedroom' },
-        { src: 'Assets/vinutha-bedroom-4.png',     caption: 'Bedroom 4' },
-        { src: 'Assets/vinutha-bedroom-5.png',     caption: 'Bedroom 5' },
+        { src: 'Assets/vinutha-living-room.webp',   caption: 'Living Room' },
+        { src: 'Assets/vinutha-living-room-1.webp', caption: 'Living Room — Lounge View' },
+        { src: 'Assets/vinutha-bedroom-1.webp',     caption: 'Master Bedroom' },
+        { src: 'Assets/vinutha-bedroom-4.webp',     caption: 'Bedroom 4' },
+        { src: 'Assets/vinutha-bedroom-5.webp',     caption: 'Bedroom 5' },
       ]
     },
     'electronic-city': {
@@ -146,8 +146,8 @@
       title: 'Whitefield House — East Elevation',
       category: 'Residential · 2022 · 3,600 sq ft · Whitefield',
       images: [
-        { src: 'Assets/house-angle-2.png', caption: 'East Elevation' },
-        { src: 'Assets/house-angle-3.png', caption: 'North Angle' },
+        { src: 'Assets/house-angle-2.webp', caption: 'East Elevation' },
+        { src: 'Assets/house-angle-3.webp', caption: 'North Angle' },
       ]
     },
     'hosur-boutique': {

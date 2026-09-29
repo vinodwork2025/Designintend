@@ -36,7 +36,6 @@ const URLS = [
   'https://designintend.com/interior-designers-bagalur',
   'https://designintend.com/interior-designers-denkanikottai',
   'https://designintend.com/interior-designers-sarjapura',
-  'https://designintend.com/home-interiors-hosur',
   'https://designintend.com/modular-kitchen-hosur',
   'https://designintend.com/2bhk-interior-design-hosur',
   'https://designintend.com/3bhk-interior-design-hosur',
